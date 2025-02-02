@@ -6,7 +6,7 @@ label din_ikarus_story:
     $ persistent.sprite_time = "day"  
     $ persistent.timeofday = "day"
     $ din_set_timeofday_cursor_var = True    
-    $ din_story_intro('Икарус\nДень Чайника', 'day', 'bg ext_road_day', 'din_hall pos2 smile', 'Икарус', 'День Чайника', 'ext_road_day')
+    $ din_story_intro("Икарус\nДень Чайника", "day", "bg ext_road_day", "din_hall pos2 smile", "Икарус", "День Чайника", "ext_road_day")
     scene bg din_ext_power_line_day with Dissolve(2)
     $ din_onload("unlock")
     play music din_the_last_days_the_time_will_never_come_back fadein 3
@@ -122,7 +122,7 @@ label din_ikarus_story:
     
 label din_ikarus_story_interlude:
     $ renpy.block_rollback()
-    $ din_interlude_intro('Просьба')
+    $ din_interlude_intro("Просьба")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)
     play ambience ambience_ext_road_evening fadein 2
     play music din_higurashi_when_they_cry_chiyouraiki_no_sora fadein 5
@@ -169,6 +169,6 @@ label din_ikarus_story_interlude:
     stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ persistent.din_flags['din_ikarus_story_completed'] = True
+    $ persistent.din_flags["din_ikarus_story_completed"] = True
     $ renpy.pause(2, hard=True)
     jump din_winterlong_story

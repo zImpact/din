@@ -13,7 +13,7 @@ label din_start:
     $ din_set_main_menu_cursor()
     scene bg black with Dissolve(2)
     $ renpy.scene()
-    $ renpy.show('din_ext_camp_entrance_' + din_current_time())
+    $ renpy.show("din_ext_camp_entrance_" + din_current_time())
     show din_intro_frame at truecenter
     show din_intro_logo at truecenter
     show din_blank_skip

@@ -10,7 +10,7 @@ init python:
     din_cells  = din_rows * din_cols
 
     din_gallery_bg_list = [
-        'din_ext_camp_plain_sight_sunset', "din_ext_power_line_day",
+        "din_ext_camp_plain_sight_sunset", "din_ext_power_line_day",
         "din_ext_power_line_sunset", "din_int_dining_hall_sunset",
         "din_food_normal_sunset", "din_int_dining_hall_people_sunset", 
         "din_int_dining_hall_sunset_crashed", "din_int_rpg_dungeon", 
@@ -18,22 +18,21 @@ init python:
         "din_ext_camp_entrance_night", "din_ext_camp_entrance_old",
         "din_ext_clubs_sunset", "din_ext_musclub_sunset",
         "din_space"
-
     ]
 
     for bg in din_gallery_bg_list:
         din_g.button(bg)
-        din_g.image('bg ' + bg)
-        din_g.unlock('bg ' + bg)
+        din_g.image("bg " + bg)
+        din_g.unlock("bg " + bg)
 
     din_gallery_animated_bg_list = [
-        'din_fireplace_winterlong_anim', 'din_stars_bush_anim'
+        "din_fireplace_winterlong_anim", "din_stars_bush_anim"
     ]
 
     for animated_bg in din_gallery_animated_bg_list:
         din_g.button(animated_bg)
-        din_g.image('bg ' + animated_bg)
-        din_g.unlock('bg ' + animated_bg)
+        din_g.image("bg " + animated_bg)
+        din_g.unlock("bg " + animated_bg)
 
     din_music_box = {
         "God Is An Astronaut — Tempus Horizon": din_god_is_an_astronaut_tempus_horizon,
@@ -67,7 +66,7 @@ screen din_main_menu():
     key "K_F1":
         action NullAction()
 
-    add 'din_main_menu_' + din_current_time() + '_anim'
+    add "din_main_menu_" + din_current_time() + "_anim"
 
     if din_main_menu_var:
         add "din_main_menu_frame" xalign 0.5 yalign 0.5
@@ -83,42 +82,42 @@ screen din_main_menu():
 
         add "din_main_menu_underline" xalign 0.5 ypos 191
 
-        $ din_start_button_text = 'Выбрать историю' if persistent.din_flags['din_intro_completed'] else 'Начать игру'
+        $ din_start_button_text = "Выбрать историю" if persistent.din_flags["din_intro_completed"] else "Начать игру"
 
-        textbutton '[din_start_button_text]' at din_buttons_atl():
+        textbutton "[din_start_button_text]" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
             ypos 300
 
-            if persistent.din_flags['din_intro_completed']:
-                action [Hide("din_main_menu"), ShowMenu('din_story_choice', _transition=fade)]
+            if persistent.din_flags["din_intro_completed"]:
+                action [Hide("din_main_menu"), ShowMenu("din_story_choice", _transition=fade)]
 
             else:
-                action [Hide('din_main_menu', Dissolve(1.5)), Start('din_intro')]
+                action [Hide("din_main_menu", Dissolve(1.5)), Start("din_intro")]
 
-        textbutton 'Загрузить' at din_buttons_atl():
+        textbutton "Загрузить" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
             ypos 433
-            action [SetVariable('din_main_menu_var', False), ShowMenu('din_load_main_menu')]
+            action [SetVariable("din_main_menu_var", False), ShowMenu("din_load_main_menu")]
 
-        textbutton 'Дополнительно' at din_buttons_atl():
-            style 'din_main_menu_style'
+        textbutton "Дополнительно" at din_buttons_atl():
+            style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
             ypos 556
-            action [SetVariable('din_main_menu_var', False), ShowMenu('din_extra')]
+            action [SetVariable("din_main_menu_var", False), ShowMenu("din_extra")]
 
-        textbutton 'Настройки' at din_buttons_atl():
-            style 'din_main_menu_style'
+        textbutton "Настройки" at din_buttons_atl():
+            style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
             ypos 680
             action [SetVariable("din_main_menu_var", False), ShowMenu("din_preferences_main_menu")]
 
-        textbutton 'Выход' at din_buttons_atl():
+        textbutton "Выход" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
@@ -135,29 +134,29 @@ screen din_story_choice():
     tag menu
     modal True
 
-    add 'din_stories_all_closed'
+    add "din_stories_all_closed"
 
     din_transition_imagebutton:
-        idle 'din_ikarus_story_idle'
-        hover 'din_ikarus_story_hover'
+        idle "din_ikarus_story_idle"
+        hover "din_ikarus_story_hover"
         transition Dissolve(1.5)
-        action [Hide('din_story_choice', Dissolve(1.5)), Start("din_ikarus_story")]
+        action [Hide("din_story_choice", Dissolve(1.5)), Start("din_ikarus_story")]
 
-    if persistent.din_flags['din_ikarus_story_completed']:
+    if persistent.din_flags["din_ikarus_story_completed"]:
         din_transition_imagebutton:
-            idle 'din_winterlong_story_idle'
-            hover 'din_winterlong_story_hover'
+            idle "din_winterlong_story_idle"
+            hover "din_winterlong_story_hover"
             xpos 639
             transition Dissolve(1.5)
-            action [Hide('din_story_choice', Dissolve(1.5)), Start("din_winterlong_story")]
+            action [Hide("din_story_choice", Dissolve(1.5)), Start("din_winterlong_story")]
 
-    if persistent.din_flags['din_winterlong_story_completed']:
+    if persistent.din_flags["din_winterlong_story_completed"]:
         din_transition_imagebutton:
-            idle 'din_rolegame_story_idle' 
-            hover 'din_rolegame_story_hover'
+            idle "din_rolegame_story_idle" 
+            hover "din_rolegame_story_hover"
             xpos 1253
             transition Dissolve(1.5)
-            action [Hide('din_story_choice', Dissolve(1.5)), Start("din_rolegame_story")]
+            action [Hide("din_story_choice", Dissolve(1.5)), Start("din_rolegame_story")]
 
     imagebutton:
         auto "din_back_%s"
@@ -225,31 +224,31 @@ screen din_characters():
             kerning 2
 
         for char, info in din_characters_info.items():
-            if persistent.din_flags['din_' + char + '_info_received']:
+            if persistent.din_flags["din_" + char + "_info_received"]:
                 imagebutton:
-                    auto 'din_' + char + '_button_info' + '_%s'
-                    xalign info['button_pos']
+                    auto "din_" + char + "_button_info" + "_%s"
+                    xalign info["button_pos"]
                     yalign 0.5
-                    action [Hide('din_characters'), SetField(persistent, 'sprite_time', info['sprite_time']), ShowMenu('din_character_info', char=char)]
+                    action [Hide("din_characters"), SetField(persistent, "sprite_time", info["sprite_time"]), ShowMenu("din_character_info", char=char)]
             
             else:
-                add 'din_button_info_locked' xalign info['button_pos'] yalign 0.5
+                add "din_button_info_locked" xalign info["button_pos"] yalign 0.5
 
         textbutton "Назад":
             style "din_log_button"
             text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970
-            action [Hide('din_characters'), ShowMenu('din_extra')]
+            action [Hide("din_characters"), ShowMenu("din_extra")]
 
 screen din_character_info(char):
     modal True
 
-    add din_characters_info[char]['bg']
+    add din_characters_info[char]["bg"]
 
-    add 'din_' + char + '_char_name_frame' xalign 0.5 yalign 0.031
+    add "din_" + char + "_char_name_frame" xalign 0.5 yalign 0.031
 
-    text din_characters_info[char]['name']:
+    text din_characters_info[char]["name"]:
         font din_main_menu_font
         size 70
         xalign 0.5
@@ -257,16 +256,16 @@ screen din_character_info(char):
         antialias True
         kerning 2
 
-    add 'din_char_description_frame' xpos 58 ypos 135
+    add "din_char_description_frame" xpos 58 ypos 135
 
     imagebutton:
-        idle Transform(din_characters_info[char]['main_sprite'], alpha=0.9)
-        hover din_characters_info[char]['main_sprite']
+        idle Transform(din_characters_info[char]["main_sprite"], alpha=0.9)
+        hover din_characters_info[char]["main_sprite"]
         focus_mask True
         xalign 1.05
-        action [Hide('din_character_info'), ShowMenu('din_character_sprites', char=char, sprite=din_characters_info[char]['main_sprite'])]
+        action [Hide("din_character_info"), ShowMenu("din_character_sprites", char=char, sprite=din_characters_info[char]["main_sprite"])]
 
-    text din_characters_info[char]['description']:
+    text din_characters_info[char]["description"]:
         font din_main_menu_font
         line_spacing 10
         size 55
@@ -277,39 +276,39 @@ screen din_character_info(char):
         auto "din_back_%s"
         xpos 1800
         ypos 1000
-        action [Hide('din_character_info'), ShowMenu('din_characters')]
+        action [Hide("din_character_info"), ShowMenu("din_characters")]
 
 screen din_character_sprites(char, sprite):
     modal True
 
-    $ din_char_sprites = din_characters_info[char]['sprites']
+    $ din_char_sprites = din_characters_info[char]["sprites"]
     $ din_current_sprite_index = din_char_sprites.index(sprite)
     $ din_next_sprite_index = (din_current_sprite_index + 1) % len(din_char_sprites)
     $ din_prev_sprite_index = (din_current_sprite_index - 1) % len(din_char_sprites)
     $ din_next_sprite = din_char_sprites[din_next_sprite_index]
     $ din_prev_sprite = din_char_sprites[din_prev_sprite_index]
 
-    add din_characters_info[char]['bg']
+    add din_characters_info[char]["bg"]
 
     add sprite xalign 0.5
 
     imagebutton:
-        auto 'din_gallery_next_%s'
+        auto "din_gallery_next_%s"
         xalign 0.8
         yalign 0.5
-        action ShowMenu('din_character_sprites', char=char, sprite=din_next_sprite)
+        action ShowMenu("din_character_sprites", char=char, sprite=din_next_sprite)
 
     imagebutton:
-        auto 'din_gallery_previous_%s'
+        auto "din_gallery_previous_%s"
         xalign 0.2
         yalign 0.5
-        action ShowMenu('din_character_sprites', char=char, sprite=din_prev_sprite)
+        action ShowMenu("din_character_sprites", char=char, sprite=din_prev_sprite)
 
     imagebutton:
-        auto 'din_back_%s'
+        auto "din_back_%s"
         xpos 1800
         ypos 1000
-        action [Hide('din_character_sprites'), ShowMenu('din_character_info', char=char)]
+        action [Hide("din_character_sprites"), ShowMenu("din_character_info", char=char)]
 
 screen din_music_room():
     modal True
@@ -317,7 +316,7 @@ screen din_music_room():
     if not din_main_menu_var:
         add "din_main_menu_options_frame" xalign 0.5 yalign 0.5
 
-        add 'din_music_room_frame'
+        add "din_music_room_frame"
 
         frame:
             background None
@@ -340,13 +339,13 @@ screen din_music_room():
                                 action din_mr.Play(track)
 
                 vbar:
-                    value YScrollValue('din_music_box')
-                    bottom_bar 'din_main_menu_vbar_null'
-                    top_bar 'din_main_menu_vbar_full'
+                    value YScrollValue("din_music_box")
+                    bottom_bar "din_main_menu_vbar_null"
+                    top_bar "din_main_menu_vbar_full"
                     thumb None
                     xmaximum 52
 
-        text 'Музыка':
+        text "Музыка":
             font din_main_menu_font
             size 70
             xalign 0.5
@@ -354,12 +353,12 @@ screen din_music_room():
             antialias True
             kerning 2
 
-        textbutton 'Назад':
-            style 'din_log_button' 
-            text_style 'din_settings_link_main_menu_preferences'
+        textbutton "Назад":
+            style "din_log_button" 
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970
-            action [Hide('din_music_room'), ShowMenu('din_extra')]
+            action [Hide("din_music_room"), ShowMenu("din_extra")]
 
         on "replaced" action Play("music", din_god_is_an_astronaut_tempus_horizon)
 
@@ -386,7 +385,7 @@ screen din_background_gallery():
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.1
             ypos 970
-            action [Hide('din_background_gallery'), ShowMenu('din_extra')]
+            action [Hide("din_background_gallery"), ShowMenu("din_extra")]
 
         grid din_rows din_cols xpos 0.1 ypos 0.18:
             $ din_bg_displayed = 0
@@ -398,7 +397,7 @@ screen din_background_gallery():
             for n in range(din_len_table):
                 if n < (din_page + 1) * din_cells and n >= din_page * din_cells:
                     if din_gallery_table[n] in din_gallery_animated_bg_list:
-                        $ _din_t = im.Crop('din/images/bg/' + din_gallery_table[n] + '/' + din_gallery_table[n][:-4] + '1.png', (0, 0, 1920, 1080))
+                        $ _din_t = im.Crop("din/images/bg/" + din_gallery_table[n] + "/" + din_gallery_table[n][:-4] + "1.png", (0, 0, 1920, 1080))
 
                     else:
                         $ _din_t = im.Crop("din/images/bg/" + din_gallery_table[n] + ".png", (0, 0, 1920, 1080))
@@ -420,14 +419,14 @@ screen din_background_gallery():
 
         if din_page != 0:
             imagebutton:
-                auto 'din_gallery_previous_%s'
+                auto "din_gallery_previous_%s"
                 yalign 0.5 
                 xalign 0.04 
                 action [SetVariable("din_page", din_page - 1), ShowMenu("din_background_gallery")]
 
         if din_page != int(din_page_counter(din_len_table, din_cells)) - 1:
             imagebutton: 
-                auto 'din_gallery_next_%s'
+                auto "din_gallery_next_%s"
                 yalign 0.5 
                 xalign 0.96 
                 action [SetVariable("din_page", din_next_page), ShowMenu("din_background_gallery")]
@@ -629,7 +628,7 @@ screen din_quit_main_menu():
     if not din_main_menu_var:
         add "din_main_menu_options_frame" xalign 0.5 yalign 0.5
         
-        text 'Вы действительно хотите выйти?':
+        text "Вы действительно хотите выйти?":
             font din_main_menu_font
             size 80
             text_align 0.5
@@ -643,7 +642,7 @@ screen din_quit_main_menu():
             text_style "din_settings_header_main_menu_quit"
             xpos 493
             ypos 600
-            action [Hide('din_quit_main_menu'), Function(din_screens_diact), ShowMenu('main_menu')]
+            action [Hide("din_quit_main_menu"), Function(din_screens_diact), ShowMenu("main_menu")]
             
         textbutton ["Нет"]:
             style "din_settings_header_main_menu_quit"
@@ -994,28 +993,28 @@ screen din_say(what, who):
             add din_gui_path + "dialogue_box/" + persistent.timeofday + "/dialogue_box_large.png" xpos 174 ypos 866
 
             imagebutton:
-                auto din_gui_path + 'dialogue_box/' + persistent.timeofday + '/hide_%s.png' 
+                auto din_gui_path + "dialogue_box/" + persistent.timeofday + "/hide_%s.png" 
                 xpos 1508 
                 ypos 883 
                 action HideInterface()
 
             imagebutton:
-                auto din_gui_path + 'dialogue_box/' + persistent.timeofday + "/save_%s.png"
+                auto din_gui_path + "dialogue_box/" + persistent.timeofday + "/save_%s.png"
                 xpos 1567
                 ypos 883
-                action ShowMenu('din_save')
+                action ShowMenu("din_save")
 
             imagebutton:
-                auto din_gui_path + 'dialogue_box/' + persistent.timeofday + "/menu_%s.png"
+                auto din_gui_path + "dialogue_box/" + persistent.timeofday + "/menu_%s.png"
                 xpos 1625 
                 ypos 883 
-                action ShowMenu('din_game_menu_selector')
+                action ShowMenu("din_game_menu_selector")
 
             imagebutton:
-                auto din_gui_path + 'dialogue_box/' + persistent.timeofday + "/load_%s.png"
+                auto din_gui_path + "dialogue_box/" + persistent.timeofday + "/load_%s.png"
                 xpos 1682 
                 ypos 883 
-                action ShowMenu('din_load')
+                action ShowMenu("din_load")
 
             imagebutton:
                 auto din_gui_path + "dialogue_box/" + persistent.timeofday + "/backward_%s.png" 
@@ -1057,28 +1056,28 @@ screen din_say(what, who):
             add din_gui_path + "dialogue_box/" + persistent.timeofday + "/dialogue_box.png" xpos 174 ypos 916
 
             imagebutton:
-                auto din_gui_path + 'dialogue_box/' + persistent.timeofday + "/hide_%s.png"
+                auto din_gui_path + "dialogue_box/" + persistent.timeofday + "/hide_%s.png"
                 xpos 1508
                 ypos 933
                 action HideInterface()
 
             imagebutton:
-                auto din_gui_path + 'dialogue_box/' + persistent.timeofday+"/save_%s.png"
+                auto din_gui_path + "dialogue_box/" + persistent.timeofday+"/save_%s.png"
                 xpos 1567
                 ypos 933
-                action ShowMenu('din_save')
+                action ShowMenu("din_save")
 
             imagebutton:
-                auto din_gui_path + 'dialogue_box/' + persistent.timeofday+"/menu_%s.png"
+                auto din_gui_path + "dialogue_box/" + persistent.timeofday+"/menu_%s.png"
                 xpos 1625
                 ypos 933
-                action ShowMenu('din_game_menu_selector')
+                action ShowMenu("din_game_menu_selector")
 
             imagebutton:
-                auto din_gui_path + 'dialogue_box/' + persistent.timeofday+"/load_%s.png"
+                auto din_gui_path + "dialogue_box/" + persistent.timeofday+"/load_%s.png"
                 xpos 1682
                 ypos 933
-                action ShowMenu('din_load')
+                action ShowMenu("din_load")
 
             imagebutton:
                 auto din_gui_path + "dialogue_box/" + persistent.timeofday + "/backward_%s.png" 

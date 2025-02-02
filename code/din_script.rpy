@@ -31,7 +31,7 @@ init python:
             renpy.display.screen.screens[("din_old_" + screen_name, None)] = renpy.display.screen.screens[(screen_name, None)]
         
     def din_screens_act():
-        persistent.timeofday = 'day'
+        persistent.timeofday = "day"
         config.window_title = u"Дни нигде"
         config.name = "Days_In_Nowhere"
         config.version = "1.0"
@@ -42,7 +42,7 @@ init python:
         layout.LOADING = "Потерять несохраненые данные?"
         
         config.overlay_functions.append(din_set_timeofday_cursor)
-        config.custom_text_tags['din_shrinking_text'] = din_shrinking_text_tag
+        config.custom_text_tags["din_shrinking_text"] = din_shrinking_text_tag
         config.main_menu_music = din_god_is_an_astronaut_tempus_horizon
         config.linear_saves_page_size = None
         persistent._file_page = "din_FilePage_1"  
@@ -58,7 +58,7 @@ init python:
         layout.LOADING = "Загрузка приведёт к потере несохранённых данных.\nВы уверены, что хотите сделать это?"
 
         config.overlay_functions.remove(din_set_timeofday_cursor)
-        del config.custom_text_tags['din_shrinking_text']
+        del config.custom_text_tags["din_shrinking_text"]
         config.mouse_displayable = MouseDisplayable("images/misc/mouse/1.png", 0, 0)
         config.main_menu_music = "sound/music/blow_with_the_fires.ogg"
 

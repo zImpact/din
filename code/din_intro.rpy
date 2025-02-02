@@ -64,6 +64,6 @@ label din_intro:
     stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ persistent.din_flags['din_intro_completed'] = True
+    $ persistent.din_flags["din_intro_completed"] = True
     $ renpy.pause(2, hard=True)
     jump din_ikarus_story

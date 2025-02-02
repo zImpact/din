@@ -6,7 +6,7 @@ label din_winterlong_story:
     $ persistent.sprite_time = "night"
     $ persistent.timeofday = "night"
     $ din_set_timeofday_cursor_var = True
-    $ din_story_intro('Длиною в зиму\nДень Третьего', 'night', 'bg din_fireplace_winterlong_anim', 'din_third smile', 'Длиною в зиму', 'День Третьего', 'forest_night')
+    $ din_story_intro("Длиною в зиму\nДень Третьего", "night", "bg din_fireplace_winterlong_anim", "din_third smile", "Длиною в зиму", "День Третьего", "forest_night")
     $ renpy.pause(2, hard=True)
     $ persistent.sprite_time = "sunset"
     $ persistent.timeofday = "sunset"
@@ -201,7 +201,7 @@ label din_winterlong_story_bar:
     din_gensek "Да ничего нового, Третий. Мы с Чокнутым проявим злопамятность, только и всего."
     din_third "Хоть Чокнутый и несравнимо сильнее меня, это не значит, что я боюсь боли."
     show din_gensek stay smile with dspr
-    din_gensek "Как забавно вы все делаете из него непобедимого дьявола. {w}{b}Ты{/bg} боли не боишься. А вот твои знакомые...."
+    din_gensek "Как забавно вы все делаете из него непобедимого дьявола. {w}{b}Ты{/b} боли не боишься. А вот твои знакомые...."
     din_third "Будешь пытать Чайника только чтобы позлить меня?"
     din_gensek "О, нет. Смотри шире."
     din_gensek "Пока он будет занят, ты сможешь переключиться на кого-то другого. Так что втягивать его в нашу небольшую политику бесполезно."
@@ -228,7 +228,7 @@ label din_winterlong_story_bar:
     stop ambience fadeout 4
     stop sound_loop fadeout 4
     scene bg black with Dissolve(2)
-    $ persistent.din_flags['din_gensek_info_received'] = True
+    $ persistent.din_flags["din_gensek_info_received"] = True
     $ renpy.pause(2, hard=True)
     jump din_winterlong_story_interlude
     
@@ -370,7 +370,7 @@ label din_winterlong_story_science:
     $ renpy.pause(3, hard=True)
     play ambience ambience_forest_night fadein 2
     play sound sfx_face_slap
-    $ din_unblink('bg din_ext_polyana_night_blurred', 2)
+    $ din_unblink("bg din_ext_polyana_night_blurred", 2)
     din_narrator "Спина мёрзнет. Как бы не простыть."
     din_narrator "Стоп, что произошло?"
     din_narrator "Кто-то назойливо хлопал ладонями по моим щекам."
@@ -431,13 +431,13 @@ label din_winterlong_story_science:
     stop ambience fadeout 4
     stop sound_loop fadeout 4
     scene bg black with Dissolve(2)
-    $ persistent.din_flags['din_hall_info_received'] = True
+    $ persistent.din_flags["din_hall_info_received"] = True
     $ renpy.pause(2, hard=True)
     jump din_winterlong_story_interlude
     
 label din_winterlong_story_interlude:
     $ renpy.block_rollback()
-    $ din_interlude_intro('Пробуждение')
+    $ din_interlude_intro("Пробуждение")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)
     play ambience ambience_ext_road_evening fadein 2
     play music din_if_these_trees_could_talk_barren_lands_of_the_modern_dinosaur fadein 5
@@ -479,6 +479,6 @@ label din_winterlong_story_interlude:
     stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ persistent.din_flags['din_winterlong_story_completed'] = True
+    $ persistent.din_flags["din_winterlong_story_completed"] = True
     $ renpy.pause(2, hard=True)
     jump din_rolegame_story

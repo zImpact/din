@@ -4,11 +4,11 @@ label din_rolegame_story:
     $ renpy.pause(2, hard=True)
     $ renpy.block_rollback()
     $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = 'sunset'
+    $ persistent.sprite_time = "sunset"
     $ din_set_timeofday_cursor_var = True
-    $ din_story_intro('Игра по ролям\nДень Третьего', 'sunset', 'bg din_int_dining_hall_sunset', 'din_third normal', 'Игра по ролям', 'День Третьего', 'dining_hall_empty')
+    $ din_story_intro("Игра по ролям\nДень Третьего", "sunset", "bg din_int_dining_hall_sunset", "din_third normal", "Игра по ролям", "День Третьего", "dining_hall_empty")
     $ persistent.timeofday = "dungeon"
-    $ persistent.sprite_time = 'day'
+    $ persistent.sprite_time = "day"
     scene bg din_int_rpg_dungeon with Dissolve(2)
     $ din_onload("unlock")
     play music din_pillars_of_eternity_elmshore fadein 2
@@ -18,7 +18,7 @@ label din_rolegame_story:
     $ din_rolegame_music_memorization.pause()
     $ renpy.block_rollback()
     $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = 'sunset'
+    $ persistent.sprite_time = "sunset"
     scene bg din_int_dining_hall_sunset
     show din_hall pos2 smile3 at left
     show din_nit normal_l at right
@@ -281,7 +281,7 @@ label din_rg_1_torch_poition:
     stop ambience fadeout 2
     $ renpy.block_rollback()
     $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = 'sunset'
+    $ persistent.sprite_time = "sunset"
     scene bg din_int_dining_hall_sunset
     show din_hall pos2 smile3 at left
     show din_nit normal_l at right
@@ -361,7 +361,7 @@ label din_rg_1_take_clock:
     stop ambience fadeout 2
     $ renpy.block_rollback()
     $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = 'sunset'
+    $ persistent.sprite_time = "sunset"
     scene bg din_int_dining_hall_sunset
     show din_nit normal_r at center
     with din_wiperight
@@ -492,7 +492,7 @@ label din_rg_wait:
     stop ambience fadeout 2
     $ renpy.block_rollback()
     $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = 'sunset'
+    $ persistent.sprite_time = "sunset"
     scene bg din_int_dining_hall_sunset
     with din_wiperight
     play ambience din_voices fadein 2
@@ -774,7 +774,7 @@ label din_rg_final:
 
 label din_rolegame_story_interlude:
     $ renpy.block_rollback()
-    $ din_interlude_intro('Осознание')
+    $ din_interlude_intro("Осознание")
     scene bg ext_road_sunset with Dissolve(2)
     play ambience ambience_ext_road_evening fadein 2
     play music din_out_of_sight_reasons fadein 3
@@ -1002,9 +1002,9 @@ label din_rolegame_story_interlude:
     stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ persistent.din_flags['din_rolegame_story_completed'] = True
-    $ persistent.din_flags['din_third_info_received'] = True
-    $ persistent.din_flags['din_nit_info_received'] = True
+    $ persistent.din_flags["din_rolegame_story_completed"] = True
+    $ persistent.din_flags["din_third_info_received"] = True
+    $ persistent.din_flags["din_nit_info_received"] = True
     $ renpy.pause(2, hard=True)
     $ din_set_main_menu_cursor()
     $ MainMenu(confirm=False)()
