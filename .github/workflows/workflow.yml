@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint:
-    uses: zImpact/es_mod_workflow/.github/workflows/lint_es_mod.yml@v1.0.12
+    uses: zImpact/es_mod_workflow/.github/workflows/lint_es_mod.yml@v2.0.1
     with:
       project_name: "din"
       sdk_version: "8.1.3"
@@ -16,3 +16,5 @@ jobs:
       grammar_check_files: "code/din_ikarus_story.rpy code/din_winterlong_story.rpy code/din_rolegame_story.rpy"
       exclusions: "exclusions.yml"
       output_type: "markdown"
+      folder: "code"
+      markers: "markers.yml"
