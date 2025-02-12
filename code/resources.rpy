@@ -2,21 +2,28 @@ init python:
     import time
     from os import path
     
+    din_mod_name = "din"
+    din_prefix = din_mod_name + "_"
+
     for file_name in renpy.list_files():
-        if "din" in file_name:
+        if din_mod_name in file_name:
             file_path = path.splitext(path.basename(file_name))[0]
 
-            if file_name.startswith("din/images/bg/"):
-                renpy.image("bg " + file_path, file_name)
+            if file_name.startswith(din_mod_name + "/images/bg/"):
+                renpy.image("bg " + din_prefix + file_path, file_name)
 
-            elif file_name.startswith("din/images/gui/"):
-                renpy.image(file_path, file_name)
+            elif file_name.startswith(din_mod_name + "/images/sprites/"):
+                renpy.image(
+                    din_prefix + file_path, 
+                    ConditionSwitch(
+                        "persistent.sprite_time == 'sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)),
+                        "persistent.sprite_time == 'night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), 
+                        True, file_name
+                    )
+                )
 
-            elif file_name.startswith("din/images/sprites/"):
-                renpy.image(file_path, ConditionSwitch("persistent.sprite_time == 'sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)), "persistent.sprite_time == 'night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), True, file_name))
-
-            elif file_name.startswith("din/sounds/"):
-                globals()[file_path] = file_name
+            elif file_name.startswith(din_mod_name + "/sounds/"):
+                globals()[din_prefix + file_path] = file_name
 
     din_std_set_for_preview = {}
     din_std_set = {}
@@ -457,8 +464,8 @@ init:
     image din_story_frame = DinBlackRectangle(width=630, height=240, alpha=0.5)
     image din_interlude_frame = DinBlackRectangle(width=630, height=290, alpha=0.5)
     
-    image bg din_fireplace_anim = din_frame_animation("din/images/bg/din_fireplace_anim/din_fireplace", 10, 1.8, True, Dissolve(1.2))
-    image bg din_fireplace_winterlong_anim = din_frame_animation("din/images/bg/din_fireplace_winterlong_anim/din_fireplace_winterlong", 10, 1.8, True, Dissolve(1.2))
+    image bg din_fireplace_anim = din_frame_animation("din/images/bg/fireplace_anim/fireplace", 10, 1.8, True, Dissolve(1.2))
+    image bg din_fireplace_winterlong_anim = din_frame_animation("din/images/bg/fireplace_winterlong_anim/fireplace_winterlong", 10, 1.8, True, Dissolve(1.2))
     image bg din_stars_bush_anim = din_frame_animation("din/images/bg/din_stars_bush_anim/din_stars_bush", 15, 1.8, True, Dissolve(1.2))
     image din_main_menu_day_anim = din_frame_animation("din/images/gui/main_menu/day/din_day", 5, 4, True, Dissolve(2))
     image din_main_menu_night_anim = din_frame_animation("din/images/gui/main_menu/night/din_night", 5, 4, True, Dissolve(2))
@@ -466,11 +473,11 @@ init:
     image din_main_menu_morning_anim = din_frame_animation("din/images/gui/main_menu/morning/din_morning", 5, 4, True, Dissolve(2))
     image bg din_ext_polyana_night_blurred = im.Blur("images/bg/ext_polyana_night.jpg", 1.5)
 
-    image din_gensek silhouette normal = im.MatrixColor("din/images/sprites/gensek/normal/din_gensek stay normal.png", im.matrix.tint(0, 0, 0))
-    image din_nuts silhouette normal = im.MatrixColor("din/images/sprites/nuts/normal/din_nuts normal.png", im.matrix.tint(0, 0, 0))
-    image din_pi silhouette normal = im.MatrixColor("din/images/sprites/pi/normal/din_pi normal.png", im.matrix.tint(0, 0, 0))
-    image din_nit silhouette normal = im.MatrixColor("din/images/sprites/nit/normal/din_nit bulging3_r.png", im.matrix.tint(0, 0, 0))
-    image din_nit silhouette normal_r = im.MatrixColor("din/images/sprites/nit/normal/din_nit normal_r.png", im.matrix.tint(0, 0, 0))
+    image din_gensek silhouette normal = im.MatrixColor("din/images/sprites/gensek/normal/gensek stay normal.png", im.matrix.tint(0, 0, 0))
+    image din_nuts silhouette normal = im.MatrixColor("din/images/sprites/nuts/normal/nuts normal.png", im.matrix.tint(0, 0, 0))
+    image din_pi silhouette normal = im.MatrixColor("din/images/sprites/pi/normal/pi normal.png", im.matrix.tint(0, 0, 0))
+    image din_nit silhouette normal = im.MatrixColor("din/images/sprites/nit/normal/nit bulging3_r.png", im.matrix.tint(0, 0, 0))
+    image din_nit silhouette normal_r = im.MatrixColor("din/images/sprites/nit/normal/nit normal_r.png", im.matrix.tint(0, 0, 0))
 
     image din_blank_skip = renpy.display.behavior.ImageButton(Null(1920, 1080), Null(1920, 1080), clicked=[Jump("din_after_intro")])
 
