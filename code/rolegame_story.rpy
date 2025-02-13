@@ -786,7 +786,6 @@ label din_rg_final:
     din_teapot "Я начинал терять нить разговора."
     din_teapot "Под шум о масштабной межлагерной войне, я присел в тени статуи."
     din_teapot "Ладно, пусть развлекаются. А спектакль закончим в другой раз."
-    
     stop ambience fadeout 4
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)

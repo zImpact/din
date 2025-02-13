@@ -5,10 +5,8 @@ label din_lost_peace_story:
     scene bg ext_island_day with Dissolve(2)
     play music din_new_years_end fadein 5
     play ambience ambience_lake_shore_day fadein 2
-    
-    din_narrator "С тех пор, как я получил себе имя, жизнь стала спокойнее."
+    din_narrator "С тех пор как я получил себе имя, жизнь стала спокойнее."
     din_narrator "Появилось время на тихие и размеренные моменты."
-    
     din_narrator "Я уже третий час смотрел за неподвижным поплавком на воде."
     din_myself "Эй, Чайник, ты уверен, что здесь вообще есть рыба?"
     show din_teapot pos2 smile3 with dissolve
@@ -21,28 +19,24 @@ label din_lost_peace_story:
     din_narrator "И быстро начал что-то рисовать."
     din_teapot "Вот! Носи это с честью."
     din_narrator "Он протянул мне результат своей работы, на котором кривыми буквами было написано:"
-    
     show din_note with dissolve
-    
-    din_narrator "бЕг уКреПляЕт зДоРоВьЕ."
+    din_narrator "бЕг уКреПляЕт зДоРоВьЕ." # nolint
     din_myself "Ээээ... {w}Спасибо. {w}Наверное."
     din_narrator "С Чайником мы сошлись на удивление быстро. Да, он был полностью невменяем, но в хорошем смысле."
-    din_narrator "Он был невероятно талантлив, мог сделать всё, что угодно. Главной преградой для него была, остается, да и, возможно, навсегда останется только его рассеяность."
+    din_narrator "Он был невероятно талантлив, мог сделать всё что угодно. Главной преградой для него была, остается, да и, возможно, навсегда останется только его рассеянность."
     din_narrator "На тот турнир он собрал бомбу, способную вынести железную дверь. Она обеспечила ошеломительную победу в первом раунде, вот только была «бомба» только одна."
-    din_narrator "Чайник мог занять первое место. А так - конец списка, ненамного выше меня."
+    din_narrator "Чайник мог занять первое место. А так — конец списка, ненамного выше меня."
     din_narrator "Позавчера Чайник нашёл меня полупьяного в Общем лагере. Выслушал, а после перетащил к себе."
     din_narrator "Едва ли он искренне понимал, что я чувствую после случившегося, но его дружеский жест всё же помог мне собраться с мыслями." 
-
     hide din_note with dissolve
-    
     din_narrator "Я осторожно привязал подарок к грудному карману."
     din_narrator "Очень повезло, что удалось уйти от того ненормального, победившего в конце концов всех и каждого."
     din_narrator "Даже подготовленные участники никакой угрозы ему не представляли. Разве что финал был более-менее равным."
     din_myself "Раз ты уже поднял эту тему, то чья была идея так подставить новичков?"
     din_teapot "Так говоришь... Вот мы все сидели и думали: как бы вам жизнь подпортить!"
-    din_teapot "Остынь, горячая голова. {w}Это было просто совпадением. Вас было не так много. Я думал устроить специально щадащую турнирную таблицу, но... {w}много чести."
+    din_teapot "Остынь, горячая голова. {w}Это было просто совпадением. Вас было не так много. Я думал устроить специально щадящую турнирную таблицу, но... {w}много чести."
     din_teapot "Здесь не курорт, по крайней мере не полностью. Никто не будет подстраиваться и беречь тебя просто так."
-    din_teapot "Тем более так у новичков был шанс проявить себя. Мы-вот, например, сошлись."
+    din_teapot "Тем более так у новичков был шанс проявить себя. Мы вот, например, сошлись."
     din_teapot "А вообще следи за поплавком. Если рыба уйдёт, я тебя за ней брошу. Будешь вплавь догонять."
     din_myself "Ладно, ладно. {w}Чайник? Я еще кое-что спросить хотел..."
     din_teapot "Ну валяй."
@@ -106,10 +100,6 @@ label din_lost_peace_story:
     stop music fadeout 3
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard = True)
-    jump din_3
-
-
-label din_3:
     $ persistent.timeofday = "sunset"
     $ persistent.sprite_time = "sunset"
     $ renpy.pause(2, hard = True)
@@ -210,17 +200,14 @@ label din_3:
             din_narrator "Я прислонился лбом к стеклу своего окна."      
             jump din_end_f_2
 
-
         "Промолчать":
             pass
    
     din_narrator "..."
-    din_teapot "Ну, парень, я тебя предупреждал по хорошему."
+    din_teapot "Ну, парень, я тебя предупреждал по-хорошему."
     din_teapot "Ты сам навлёк на себя это."
     din_narrator "Сделав вдох на все свои лёгкие, Чайник нарочито скучным голосом начал."
-    $ din_set_mode_nvl()
     din_teapot "{i} В революционный момент очень трудно поспеть за событиями, которые дают поразительно много нового материала к оценке тактических лозунгов революционных партий. Настоящая брошюра писана до одесских событий. Мы уже указали в «Пролетарии», что эти события заставили даже тех социал-демократов, которые создали теорию восстания процесса и отрицали пропаганду временного революционного правительства, перейти или начать переходить фактически на сторону своих оппонентов. {/i}"
-    $ din_set_mode_adv()
     din_narrator "После окончания абзаца Чайник остановился, чтобы перевести дыхание и дать мне шанс избежать продолжения этого литературного вечера."
    
     menu:
@@ -258,7 +245,7 @@ label din_3:
     scene bg black with Dissolve(2)
     stop music fadeout 4
     $ renpy.pause(2, hard = True)
-    jump din_true_end
+    jump din_lost_peace_story_interlude
    
 label din_end_f:    
     play sound_loop sfx_bus_interior_moving fadein 2
@@ -286,9 +273,9 @@ label din_end_f_2:
     stop sound_loop fadeout 3
     scene bg black with Dissolve(2)
     stop music fadeout 4
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
  
- label din_lost_peace_story_interlude:
+label din_lost_peace_story_interlude:
     $ renpy.block_rollback()
     $ din_interlude_intro("Осознание")
     scene bg ext_road_sunset with Dissolve(2)
@@ -330,13 +317,11 @@ label din_end_f_2:
     din_narrator "Варианта всего два: или земля действительно совершила скачок, или в моей голове разыгралась, и, что хуже, появилась фантазия."
     din_narrator "И даже не знаю, что маловероятнее."
     $ din_blink(2)
-
     scene bg ext_road_sunset
     show din_nit silhouette normal:
         xpos 480
     show unblink
     $ renpy.pause(2, hard = True)
-
     $ din_blink(2)
     $ din_unblink("bg ext_road_sunset", 2)
     din_th "Какого черта..."
@@ -372,15 +357,12 @@ label din_end_f_2:
         xalign 0.5
         yalign 0.5
         ease 1.5 zoom 1.1
-    
     $ renpy.pause(1.5, hard=True)
-
     scene bg ext_road_sunset:
         xalign 0.5
         yalign 0.5
         zoom 1.1
         ease 1.5 zoom 1.2
-
     $ renpy.pause(1.5, hard=True)
     din_narrator "С моим приближением пузырь набирал форму и цвет."
     play music din_god_is_an_astronaut_suicide_by_star fadein 5
