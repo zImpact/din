@@ -1,4 +1,4 @@
-init python:
+init -10 python:
     din_gui_path = "din/images/gui/"
     
     din_link_font = din_gui_path + "fonts/gothic.ttf"

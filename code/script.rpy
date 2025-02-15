@@ -41,7 +41,7 @@ init python:
         persistent.timeofday = "day"
         config.window_title = u"Дни нигде"
         config.name = "Days_In_Nowhere"
-        config.version = "1.0"
+        config.version = "1.1"
 
         for screen_name in ["main_menu", "quit", "say", "nvl", "game_menu_selector", "yesno_prompt", "choice", "help"]:
             renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("din_" + screen_name, None)]
@@ -62,18 +62,16 @@ init python:
             renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("din_old_" + screen_name, None)]
          
         layout.LOADING = "Загрузка приведёт к потере несохранённых данных.\nВы уверены, что хотите сделать это?"
-
-        config.overlay_functions.remove(din_set_timeofday_cursor)
+        renpy.free_memory()
+        persistent.timeofday = "day"
         config.mouse_displayable = MouseDisplayable("images/misc/mouse/1.png", 0, 0)
-        config.main_menu_music = "sound/music/blow_with_the_fires.ogg"
+        config.main_menu_music = music_list["blow_with_the_fires"]
 
-        persistent.sprite_time = "day"
-        persistent.timeofday = "prologue"
         persistent._file_page = 1
-        renpy.music.stop("ambience")
-        renpy.music.stop("music")
-        renpy.music.stop("sound")
-        renpy.music.stop("sound_loop")
+        
+        for channel in ["ambience", "music", "sound", "sound_loop"]:
+            renpy.music.stop(channel)
+
         renpy.play(music_list["blow_with_the_fires"], channel="music")
 
     def din_screens_save_act():

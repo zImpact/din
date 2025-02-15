@@ -371,23 +371,29 @@ init python:
         renpy.with_statement(dissolve)
         renpy.hide_screen("din_titles_overlay", layer="overlay")
 
-    def din_set_main_menu_cursor():
-        config.mouse_displayable = MouseDisplayable(din_gui_path + "misc/din_cursor.png", 0, 0)
-
-    din_set_main_menu_cursor_curried = renpy.curry(din_set_main_menu_cursor)
-
     def din_set_timeofday_cursor():
-        global din_set_timeofday_cursor_var
+        config.mouse_displayable = MouseDisplayable(din_gui_path + "cursors/" + persistent.timeofday + "/cursor.png", 0, 0)
 
-        if din_set_timeofday_cursor_var:
-            config.mouse_displayable = MouseDisplayable(din_gui_path + "dialogue_box/" + persistent.timeofday + "/cursor.png", 0, 0)
+    def din_set_dynamic_cursor(state):
+        if din_set_timeofday_cursor in config.overlay_functions:
+            config.overlay_functions.remove(din_set_timeofday_cursor)
 
-    din_set_timeofday_cursor_curried = renpy.curry(din_set_timeofday_cursor)
+        if state == "timeofday":
+            config.overlay_functions.append(din_set_timeofday_cursor)
 
-    def din_set_null_cursor():
-        config.mouse_displayable = MouseDisplayable(din_gui_path + "misc/din_none.png", 0, 0)
+        elif state == "main_menu":
+            config.mouse_displayable = MouseDisplayable(din_gui_path + "cursors/main_menu/cursor.png", 0, 0)
 
-    din_set_null_cursor_curried = renpy.curry(din_set_null_cursor)
+        elif state == "null":
+            config.mouse_displayable = MouseDisplayable(Null(0, 0), 0, 0)
+
+    def din_set_time(timeofday, sprite_time=None):
+        if sprite_time is None:
+            sprite_time = timeofday
+        
+        renpy.block_rollback()
+        persistent.timeofday = timeofday
+        persistent.sprite_time = sprite_time
 
     config.custom_text_tags["din_shrinking_text"] = din_shrinking_text_tag
 
@@ -477,6 +483,15 @@ init:
     image din_main_menu_night_anim = din_frame_animation("din/images/gui/main_menu/night/night", 5, 4, True, Dissolve(2))
     image din_main_menu_sunset_anim = din_frame_animation("din/images/gui/main_menu/sunset/sunset", 5, 4, True, Dissolve(2))
     image din_main_menu_morning_anim = din_frame_animation("din/images/gui/main_menu/morning/morning", 5, 4, True, Dissolve(2))
+    image din_main_menu_underline = din_gui_path + "main_menu/underline.png"
+
+    image din_intro_logo = din_gui_path + "misc/intro_logo.png"
+
+    image din_ext_camp_entrance_day = din_gui_path + "misc/ext_camp_entrance_day.png"
+    image din_ext_camp_entrance_night = din_gui_path + "misc/ext_camp_entrance_night.png"
+    image din_ext_camp_entrance_sunset = din_gui_path + "misc/ext_camp_entrance_sunset.png"
+    image din_ext_camp_entrance_morning = din_gui_path + "misc/ext_camp_entrance_morning.png"
+
     image bg din_ext_polyana_night_blurred = im.Blur("images/bg/ext_polyana_night.jpg", 1.5)
 
     image din_gensek silhouette normal = im.MatrixColor("din/images/sprites/gensek/normal/gensek stay normal.png", im.matrix.tint(0, 0, 0))

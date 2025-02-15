@@ -114,7 +114,7 @@ label din_lost_peace_story:
     din_teapot "Могу потом как-нибудь научить, если будет настроение...{w} И!{w} Мне это не наскучит."
     din_pacifist "Не научишь?"
     din_teapot "Ха-ха. {w}Не-а!"
-    hide din_teapot with dissolve
+    hide din_hall with dissolve
     din_narrator "Чайник залез в машину, усевшись за рулем."
     din_narrator "Затем, вспомнив, что он не один, волшебник перебросил через бардачок ногу и пинком открыл дверь со стороны пассажира."
     din_teapot "Падай."

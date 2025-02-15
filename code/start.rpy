@@ -2,16 +2,18 @@ init python:
     mods["din_start"] = u"{font=din/images/gui/fonts/AG_Futura Regular.ttf}{size=50}Дни нигде{/font}{/size}"
 
     try:
-        modsImages["din_start"] = ("din/images/gui/misc/din_tabular_list_preview.png", False)
+        modsImages["din_start"] = (din_gui_path + "misc/tabular_list_preview.png", False)
 
     except:
         pass
 
 label din_start:
+    $ din_set_dynamic_cursor("null")
+    $ renpy.pause(3, hard=True)
     $ din_onload("lock")
     $ din_screens_save_act()
-    $ din_set_main_menu_cursor()
-    scene bg black with Dissolve(2)
+    $ din_set_dynamic_cursor("main_menu")
+    $ din_set_time("day")
     $ renpy.scene()
     $ renpy.show("din_ext_camp_entrance_" + din_current_time())
     show din_intro_frame at truecenter
@@ -22,8 +24,7 @@ label din_start:
     play sound din_intro_sample
     $ renpy.pause(8, hard=True)
     scene bg black with Dissolve(2)
-    $ persistent.timeofday = "day"
-    $ din_set_mode_adv()
+    $ renpy.pause(2, hard=True)
 
     label din_after_intro:
         $ din_onload("unlock")

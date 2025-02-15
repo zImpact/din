@@ -2,7 +2,7 @@ init python:
     din_g = Gallery()
     din_page = 0
     din_g.transition = fade
-    din_g.locked_button = "din/images/gui/save_load/main_menu/thumbnail_idle.png"
+    din_g.locked_button = din_gui_path + "save_load/main_menu/thumbnail_idle.png"
     din_g.navigation = False
 
     din_rows = 4
@@ -91,41 +91,60 @@ screen din_main_menu():
             ypos 300
 
             if persistent.din_flags["din_intro_completed"]:
-                action [Hide("din_main_menu"), ShowMenu("din_story_choice", _transition=fade)]
+                action [
+                    Hide("din_main_menu"),
+                    ShowMenu("din_story_choice",
+                    _transition=fade)
+                ]
 
             else:
-                action [Hide("din_main_menu", Dissolve(1.5)), Start("din_intro")]
+                action [
+                    Hide("din_main_menu", Dissolve(1.5)),
+                    Start("din_intro")
+                ]
 
         textbutton "Загрузить" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
             ypos 433
-            action [SetVariable("din_main_menu_var", False), ShowMenu("din_load_main_menu")]
+            action [
+                SetVariable("din_main_menu_var", False),
+                ShowMenu("din_load_main_menu")
+            ]
 
         textbutton "Дополнительно" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
             ypos 556
-            action [SetVariable("din_main_menu_var", False), ShowMenu("din_extra")]
+            action [
+                SetVariable("din_main_menu_var", False),
+                ShowMenu("din_extra")
+            ]
 
         textbutton "Настройки" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
             ypos 680
-            action [SetVariable("din_main_menu_var", False), ShowMenu("din_preferences_main_menu")]
+            action [
+                SetVariable("din_main_menu_var", False),
+                ShowMenu("din_preferences_main_menu")
+            ]
 
         textbutton "Выход" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
             ypos 803
-            action [SetVariable("din_main_menu_var", False), ShowMenu("din_quit_main_menu")]
+            action [
+                SetVariable("din_main_menu_var", False),
+                ShowMenu("din_quit_main_menu")
+            ]
 
         imagebutton:
-            auto "din_logowhite_%s"
+            auto din_gui_path + "misc/logowhite_%s.png"
             xpos 1520
             ypos 800
             action OpenURL("https://vk.com/public176281709")
@@ -140,7 +159,10 @@ screen din_story_choice():
         idle "din_ikarus_story_idle"
         hover "din_ikarus_story_hover"
         transition Dissolve(1.5)
-        action [Hide("din_story_choice", Dissolve(1.5)), Start("din_ikarus_story")]
+        action [
+            Hide("din_story_choice", Dissolve(1.5)),
+            Start("din_ikarus_story")
+        ]
 
     if persistent.din_flags["din_ikarus_story_completed"]:
         din_transition_imagebutton:
@@ -148,7 +170,10 @@ screen din_story_choice():
             hover "din_winterlong_story_hover"
             xpos 639
             transition Dissolve(1.5)
-            action [Hide("din_story_choice", Dissolve(1.5)), Start("din_winterlong_story")]
+            action [
+                Hide("din_story_choice", Dissolve(1.5)),
+                Start("din_winterlong_story")
+            ]
 
     if persistent.din_flags["din_winterlong_story_completed"]:
         din_transition_imagebutton:
@@ -156,13 +181,19 @@ screen din_story_choice():
             hover "din_rolegame_story_hover"
             xpos 1253
             transition Dissolve(1.5)
-            action [Hide("din_story_choice", Dissolve(1.5)), Start("din_rolegame_story")]
+            action [
+                Hide("din_story_choice", Dissolve(1.5)),
+                Start("din_rolegame_story")
+            ]
 
     imagebutton:
         auto "din_back_%s"
         xpos 1800
         ypos 1000
-        action [Hide("din_story_choice"), ShowMenu("din_main_menu", _transition=fade)]
+        action [
+            Hide("din_story_choice"),
+            ShowMenu("din_main_menu", _transition=fade)
+        ]
 
 screen din_extra():
     modal True
@@ -186,28 +217,41 @@ screen din_extra():
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.5
             yalign 0.3
-            action [Hide("din_extra"), ShowMenu("din_music_room")]
+            action [
+                Hide("din_extra"),
+                ShowMenu("din_music_room")
+            ]
 
         textbutton "Галерея":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.5
             yalign 0.5
-            action [Hide("din_extra"), ShowMenu("din_background_gallery")]
+            action [
+                Hide("din_extra"),
+                ShowMenu("din_background_gallery")
+            ]
 
         textbutton "Персонажи":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.5
             yalign 0.7
-            action [Hide("din_extra"), ShowMenu("din_characters")]
+            action [
+                Hide("din_extra"),
+                ShowMenu("din_characters")
+            ]
 
         textbutton "Назад":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.1
             ypos 970
-            action [SetVariable("din_main_menu_var", True), Hide("din_extra"), ShowMenu("din_main_menu")]
+            action [
+                SetVariable("din_main_menu_var", True),
+                Hide("din_extra"), 
+                ShowMenu("din_main_menu")
+            ]
 
 screen din_characters():
     modal True
@@ -229,7 +273,11 @@ screen din_characters():
                     auto "din_" + char + "_button_info" + "_%s"
                     xalign info["button_pos"]
                     yalign 0.5
-                    action [Hide("din_characters"), SetField(persistent, "sprite_time", info["sprite_time"]), ShowMenu("din_character_info", char=char)]
+                    action [
+                        Hide("din_characters"),
+                        SetField(persistent, "sprite_time", info["sprite_time"]),
+                        ShowMenu("din_character_info", char=char)
+                    ]
             
             else:
                 add "din_button_info_locked" xalign info["button_pos"] yalign 0.5
@@ -239,7 +287,10 @@ screen din_characters():
             text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970
-            action [Hide("din_characters"), ShowMenu("din_extra")]
+            action [
+                Hide("din_characters"),
+                ShowMenu("din_extra")
+            ]
 
 screen din_character_info(char):
     modal True
@@ -263,7 +314,10 @@ screen din_character_info(char):
         hover din_characters_info[char]["main_sprite"]
         focus_mask True
         xalign 1.05
-        action [Hide("din_character_info"), ShowMenu("din_character_sprites", char=char, sprite=din_characters_info[char]["main_sprite"])]
+        action [
+            Hide("din_character_info"),
+            ShowMenu("din_character_sprites", char=char, sprite=din_characters_info[char]["main_sprite"])
+        ]
 
     text din_characters_info[char]["description"]:
         font din_main_menu_font
@@ -276,7 +330,10 @@ screen din_character_info(char):
         auto "din_back_%s"
         xpos 1800
         ypos 1000
-        action [Hide("din_character_info"), ShowMenu("din_characters")]
+        action [
+            Hide("din_character_info"),
+            ShowMenu("din_characters")
+        ]
 
 screen din_character_sprites(char, sprite):
     modal True
@@ -293,13 +350,13 @@ screen din_character_sprites(char, sprite):
     add sprite xalign 0.5
 
     imagebutton:
-        auto "din_gallery_next_%s"
+        auto din_gui_path + "misc/gallery_next_%s.png"
         xalign 0.8
         yalign 0.5
         action ShowMenu("din_character_sprites", char=char, sprite=din_next_sprite)
 
     imagebutton:
-        auto "din_gallery_previous_%s"
+        auto din_gui_path + "misc/gallery_previous_%s.png"
         xalign 0.2
         yalign 0.5
         action ShowMenu("din_character_sprites", char=char, sprite=din_prev_sprite)
@@ -308,7 +365,10 @@ screen din_character_sprites(char, sprite):
         auto "din_back_%s"
         xpos 1800
         ypos 1000
-        action [Hide("din_character_sprites"), ShowMenu("din_character_info", char=char)]
+        action [
+            Hide("din_character_sprites"),
+            ShowMenu("din_character_info", char=char)
+        ]
 
 screen din_music_room():
     modal True
@@ -316,7 +376,7 @@ screen din_music_room():
     if not din_main_menu_var:
         add "din_main_menu_options_frame" xalign 0.5 yalign 0.5
 
-        add "din_music_room_frame"
+        add din_gui_path + "main_menu/music_room_frame.png"
 
         frame:
             background None
@@ -340,8 +400,8 @@ screen din_music_room():
 
                 vbar:
                     value YScrollValue("din_music_box")
-                    bottom_bar "din_main_menu_vbar_null"
-                    top_bar "din_main_menu_vbar_full"
+                    bottom_bar din_gui_path + "main_menu/vbar_null.png"
+                    top_bar din_gui_path + "main_menu/vbar_full.png"
                     thumb None
                     xmaximum 52
 
@@ -358,7 +418,10 @@ screen din_music_room():
             text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970
-            action [Hide("din_music_room"), ShowMenu("din_extra")]
+            action [
+                Hide("din_music_room"),
+                ShowMenu("din_extra")
+            ]
 
         on "replaced" action Play("music", din_god_is_an_astronaut_tempus_horizon)
 
@@ -385,7 +448,10 @@ screen din_background_gallery():
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.1
             ypos 970
-            action [Hide("din_background_gallery"), ShowMenu("din_extra")]
+            action [
+                Hide("din_background_gallery"),
+                ShowMenu("din_extra")
+            ]
 
         grid din_rows din_cols xpos 0.1 ypos 0.18:
             $ din_bg_displayed = 0
@@ -407,7 +473,16 @@ screen din_background_gallery():
                     $ din_img = im.Composite((336, 196), (8, 8), im.Alpha(_din_img_scaled, 0.9), (0, 0), im.Image(din_gui_path + "/save_load/main_menu/thumbnail_idle.png"))
                     $ din_imgh = im.Composite((336, 196), (8, 8), _din_img_scaled, (0, 0), im.Image(din_gui_path + "/save_load/main_menu/thumbnail_hover.png"))
 
-                    add din_g.make_button(din_gallery_table[n], get_image("gui/gallery/blank.png"), None, din_imgh, din_img, style="blank_button", bottom_margin=50, right_margin=50)
+                    add din_g.make_button(
+                        din_gallery_table[n],
+                        get_image("gui/gallery/blank.png"),
+                        None,
+                        din_imgh,
+                        din_img,
+                        style="blank_button",
+                        bottom_margin=50,
+                        right_margin=50
+                    )
 
                     $ din_bg_displayed += 1
 
@@ -419,17 +494,23 @@ screen din_background_gallery():
 
         if din_page != 0:
             imagebutton:
-                auto "din_gallery_previous_%s"
+                auto din_gui_path + "misc/gallery_previous_%s.png"
                 yalign 0.5 
                 xalign 0.04 
-                action [SetVariable("din_page", din_page - 1), ShowMenu("din_background_gallery")]
+                action [
+                    SetVariable("din_page", din_page - 1),
+                    ShowMenu("din_background_gallery")
+                ]
 
         if din_page != int(din_page_counter(din_len_table, din_cells)) - 1:
             imagebutton: 
-                auto "din_gallery_next_%s"
+                auto din_gui_path + "misc/gallery_next_%s.png"
                 yalign 0.5 
                 xalign 0.96 
-                action [SetVariable("din_page", din_next_page), ShowMenu("din_background_gallery")]
+                action [
+                    SetVariable("din_page", din_next_page),
+                    ShowMenu("din_background_gallery")
+                ]
 
 screen din_load_main_menu():
     modal True
@@ -453,14 +534,21 @@ screen din_load_main_menu():
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.1
             ypos 970
-            action [SetVariable("din_main_menu_var", True), Hide("din_load_main_menu"), ShowMenu("din_main_menu")]
+            action [
+                SetVariable("din_main_menu_var", True),
+                Hide("din_load_main_menu"), 
+                ShowMenu("din_main_menu")
+            ]
                     
         textbutton "Загрузить игру":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.5
             ypos 970
-            action (DinFunctionCallback(din_on_load_callback, selected_slot), FileLoad(selected_slot, confirm=False))
+            action [
+                DinFunctionCallback(din_on_load_callback, selected_slot),
+                FileLoad(selected_slot, confirm=False)
+            ]
                  
         textbutton "Удалить":
             style "din_log_button" 
@@ -491,7 +579,7 @@ screen din_load_main_menu():
                         style "din_save_load_button_main_menu"
 
                         fixed:
-                            text ("%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" " + "Пусто") + "\n" + FileSaveName(i)):
+                            text ("%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" + FileSaveName(i)):
                                 style "din_text_save_load_main_menu"
                                 xpos 15
                                 ypos 15
@@ -617,7 +705,11 @@ screen din_preferences_main_menu():
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.1
             ypos 970
-            action [SetVariable("din_main_menu_var", True), Hide("din_preferences_main_menu"), ShowMenu("din_main_menu")]
+            action [
+                SetVariable("din_main_menu_var", True),
+                Hide("din_preferences_main_menu"),
+                ShowMenu("din_main_menu")
+            ]
     
 screen din_quit_main_menu():
     modal True
@@ -637,19 +729,27 @@ screen din_quit_main_menu():
             antialias True
             kerning 2
             
-        textbutton ["Да"]:
+        textbutton "Да":
             style "din_settings_header_main_menu_quit"
             text_style "din_settings_header_main_menu_quit"
             xpos 493
             ypos 600
-            action [Hide("din_quit_main_menu"), Function(din_screens_diact), ShowMenu("main_menu")]
+            action [
+                Hide("din_quit_main_menu"),
+                Function(din_screens_diact),
+                ShowMenu("main_menu")
+            ]
             
-        textbutton ["Нет"]:
+        textbutton "Нет":
             style "din_settings_header_main_menu_quit"
             text_style "din_settings_header_main_menu_quit"
             xpos 1230
             ypos 600
-            action [SetVariable("din_main_menu_var", True), Hide("din_quit_main_menu"), ShowMenu("din_main_menu")]
+            action [
+                SetVariable("din_main_menu_var", True),
+                Hide("din_quit_main_menu"),
+                ShowMenu("din_main_menu")
+            ]
         
 screen din_preferences():
     tag menu
@@ -659,13 +759,13 @@ screen din_preferences():
     $ din_bar_full = Frame((din_gui_path + "preferences/" + persistent.timeofday + "/din_bar_full.png"), 36, 36)
 
     window background din_gui_path + "preferences/" + persistent.timeofday + "/preferences_bg.jpg":
-        text ["Настройки"]: 
+        text "Настройки": 
             style "din_settings_link"
             xalign 0.5 
             yalign 0.08 
             color "#ffffff"
 
-        textbutton ["Назад"]: 
+        textbutton "Назад": 
             style "din_log_button" 
             text_style "din_settings_link" 
             xalign 0.015 
@@ -680,8 +780,8 @@ screen din_preferences():
 
                 has grid 1 16 xfill True spacing 15
 
-                text ["Режим экрана"]:
-                    style "din_settings_header_" + persistent.timeofday + ""
+                text "Режим экрана":
+                    style "din_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
@@ -692,9 +792,9 @@ screen din_preferences():
                         else:
                             null width 22
 
-                        textbutton ["Во весь экран"]: 
+                        textbutton "Во весь экран": 
                             style "din_log_button"
-                            text_style "din_settings_text_" + persistent.timeofday + ""
+                            text_style "din_settings_text_" + persistent.timeofday
                             action Preference("display", "fullscreen")
 
                     hbox xalign 0.5:
@@ -704,13 +804,13 @@ screen din_preferences():
                         else:
                             null width 22
 
-                        textbutton ["В окне"]: 
+                        textbutton "В окне": 
                             style "din_log_button"
-                            text_style "din_settings_text_" + persistent.timeofday + ""
+                            text_style "din_settings_text_" + persistent.timeofday
                             action Preference("display", "window")
 
                 text ["Пропускать"]:
-                    style "din_settings_header_" + persistent.timeofday + ""
+                    style "din_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
@@ -723,7 +823,7 @@ screen din_preferences():
 
                         textbutton ["Всё"]: 
                             style "din_log_button" 
-                            text_style "din_settings_text_" + persistent.timeofday + ""
+                            text_style "din_settings_text_" + persistent.timeofday
                             action Preference("skip", "all")
 
                     hbox xalign 0.5:
@@ -735,17 +835,17 @@ screen din_preferences():
 
                         textbutton ["Виденное ранее"]: 
                             style "din_log_button" 
-                            text_style "din_settings_text_" + persistent.timeofday + ""
+                            text_style "din_settings_text_" + persistent.timeofday
                             action Preference("skip", "seen")
 
                 text ["Громкость"]:
-                    style "din_settings_header_" + persistent.timeofday + ""                    
+                    style "din_settings_header_" + persistent.timeofday                    
                     xalign 0.5
 
                 grid 2 1 xfill True:
                     textbutton ["Музыка"]: 
                         style "din_log_button"
-                        text_style "din_settings_text_" + persistent.timeofday + ""
+                        text_style "din_settings_text_" + persistent.timeofday
                         action NullAction()
                         xpos 0.1
 
@@ -762,7 +862,7 @@ screen din_preferences():
                 grid 2 1 xfill True:
                     textbutton ["Звуки"]: 
                         style "din_log_button"
-                        text_style "din_settings_text_" + persistent.timeofday + ""
+                        text_style "din_settings_text_" + persistent.timeofday
                         action NullAction()
                         xpos 0.1
 
@@ -779,7 +879,7 @@ screen din_preferences():
                 grid 2 1 xfill True:
                     textbutton ["Эмбиент"]: 
                         style "din_log_button"
-                        text_style "din_settings_text_" + persistent.timeofday + ""
+                        text_style "din_settings_text_" + persistent.timeofday
                         action NullAction()
                         xpos 0.1
 
@@ -794,7 +894,7 @@ screen din_preferences():
                         xpos -0.55
 
                 text ["Скорость текста"]:
-                    style "din_settings_header_" + persistent.timeofday + ""
+                    style "din_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 bar: 
@@ -808,7 +908,7 @@ screen din_preferences():
                     ymaximum 36
 
                 text ["Автопереход"]:
-                    style "din_settings_header_" + persistent.timeofday + ""
+                    style "din_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
@@ -821,7 +921,7 @@ screen din_preferences():
 
                         textbutton ["Включить"]: 
                             style "din_log_button"
-                            text_style "din_settings_text_" + persistent.timeofday + ""
+                            text_style "din_settings_text_" + persistent.timeofday
                             action Preference("auto-forward after click", "enable")
 
                     hbox xalign 0.5:
@@ -833,11 +933,11 @@ screen din_preferences():
 
                         textbutton ["Выключить"]: 
                             style "din_log_button"
-                            text_style "din_settings_text_" + persistent.timeofday + ""
+                            text_style "din_settings_text_" + persistent.timeofday
                             action (Preference("auto-forward time", 0), Preference("auto-forward after click", "disable"))
 
                 text ["Время автоперехода"]:
-                    style "din_settings_header_" + persistent.timeofday + ""
+                    style "din_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 bar: 
@@ -851,7 +951,7 @@ screen din_preferences():
                     ymaximum 36
 
                 text ["Размер шрифта"]:
-                    style "din_settings_header_" + persistent.timeofday + ""
+                    style "din_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
@@ -864,7 +964,7 @@ screen din_preferences():
 
                         textbutton ["Обычный"]:
                             style "din_log_button"
-                            text_style "din_settings_text_" + persistent.timeofday + ""
+                            text_style "din_settings_text_" + persistent.timeofday
                             action SetField(persistent, "font_size", "small")
 
                     hbox xalign 0.5:
@@ -876,7 +976,7 @@ screen din_preferences():
 
                         textbutton ["Крупный"]: 
                             style "din_log_button"
-                            text_style "din_settings_text_" + persistent.timeofday + ""
+                            text_style "din_settings_text_" + persistent.timeofday
                             action SetField(persistent, "font_size", "large")
 
             bar: 
@@ -916,9 +1016,12 @@ screen din_save():
             text_style "din_settings_link"
             yalign 0.92 
             xalign 0.5 
-            action (DinFunctionCallback(din_on_save_callback, selected_slot), FileSave(selected_slot))
+            action [
+                DinFunctionCallback(din_on_save_callback, selected_slot),
+                FileSave(selected_slot)
+            ]
 
-        textbutton ["Удалить"]: 
+        textbutton "Удалить": 
             style "din_log_button" 
             text_style "din_settings_link" 
             yalign 0.92 
@@ -936,9 +1039,9 @@ screen din_save():
                         action SetVariable("selected_slot", i)
                         xfill False
                         yfill False
-                        style "din_save_load_button_" + persistent.timeofday + ""
+                        style "din_save_load_button_" + persistent.timeofday
                         has fixed
-                        text ("%s." % i + FileTime(i, format = " %d.%m.%y, %H:%M", empty = " " + "Пустой слот") + "\n" +FileSaveName(i)) style "file_picker_text" xpos 15 ypos 15
+                        text ("%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" +FileSaveName(i)) style "file_picker_text" xpos 15 ypos 15
     
 screen din_load():
     tag menu
@@ -963,7 +1066,10 @@ screen din_load():
             text_style "din_settings_link" 
             yalign 0.92 
             xalign 0.5 
-            action (DinFunctionCallback(din_on_load_callback,selected_slot), FileLoad(selected_slot, confirm = False))
+            action [
+                DinFunctionCallback(din_on_load_callback,selected_slot),
+                FileLoad(selected_slot, confirm = False)
+            ]
         
         textbutton ["Удалить"]: 
             style "din_log_button" 
@@ -983,9 +1089,9 @@ screen din_load():
                         action SetVariable("selected_slot", i)
                         xfill False
                         yfill False
-                        style "din_save_load_button_" + persistent.timeofday + ""
+                        style "din_save_load_button_" + persistent.timeofday
                         has fixed
-                        text ("%s." % i + FileTime(i, format = " %d.%m.%y, %H:%M", empty = " " + "Пустой слот") + "\n" + FileSaveName(i)) style "file_picker_text" xpos 15 ypos 15                  
+                        text ("%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" + FileSaveName(i)) style "file_picker_text" xpos 15 ypos 15                  
                                 
 screen din_say(what, who):    
     window background None id "window":
@@ -1200,7 +1306,7 @@ screen din_game_menu_selector():
 
             hotspot (0, 278, 660, 65) focus_mask None clicked ShowMenu("din_preferences")
 
-            hotspot (0, 343, 660, 65) focus_mask None action [(Function(din_screens_diact)), ShowMenu("main_menu")]    
+            hotspot (0, 343, 660, 65) focus_mask None action [Function(din_screens_diact), ShowMenu("main_menu")]    
 
 screen din_quit():
     tag menu
@@ -1215,7 +1321,8 @@ screen din_quit():
     else:    
         add din_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png"
             
-        text "{font=[din_link_font]}Вы действительно \nхотите выйти?{/font}":
+        text "Вы действительно \nхотите выйти?":
+            font din_link_font
             size 100
             text_align 0.5
             xalign 0.5
@@ -1228,14 +1335,20 @@ screen din_quit():
             text_style "din_settings_header_main_menu_quit"
             xpos 493
             ypos 600
-            action [(Function(din_screens_diact)), ShowMenu("main_menu")]
+            action [
+                Function(din_screens_diact),
+                ShowMenu("main_menu")
+            ]
             
         textbutton ["Нет"]:
             style "din_settings_header_main_menu_quit"
             text_style "din_settings_header_main_menu_quit"
             xpos 1230
             ypos 600
-            action [Hide("din_quit"), Return()]
+            action [
+                Hide("din_quit"),
+                Return()
+            ]
 
 screen din_yesno_prompt(yes_action, message, no_action):
     modal True
@@ -1340,7 +1453,12 @@ screen din_text_history():
                     
                     action RollbackToIdentifier(h.rollback_identifier)
         
-        vbar value YScrollValue("din_text_history_screen") bottom_bar "images/misc/none.png" top_bar "images/misc/none.png" thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_vthumb.png" xoffset 1700  
+        vbar:
+            value YScrollValue("din_text_history_screen")
+            bottom_bar "images/misc/none.png"
+            top_bar "images/misc/none.png"
+            thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_vthumb.png"
+            xoffset 1700  
 
 screen din_choice(items):
     modal True
@@ -1399,7 +1517,8 @@ screen din_help():
     
     add din_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png"
     
-    text "{font=[din_link_font]}Информация{/font}":
+    text "Информация":
+        font din_link_font
         size 70
         xalign 0.5
         ypos 33
@@ -1427,13 +1546,7 @@ screen din_help():
         ypos 650
         action OpenURL("https://youtu.be/x2KBAuBKWL8")        
             
-    add "din_logowhite_hover" xpos 1520 ypos 890
-    # imagebutton:
-    #     idle din_gui_path + "logowhite_hover.png"
-    #     hover din_gui_path + "logowhite_hover.png"
-    #     xpos 1520
-    #     ypos 890
-    #     action NullAction()
+    add din_gui_path + "logowhite_hover.png" xpos 1520 ypos 890
 
     textbutton ["Назад"]: 
         style "din_log_button" 
