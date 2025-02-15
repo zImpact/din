@@ -24,7 +24,7 @@ init python:
 
             elif file_name.startswith(din_mod_name + "/sounds/"):
                 globals()[din_prefix + file_path] = file_name
-
+    
     din_std_set_for_preview = {}
     din_std_set = {}
     store.din_colors = {}
@@ -36,53 +36,49 @@ init python:
 
     store.din_names_list.append("din_th")
 
-    din_colors["din_teapot"] = {"speaker_color": (85, 19, 19, 255)}
-    din_names["din_teapot"] = "Чайник"
-    store.din_names_list.append("din_teapot")
-
-    din_colors["din_third"] = {"speaker_color": (0, 73, 121, 255)}
-    din_names["din_third"] = "Третий"
-    store.din_names_list.append("din_third")
-
-    din_colors["din_third_i"] = {"speaker_color": (0, 73, 121, 255)}
+    din_colors["din_third_i"] = {"speaker_color": "#004979"}
     din_names["din_third_i"] = "Я"
     store.din_names_list.append("din_third_i")
 
-    din_colors["din_nit"] = {"speaker_color": (159, 147, 147, 255)}
-    din_names["din_nit"] = "Ниточник"
-    store.din_names_list.append("din_nit")
+    din_colors["din_third"] = {"speaker_color": "#004979"}
+    din_names["din_third"] = "Третий"
+    store.din_names_list.append("din_third")
 
-    din_colors["din_nit_he"] = {"speaker_color": (159, 147, 147, 255)}
+    din_colors["din_nit_he"] = {"speaker_color": "#9f9393"}
     din_names["din_nit_he"] = "Он"
     store.din_names_list.append("din_nit_he")
 
-    din_colors["din_hall"] = {"speaker_color": (85, 19, 19, 255)}
-    din_names["din_hall"] = "Халл"
-    store.din_names_list.append("din_hall")
+    din_colors["din_nit"] = {"speaker_color": "#9f9393"}
+    din_names["din_nit"] = "Ниточник"
+    store.din_names_list.append("din_nit")
 
-    din_colors["din_pi_teapot"] = {"speaker_color": (85, 19, 19, 255)}
+    din_colors["din_pi_teapot"] = {"speaker_color": "#551313"}
     din_names["din_pi_teapot"] = "Пионер"
     store.din_names_list.append("din_pi_teapot")
 
-    din_colors["din_gensek"] = {"speaker_color": (209, 209, 65, 255)}
+    din_colors["din_teapot"] = {"speaker_color": "#551313"}
+    din_names["din_teapot"] = "Чайник"
+    store.din_names_list.append("din_teapot")
+
+    din_colors["din_gensek"] = {"speaker_color": "#d1d141"}
     din_names["din_gensek"] = "Генсек"
     store.din_names_list.append("din_gensek")
 
-    din_colors["din_pi1"] = {"speaker_color": (204, 204, 0)}
+    din_colors["din_pi1"] = {"speaker_color": "#cccc00"}
     din_names["din_pi1"] = "Пионер"
     store.din_names_list.append("din_pi1")
 
-    din_colors["din_pi2"] = {"speaker_color": (102, 102, 153)}
+    din_colors["din_pi2"] = {"speaker_color": "#666699"}
     din_names["din_pi2"] = "Пионер"
     store.din_names_list.append("din_pi2")
 
-    din_colors["din_pi3"] = {"speaker_color": (24, 115, 185)}
+    din_colors["din_pi3"] = {"speaker_color": "#1873b9"}
     din_names["din_pi3"] = "Пионер"
     store.din_names_list.append("din_pi3")
 
-    din_colors["din_pi_generic"] = {"speaker_color": (94, 91, 90)}
-    din_names["din_pi_generic"] = "Пионер"
-    store.din_names_list.append("din_pi_generic")
+    din_colors["din_pi_listener"] = {"speaker_color": "#5e5b5a"}
+    din_names["din_pi_listener"] = "Пионер"
+    store.din_names_list.append("din_pi_listener")
 
     din_colors["din_dv"] = {"speaker_color": "#ffaa00"}
     din_names["din_dv"] = "Алиса"
