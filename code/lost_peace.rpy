@@ -1,7 +1,7 @@
 label din_lost_peace_story:
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     scene bg ext_island_day with Dissolve(2)
     play music din_new_years_end fadein 5
     play ambience ambience_lake_shore_day fadein 2
@@ -99,10 +99,10 @@ label din_lost_peace_story:
     stop ambience fadeout 3
     stop music fadeout 3
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     $ persistent.timeofday = "sunset"
     $ persistent.sprite_time = "sunset"
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     scene bg ext_road_sunset with Dissolve(2)
     play music din_death_note fadein 10
     play ambience ambience_ext_road_evening fadein 3
@@ -183,7 +183,7 @@ label din_lost_peace_story:
     din_teapot "Ты хочешь устроить дуэль терпения!"
     din_teapot "Не хотел бы тебя огорчать, но ты не с тем связался, сынок. Я выучил наизусть «Две тактики социал-демократии в демократической революции» и не побоюсь ими воспользоваться."
     din_teapot "А твои эти выпады — так, на один зубок."
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     din_teapot "Ты лучше сдайся по-хорошему, а то же я их вслух зачитывать буду."
    
     menu:
@@ -244,7 +244,7 @@ label din_lost_peace_story:
     stop ambience fadeout 3
     scene bg black with Dissolve(2)
     stop music fadeout 4
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     jump din_lost_peace_story_interlude
    
 label din_end_f:    
@@ -321,7 +321,7 @@ label din_lost_peace_story_interlude:
     show din_nit silhouette normal:
         xpos 480
     show unblink
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     $ din_blink(2)
     $ din_unblink("bg ext_road_sunset", 2)
     din_th "Какого черта..."
@@ -338,7 +338,7 @@ label din_lost_peace_story_interlude:
     din_narrator "Очень надеюсь."
     stop music fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg ext_road_sunset with Dissolve(2)
     din_narrator "То слева, то справа за моей спиной начали раздаваться тихие хлопки, но они отвлекали не сильно."
     din_narrator "Может, барабанные перепонки лопнули от износа? В одной из книг писалось, что в абсолютной тишине послышаться может всякое."
