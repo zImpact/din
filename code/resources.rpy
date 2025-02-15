@@ -48,6 +48,10 @@ init python:
     din_names["din_nit_he"] = "Он"
     store.din_names_list.append("din_nit_he")
 
+    din_colors["din_nit_guest"] = {"speaker_color": "#9f9393"}
+    din_names["din_nit_guest"] = "Гость"
+    store.din_names_list.append("din_nit_guest")
+
     din_colors["din_nit"] = {"speaker_color": "#9f9393"}
     din_names["din_nit"] = "Ниточник"
     store.din_names_list.append("din_nit")
@@ -79,6 +83,10 @@ init python:
     din_colors["din_pi_listener"] = {"speaker_color": "#5e5b5a"}
     din_names["din_pi_listener"] = "Пионер"
     store.din_names_list.append("din_pi_listener")
+
+    din_colors["din_pacifist"] = {"speaker_color": "#088010"}
+    din_names["din_pacifist"] = "Пацифист"
+    store.din_names_list.append("din_pacifist")
 
     din_colors["din_dv"] = {"speaker_color": "#ffaa00"}
     din_names["din_dv"] = "Алиса"
@@ -381,6 +389,8 @@ init python:
 
     din_set_null_cursor_curried = renpy.curry(din_set_null_cursor)
 
+    config.custom_text_tags["din_shrinking_text"] = din_shrinking_text_tag
+
 init:
     $ din_titles = """{b}Спасибо, что снова читаете мод нашей команды!{/b}
     Не смотря ни на что, мы хотим создавать что-то новое, непохожее и нетипичное для мастерской.\n\nЭкспериментировать, воплощать и развивать идеи, которые откликаются людям. И если наш мод как-то в вас откликнулся, то дайте нам знать!\n\nВаша поддержка, даже в форме простого комментария ""Хороший мод, жду нового!"" действительно очень помогает нам. Каждый раз, когда мы видим подобное, в наших чатах случается подъем боевого духа и желания сворачивать горы)\n\nНад модом работали:\nSeeker - автор идеи, сценарист.\n\npaych3ck - основой код, дизайн интерфейса.\n\nДаниил Бухичевский - помощь с текстом.\n\nЕгорыч - работа над визуальной составляющей.\n\ndigreen17 - помощь с визуальной составляющей и вычитка текста.\n\nD_SMILE - художник фонов.\n\nCloudy - художник спрайтов.\n\nДанила Маклаков - помощь с улучшением спрайтов.\n\nБлагодарим тех, кто поддерживал нас финансово:\nГригорий Григорьев\n\nНикита Берлов\n\nИлья Можайкин\n\nМаксим Куттер\n\nПионер Пионерович\n\nРуслан Власов\n\nТак или иначе, спасибо за уделённое нам время! Этот мод - далеко не конец. Мы не собираемся останавливаться. Следите за анонсами. С уважением, Zero Impact."""
@@ -462,11 +472,11 @@ init:
     
     image bg din_fireplace_anim = din_frame_animation("din/images/bg/fireplace_anim/fireplace", 10, 1.8, True, Dissolve(1.2))
     image bg din_fireplace_winterlong_anim = din_frame_animation("din/images/bg/fireplace_winterlong_anim/fireplace_winterlong", 10, 1.8, True, Dissolve(1.2))
-    image bg din_stars_bush_anim = din_frame_animation("din/images/bg/din_stars_bush_anim/din_stars_bush", 15, 1.8, True, Dissolve(1.2))
-    image din_main_menu_day_anim = din_frame_animation("din/images/gui/main_menu/day/din_day", 5, 4, True, Dissolve(2))
-    image din_main_menu_night_anim = din_frame_animation("din/images/gui/main_menu/night/din_night", 5, 4, True, Dissolve(2))
-    image din_main_menu_sunset_anim = din_frame_animation("din/images/gui/main_menu/sunset/din_sunset", 5, 4, True, Dissolve(2))
-    image din_main_menu_morning_anim = din_frame_animation("din/images/gui/main_menu/morning/din_morning", 5, 4, True, Dissolve(2))
+    image bg din_stars_bush_anim = din_frame_animation("din/images/bg/stars_bush_anim/stars_bush", 15, 1.8, True, Dissolve(1.2))
+    image din_main_menu_day_anim = din_frame_animation("din/images/gui/main_menu/day/day", 5, 4, True, Dissolve(2))
+    image din_main_menu_night_anim = din_frame_animation("din/images/gui/main_menu/night/night", 5, 4, True, Dissolve(2))
+    image din_main_menu_sunset_anim = din_frame_animation("din/images/gui/main_menu/sunset/sunset", 5, 4, True, Dissolve(2))
+    image din_main_menu_morning_anim = din_frame_animation("din/images/gui/main_menu/morning/morning", 5, 4, True, Dissolve(2))
     image bg din_ext_polyana_night_blurred = im.Blur("images/bg/ext_polyana_night.jpg", 1.5)
 
     image din_gensek silhouette normal = im.MatrixColor("din/images/sprites/gensek/normal/gensek stay normal.png", im.matrix.tint(0, 0, 0))
@@ -478,6 +488,8 @@ init:
     image din_blank_skip = renpy.display.behavior.ImageButton(Null(1920, 1080), Null(1920, 1080), clicked=[Jump("din_after_intro")])
 
     image din_titles_style = ParameterizedText(style="din_titles_style", size=40, xalign=0.5)
+
+    image din_note = "din/images/effects/note.png"
 
     image din_nit_alpha_anim:
         "din_nit normal_r"
@@ -528,3 +540,21 @@ init:
         xalign 0.5 yalign 0.5 zoom 1.0
         pause 2.0
         linear 20 zoom 2.0 xalign 0.5 yalign 0.5
+
+    transform din_auto_moving():
+        subpixel True
+        truecenter
+        zoom 1.03
+
+        parallel:
+            linear 0.2 xoffset -2
+            linear 0.3 xoffset 3
+            linear 0.2 xoffset -1
+            linear 0.3 xoffset 2
+            repeat
+
+        parallel:
+            linear 0.2 yoffset -1
+            linear 0.25 yoffset 2
+            linear 0.2 yoffset -1
+            repeat
