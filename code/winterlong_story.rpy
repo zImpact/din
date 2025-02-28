@@ -2,14 +2,9 @@ label din_winterlong_story:
     $ din_set_mode_adv()
     stop music fadeout 3
     $ renpy.pause(2, hard=True)
-    $ renpy.block_rollback()
-    $ persistent.sprite_time = "night"
-    $ persistent.timeofday = "night"
-    $ din_set_timeofday_cursor_var = True
     $ din_story_intro("Длиною в зиму\nДень Третьего", "night", "bg din_fireplace_winterlong_anim", "din_third smile", "Длиною в зиму", "День Третьего", "forest_night")
     $ renpy.pause(2, hard=True)
-    $ persistent.sprite_time = "sunset"
-    $ persistent.timeofday = "sunset"
+    $ din_set_time("sunset")
     scene bg din_int_dining_hall_people_sunset with Dissolve(2)
     play ambience ambience_dining_hall_full fadein 3
     din_narrator "Обычный, непримечательный день."
@@ -89,9 +84,7 @@ label din_winterlong_story:
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
-    $ renpy.block_rollback()
-    $ persistent.timeofday = "night"
-    $ persistent.sprite_time = "night"
+    $ din_set_time("night")
     scene bg din_fireplace_winterlong_anim with Dissolve(2)
     play sound_loop din_voices fadein 2
     play ambience sfx_forest_fireplace fadein 2
@@ -437,7 +430,6 @@ label din_winterlong_story_science:
     jump din_winterlong_story_interlude
     
 label din_winterlong_story_interlude:
-    $ renpy.block_rollback()
     $ din_interlude_intro("Пробуждение")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)
     play ambience ambience_ext_road_evening fadein 2
@@ -476,7 +468,6 @@ label din_winterlong_story_interlude:
     $ din_unblink("bg din_ext_camp_plain_sight_sunset", 2)
     din_narrator "Это красивое место. {w}Красивое, но пустое."
     din_narrator "Я вышел за ворота лагеря, оставив его тело позади."
-    
     stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(2)

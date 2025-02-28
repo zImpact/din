@@ -1,11 +1,7 @@
 label din_ikarus_story:
     $ din_set_mode_adv()
     stop music fadeout 3
-    $ renpy.pause(2, hard=True)
-    $ renpy.block_rollback()
-    $ persistent.sprite_time = "day"  
-    $ persistent.timeofday = "day"
-    $ din_set_timeofday_cursor_var = True    
+    $ renpy.pause(2, hard=True)  
     $ din_story_intro("Икарус\nДень Чайника", "day", "bg ext_road_day", "din_hall pos2 smile", "Икарус", "День Чайника", "ext_road_day")
     scene bg din_ext_power_line_day with Dissolve(2)
     $ din_onload("unlock")
@@ -123,7 +119,6 @@ label din_ikarus_story:
     $ renpy.pause(2, hard=True)
     
 label din_ikarus_story_interlude:
-    $ renpy.block_rollback()
     $ din_interlude_intro("Просьба")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)
     play ambience ambience_ext_road_evening fadein 2

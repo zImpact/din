@@ -2,13 +2,9 @@ label din_rolegame_story:
     $ din_set_mode_adv()
     stop music fadeout 3
     $ renpy.pause(2, hard=True)
-    $ renpy.block_rollback()
-    $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = "sunset"
-    $ din_set_timeofday_cursor_var = True
     $ din_story_intro("Игра по ролям\nДень Третьего", "sunset", "bg din_int_dining_hall_sunset", "din_third normal", "Игра по ролям", "День Третьего", "dining_hall_empty")
-    $ persistent.timeofday = "dungeon"
-    $ persistent.sprite_time = "day"
+    $ renpy.pause(2, hard=True)
+    $ din_set_time("dungeon", "day")
     scene bg din_int_rpg_dungeon with Dissolve(2)
     $ din_onload("unlock")
     play music din_pillars_of_eternity_elmshore fadein 2
@@ -16,9 +12,7 @@ label din_rolegame_story:
     din_nit "{i}Вы заходите в подвал. {w}Вокруг довольно темно и кружит пыль, но вам...{/i} {w}Бросай на внимательность, Чайник."
     $ din_rolegame_ambience_memorization.pause()
     $ din_rolegame_music_memorization.pause()
-    $ renpy.block_rollback()
-    $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = "sunset"
+    $ din_set_time("sunset")
     scene bg din_int_dining_hall_sunset
     show din_hall pos2 smile3 at left
     show din_nit normal_l at right
@@ -31,8 +25,7 @@ label din_rolegame_story:
     din_narrator "Нит в очередной раз пожалел, что позволил Чайнику получить такой огромный бонус, но вслух ничего не сказал."
     stop ambience fadeout 2    
     scene bg din_int_rpg_dungeon with din_wipeleft
-    $ renpy.block_rollback()
-    $ persistent.timeofday = "dungeon"
+    $ din_set_time("dungeon", "day")
     $ din_rolegame_ambience_memorization.resume()
     $ din_rolegame_music_memorization.resume()
     din_nit "Ладно, пробросил. {w}{i}В подземном этаже без окон, напоминающем заброшенный склад гильдии торговцев, ты замечаешь непримечательные бумаги, а древние погнутые доспехи, сваленные в дальнем углу, похоже, лучатся от сильной магии.{/i} "
@@ -279,9 +272,7 @@ label din_rg_1_torch_poition:
     din_teapot "Что только что произошло?"
     stop music fadeout 2
     stop ambience fadeout 2
-    $ renpy.block_rollback()
-    $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = "sunset"
+    $ din_set_time("sunset")
     scene bg din_int_dining_hall_sunset
     show din_hall pos2 smile3 at left
     show din_nit normal_l at right
@@ -359,9 +350,7 @@ label din_rg_1_take_clock:
     din_nit "{i}От навалившейся одномоментно силы ты за пару секунд пролетел метров пятьдесят. {w}Оттуда ты мог видеть своё тело, оставшееся на прежнем месте. {w}Как только ты это осознал, мир полностью схлопнулся перед твоим взором.{/i} {w}Вы мертвы."
     stop music fadeout 2
     stop ambience fadeout 2
-    $ renpy.block_rollback()
-    $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = "sunset"
+    $ din_set_time("sunset")
     scene bg din_int_dining_hall_sunset
     show din_nit normal_r at center
     with din_wiperight
@@ -490,9 +479,7 @@ label din_rg_wait:
     din_nit "И-и-и, моя любимая часть истории. {w}Время умирать, Чайник! {w}В непроглядной тьме ты находишь..."
     stop music fadeout 2
     stop ambience fadeout 2
-    $ renpy.block_rollback()
-    $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = "sunset"
+    $ din_set_time("sunset")
     scene bg din_int_dining_hall_sunset
     with din_wiperight
     play ambience din_voices fadein 2
@@ -821,5 +808,4 @@ label din_rolegame_story_interlude:
     din_narrator "Я раскрыл глаза по-настоящему."
     din_narrator "И автобусная остановка снова безразлично окутала меня."
     din_narrator "Что же, хватит мечтать. Кому-то пора просыпаться."    
-    
     jump din_lost_peace_story

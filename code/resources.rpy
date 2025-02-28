@@ -289,6 +289,7 @@ init python:
     def din_story_intro(_save_name, daytime, background, sprite, lbl, desc, amb):
         global save_name
 
+        renpy.block_rollback()
         save_name = _save_name
         persistent.timeofday = daytime
         persistent.sprite_time = daytime
@@ -309,6 +310,7 @@ init python:
     def din_interlude_intro(interlude_name):
         global save_name
 
+        renpy.block_rollback()
         save_name = "Интерлюдия.\nНиточник и Третий.\n{}".format(interlude_name)
         persistent.timeofday = "sunset"
         persistent.sprite_time = "sunset"

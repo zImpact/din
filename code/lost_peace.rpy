@@ -1,7 +1,9 @@
 label din_lost_peace_story:
-    $ persistent.timeofday = "day"
-    $ persistent.sprite_time = "day"
+    $ din_set_mode_adv()
+    stop music fadeout 3
     $ renpy.pause(2, hard=True)
+    $ din_story_intro("Потерянный мир\nДень Пацифиста", "sunset", "bg ext_road_sunset", "din_pacifist pos1 normal", "Потерянный мир", "День Пацифиста", "ext_road_evening")
+    $ din_set_time("day")
     scene bg ext_island_day with Dissolve(2)
     play music din_new_years_end fadein 5
     play ambience ambience_lake_shore_day fadein 2
@@ -100,9 +102,7 @@ label din_lost_peace_story:
     stop music fadeout 3
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
-    $ persistent.timeofday = "sunset"
-    $ persistent.sprite_time = "sunset"
-    $ renpy.pause(2, hard=True)
+    $ din_set_time("sunset")
     scene bg ext_road_sunset with Dissolve(2)
     play music din_death_note fadein 10
     play ambience ambience_ext_road_evening fadein 3
@@ -439,9 +439,7 @@ label din_lost_peace_story_interlude:
     din_third_i "Нам?"
     din_narrator "В моей голове быстро пронеслась одна мысль."
     stop ambience fadeout 2
-    $ renpy.block_rollback()
-    $ persistent.timeofday = "night"
-    $ persistent.sprite_time = "night"
+    $ din_set_time("night")
     scene bg ext_road_night2 
     show din_nit normal_r at center
     with dissolve
