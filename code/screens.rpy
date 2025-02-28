@@ -153,41 +153,54 @@ screen din_story_choice():
     tag menu
     modal True
 
-    add "din_stories_all_closed"
+    add din_gui_path + "main_menu/stories_all_closed.png"
 
-    din_transition_imagebutton:
-        idle "din_ikarus_story_idle"
-        hover "din_ikarus_story_hover"
-        transition Dissolve(1.5)
+    imagebutton:
+        idle din_gui_path + "main_menu/ikarus_story_hover.png"
+        hover din_gui_path + "main_menu/ikarus_story_hover.png"
+        focus_mask True
         action [
             Hide("din_story_choice", Dissolve(1.5)),
             Start("din_ikarus_story")
         ]
 
     if persistent.din_flags["din_ikarus_story_completed"]:
-        din_transition_imagebutton:
-            idle "din_winterlong_story_idle"
-            hover "din_winterlong_story_hover"
-            xpos 639
-            transition Dissolve(1.5)
+        imagebutton:
+            idle din_gui_path + "main_menu/winterlong_story_hover.png"
+            hover din_gui_path + "main_menu/winterlong_story_hover.png"
+            focus_mask True
+            xpos 470
             action [
                 Hide("din_story_choice", Dissolve(1.5)),
                 Start("din_winterlong_story")
             ]
 
     if persistent.din_flags["din_winterlong_story_completed"]:
-        din_transition_imagebutton:
-            idle "din_rolegame_story_idle" 
-            hover "din_rolegame_story_hover"
-            xpos 1253
-            transition Dissolve(1.5)
+        imagebutton:
+            idle din_gui_path + "main_menu/rolegame_story_hover.png" 
+            hover din_gui_path + "main_menu/rolegame_story_hover.png"
+            focus_mask True
+            xpos 980
             action [
                 Hide("din_story_choice", Dissolve(1.5)),
                 Start("din_rolegame_story")
             ]
 
+    if persistent.din_flags["din_rolegame_story_completed"]:
+        imagebutton:
+            idle din_gui_path + "main_menu/lost_peace_story_idle.png" 
+            hover din_gui_path + "main_menu/lost_peace_story_hover.png"
+            focus_mask True
+            xpos 1405
+            action [
+                Hide("din_story_choice", Dissolve(1.5)),
+                Start("din_lost_peace_story")
+            ]
+
+    add din_gui_path + "main_menu/stories_borders.png"
+
     imagebutton:
-        auto "din_back_%s"
+        auto din_gui_path + "main_menu/back_%s.png"
         xpos 1800
         ypos 1000
         action [
