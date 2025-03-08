@@ -345,22 +345,20 @@ init python:
             din_lock_quick_menu = False
             config.allow_skipping = True
 
-    din_onload_curried = renpy.curry(din_onload)
-
     def din_current_time():
-        din_hours = {
+        hours = {
             "morning": [7, 8],
             "day": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
             "sunset": [20, 21],
             "night": [22, 23, 24, 0, 1, 2, 3, 4, 5, 6]            
         }
         
-        din_time = time.strftime("%H:%M:%S", time.localtime())
-        din_hour, din_min, din_sec = din_time.split(":")
-        din_hour = int(din_hour)
+        time = time.strftime("%H:%M:%S", time.localtime())
+        hour, minute, sec = time.split(":")
+        hour = int(din_hour)
 
-        for timeofday, hours in din_hours.items():
-            if din_hour in hours:
+        for timeofday, hours in hours.items():
+            if hour in hours:
                 return timeofday
 
     def din_show_titles():
