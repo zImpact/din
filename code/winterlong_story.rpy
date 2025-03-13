@@ -141,9 +141,8 @@ label din_winterlong_story_bar:
     play ambience ambience_forest_night fadein 2
     play music din_el_huervo_daisuke fadein 2
     din_narrator "Заправлявший баром Пионер молча налил мне стакан."
-    din_narrator "Как раз на фоне костра сейчас пара расслабленных, но энергичных Чайников выслушивала слова от фигуры со знакомо наклонённой головой." # FIXME: непонятна суть, лучше переписать (конкретно про пару Чайников)
-    din_th "А у них отлично получается."
-    din_narrator "Бармен же не делал никаких лишних движений."
+    din_narrator "Движения бармена были расслабленными, но выверенными."
+    din_th "Интересно, чего он здесь, вдали от всех?"
     din_th "Вряд ли этим бы занимался кто-то кроме любителя посмотреть на чужую печаль."
     din_th "Или... {w}Я ошибаюсь? {w}Буду надеяться, что осталось хоть что-то, в чём я могу ошибаться."
     hide din_nuts silhouette normal with dissolve
@@ -371,7 +370,7 @@ label din_winterlong_story_science:
     scene bg ext_polyana_night
     show din_hall pos2 smile2 at center
     with dissolve
-    din_teapot "Вставай-вставай-вставай-вставай." # FIXME: выпилить?
+    din_teapot "Просыпайся, соня."
     din_th "Да что за!.."
     din_narrator "После того как я рывком перешел в сидячее положение, ощутились изменения."
     din_narrator "А конкретно — новая форма моей головы."
