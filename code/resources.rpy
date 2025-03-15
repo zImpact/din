@@ -353,12 +353,11 @@ init python:
             "night": [22, 23, 24, 0, 1, 2, 3, 4, 5, 6]            
         }
         
-        time = time.strftime("%H:%M:%S", time.localtime())
-        hour, minute, sec = time.split(":")
-        hour = int(din_hour)
+        current_time = time.strftime("%H:%M:%S", time.localtime())
+        hour, minute, sec = current_time.split(":")
 
         for timeofday, hours in hours.items():
-            if hour in hours:
+            if int(hour) in hours:
                 return timeofday
 
     def din_show_titles():

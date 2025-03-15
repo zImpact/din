@@ -156,8 +156,7 @@ screen din_story_choice():
     add din_gui_path + "main_menu/stories_all_closed.png"
 
     imagebutton:
-        idle din_gui_path + "main_menu/ikarus_story_hover.png"
-        hover din_gui_path + "main_menu/ikarus_story_hover.png"
+        auto din_gui_path + "main_menu/ikarus_story_%s.png"
         focus_mask True
         action [
             Hide("din_story_choice", Dissolve(1.5)),
@@ -166,8 +165,7 @@ screen din_story_choice():
 
     if persistent.din_flags["din_ikarus_story_completed"]:
         imagebutton:
-            idle din_gui_path + "main_menu/winterlong_story_hover.png"
-            hover din_gui_path + "main_menu/winterlong_story_hover.png"
+            auto din_gui_path + "main_menu/winterlong_story_%s.png"
             focus_mask True
             xpos 470
             action [
@@ -177,8 +175,7 @@ screen din_story_choice():
 
     if persistent.din_flags["din_winterlong_story_completed"]:
         imagebutton:
-            idle din_gui_path + "main_menu/rolegame_story_hover.png" 
-            hover din_gui_path + "main_menu/rolegame_story_hover.png"
+            auto din_gui_path + "main_menu/rolegame_story_%s.png" 
             focus_mask True
             xpos 980
             action [
@@ -188,8 +185,7 @@ screen din_story_choice():
 
     if persistent.din_flags["din_rolegame_story_completed"]:
         imagebutton:
-            idle din_gui_path + "main_menu/lost_peace_story_idle.png" 
-            hover din_gui_path + "main_menu/lost_peace_story_hover.png"
+            auto din_gui_path + "main_menu/lost_peace_story_%s.png"
             focus_mask True
             xpos 1405
             action [
@@ -283,7 +279,7 @@ screen din_characters():
         for char, info in din_characters_info.items():
             if persistent.din_flags["din_" + char + "_info_received"]:
                 imagebutton:
-                    auto "din_" + char + "_button_info" + "_%s"
+                    auto din_gui_path + "main_menu/" + char + "_button_info" + "_%s.png"
                     xalign info["button_pos"]
                     yalign 0.5
                     action [
@@ -293,7 +289,7 @@ screen din_characters():
                     ]
             
             else:
-                add "din_button_info_locked" xalign info["button_pos"] yalign 0.5
+                add din_gui_path + "main_menu/button_info_locked.png" xalign info["button_pos"] yalign 0.5
 
         textbutton "Назад":
             style "din_log_button"
