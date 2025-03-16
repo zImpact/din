@@ -13,7 +13,7 @@ jobs:
       sdk_version: "8.1.3"
       google_drive_id: "1MM3B6VRDXJDwQphj_sWuG8AthqIu8s-y"
       es_ver: "7"
-      grammar_check_files: "code/ikarus_story.rpy code/winterlong_story.rpy code/rolegame_story.rpy code/lost_peace.rpy"
+      grammar_check_files: "code/scenario/ikarus.rpy code/scenario/intro.rpy code/scenario/winterlong.rpy code/scenario/rolegame.rpy code/scenario/lost_peace.rpy"
       exclusions: "exclusions.yml"
       output_type: "markdown"
       folder: "code"
