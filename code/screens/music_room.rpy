@@ -16,10 +16,10 @@ init python:
         "Pillars Of Eternity — Elmshore": din_pillars_of_eternity_elmshore
     }
 
-    din_mr = MusicRoom(fadeout=1.0)
+    din_music_room = MusicRoom(fadeout=1.0)
 
     for music_name in din_music_box.values():
-        din_mr.add(music_name)
+        din_music_room.add(music_name)
 
 screen din_music_room():
     modal True
@@ -43,11 +43,12 @@ screen din_music_room():
                     
                     grid 1 len(din_music_box):
                         for name, track in sorted(din_music_box.iteritems()):
-                            textbutton name:
+                            $ din_music_room_label_text = name if din_music_room.is_unlocked(track) else "???"
+                            textbutton din_music_room_label_text:
                                 style "din_button_none"
                                 text_style "music_link"
                                 xalign 0.5
-                                action din_mr.Play(track)
+                                action din_music_room.Play(track)
 
                 vbar:
                     value YScrollValue("din_music_box")

@@ -232,15 +232,6 @@ init python:
     persistent.din_flags.setdefault("din_gensek_info_received", False)
     persistent.din_flags.setdefault("din_pacifist_info_received", False)
 
-    def din_get_char_sprites(char):
-        sprite_names = []
-
-        for image in renpy.list_images():
-            if image.startswith("din_{} ".format(char)):
-                sprite_names.append(image)
-
-        return sprite_names
-
     def din_page_counter(n, k):
         l = float(n) / float(k)
         
@@ -427,9 +418,10 @@ init:
     image din_intro_frame = DinBlackRectangle(width=1920, height=689, alpha=0.6)
     image din_char_description_frame = DinBlackRectangle(width=1150, height=915, alpha=0.6)
     image din_hall_char_name_frame = DinBlackRectangle(width=180, height=70, alpha=0.6)
-    image din_gensek_char_name_frame = DinBlackRectangle(width=250, height=70, alpha=0.6)
-    image din_nit_char_name_frame = DinBlackRectangle(width=330, height=70, alpha=0.6)
     image din_third_char_name_frame = DinBlackRectangle(width=240, height=90, alpha=0.6)
+    image din_nit_char_name_frame = DinBlackRectangle(width=330, height=70, alpha=0.6)
+    image din_gensek_char_name_frame = DinBlackRectangle(width=250, height=70, alpha=0.6)
+    image din_pacifist_char_name_frame = DinBlackRectangle(width=350, height=90, alpha=0.6)
 
     image din_story_frame = DinBlackRectangle(width=630, height=240, alpha=0.5)
     image din_interlude_frame = DinBlackRectangle(width=630, height=290, alpha=0.5)

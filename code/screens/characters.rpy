@@ -1,6 +1,15 @@
 init python:
     from collections import OrderedDict
 
+    def din_characters_get_sprites(char):
+        sprite_names = []
+
+        for image in renpy.list_images():
+            if image.startswith("din_{} ".format(char)):
+                sprite_names.append(image)
+
+        return sprite_names
+
     din_characters_info = OrderedDict([
         ("hall", {
             "name": "Халл",
@@ -8,7 +17,7 @@ init python:
             "sprite_time": "night",
             "bg": "bg din_ext_scene_night",
             "description": "Если для многих жизнь в лагере стала\nпыткой и мучением, Халл явное исключение\nиз правила. Только в критические моменты\nза его рассеянностью и спонтанностью\nможно разглядеть опасного долгожителя.\nЖажда знаний и экспериментов завоевала\nему устойчивое место среди\nисследователей лагеря. Хоть девять из\nдесяти его изобретений - нерабочая груда\nхлама, десятое часто может стать\nпредметом мысли всех в Общем Лагере\nна многие смены.",
-            "sprites": din_get_char_sprites("hall")
+            "sprites": din_characters_get_sprites("hall")
         }),
         ("third", {
             "name": "Третий",
@@ -16,7 +25,7 @@ init python:
             "sprite_time": "sunset",
             "bg": "bg din_int_dining_hall_sunset_crashed",
             "description": "Среди верхушки лагеря каждый так или\nиначе пытается прогнуть мир под себя,\nподстроить лагерь под свои идеалы. Тем\nудивительнее выглядит Третий, о котором\nмногие рядовые Пионеры могли только\nслышать. Взяв себе имя за место в\nТурнире, победив почти всех один на один,\nТретий всегда занимает роли второго\nплана в лагере. Хоть такое отсутствие\nамбиций поначалу удивляло Пионеров, они\nбыстро смекнули, что Третий может стать \nбесценным подспорьем в любой идее.",
-            "sprites": din_get_char_sprites("third")
+            "sprites": din_characters_get_sprites("third")
         }),
         ("nit", {
             "name": "Ниточник",
@@ -24,7 +33,7 @@ init python:
             "sprite_time": "day",
             "bg": "bg din_ext_camp_plain_sight_day",
             "description": "Сдержанный оптимизм и лидерские навыки\nсделали Ниточника уважаемым и желанным\nгостем в любой компании даже несмотря\nна не самую большую опасность в бою.\nКрасноречие и сдержанность позволяют\nему служить отличным мостом между и\nстарыми, и довольно «молодыми»\nПионерами, а большие амбиции не\nпозволят ему сидеть на месте. Он - один\nиз немногих старших Пионеров, кто может\nоткрыто верить во Внешний Мир и не быть\nосмеянным.",
-            "sprites": din_get_char_sprites("nit")
+            "sprites": din_characters_get_sprites("nit")
         }),
         ("gensek", {
             "name": "Генсек",
@@ -32,15 +41,15 @@ init python:
             "sprite_time": "night",
             "bg": "bg din_ext_bar_night",
             "description": "Очень деятельный и крайне опасный, этот\nПионер мало похож на других из первой\nдесятки. Если остальные скорее молча\nуживаются с лагерем, то Генсек\nперестраивает жизнь в лагере под себя.\nИменно он когда-то давно превратил\nскромное сборище пары Пионеров в\nсердце лагерей, Общую столовую.\nГенсек намеревается построить удобное\nдля него общество и, благодаря таланту к\nманипуляции и умению заводить друзей, он\nтак или иначе добьется своего.",
-            "sprites": din_get_char_sprites("gensek")
+            "sprites": din_characters_get_sprites("gensek")
         }),
         ("pacifist", {
             "name": "Пацифист",
-            "main_sprite": "din_gensek stay normal",
+            "main_sprite": "din_pacifist pos1 normal",
             "sprite_time": "sunset",
-            "bg": "bg din_ext_bar_night",
-            "description": "Помимо завсегдатаев и новичков, в Лагере иногда можно встретить и тех, кто еще не выбрал себе дорогу. Пацифист, довольно молодой Пионер в Лагере, все еще ищет своё место. И если старые Пионеры уже давно себя показали, то среди таких, как Пацифист, еще могут таиться сюрпризы. Кто знает, может, именно в нём сокрыт огромный потенциал?",
-            "sprites": din_get_char_sprites("pacifist")
+            "bg": "bg ext_road_sunset",
+            "description": "Помимо завсегдатаев и новичков, в Лагере\nиногда можно встретить и тех, кто еще не\nвыбрал себе дорогу. Пацифист, довольно\nмолодой Пионер в Лагере, все еще ищет\nсвое место. И если старые Пионеры уже\nдавно себя показали, то среди таких, как\nПацифист, еще могут таиться сюрпризы.\nКто знает, может, именно в нем сокрыт\nогромный потенциал?",
+            "sprites": din_characters_get_sprites("pacifist")
         })
     ])
 
@@ -80,8 +89,11 @@ screen din_characters():
             $ din_characters_xalign = din_characters_left_border + (i * (din_characters_right_border - din_characters_left_border) / (din_characters_current_number - 1)) if din_characters_current_number > 1 else 0.5
 
             if persistent.din_flags["din_" + char + "_info_received"]:
+                $ din_characters_current_button = din_gui_path + "main_menu/" + char + "_button_info_hover.png"
+
                 imagebutton:
-                    auto din_gui_path + "main_menu/" + char + "_button_info" + "_%s.png"
+                    idle Transform(din_characters_current_button, alpha=0.9)
+                    hover din_characters_current_button
                     xalign din_characters_xalign
                     yalign 0.5
                     action [
@@ -139,8 +151,6 @@ screen din_character_info(char):
         antialias True
         kerning 2
 
-    add "din_char_description_frame" xpos 58 ypos 135
-
     imagebutton:
         idle Transform(din_characters_info[char]["main_sprite"], alpha=0.9)
         hover din_characters_info[char]["main_sprite"]
@@ -151,6 +161,8 @@ screen din_character_info(char):
             ShowMenu("din_character_sprites", char=char, sprite=din_characters_info[char]["main_sprite"])
         ]
 
+    add "din_char_description_frame" xpos 58 ypos 135
+
     text din_characters_info[char]["description"]:
         font din_main_menu_font
         line_spacing 10
@@ -159,7 +171,7 @@ screen din_character_info(char):
         ypos 172
 
     imagebutton:
-        auto "din_back_%s"
+        auto din_gui_path + "main_menu/back_%s.png"
         xpos 1800
         ypos 1000
         action [
@@ -194,7 +206,7 @@ screen din_character_sprites(char, sprite):
         action ShowMenu("din_character_sprites", char=char, sprite=din_prev_sprite)
 
     imagebutton:
-        auto "din_back_%s"
+        auto din_gui_path + "main_menu/back_%s.png"
         xpos 1800
         ypos 1000
         action [
