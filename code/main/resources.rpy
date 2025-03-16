@@ -177,7 +177,7 @@ init python:
             return
         
         if is_nvl:
-            din_gl[character_name] = DynamicCharacter("%s_name" % character_name, color = store.din_colors[character_name][din_speaker_color], kind = nvl, what_style="din_text_style", who_suffix=":")
+            din_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.din_colors[character_name][din_speaker_color], kind=nvl, what_style="din_text_style", who_suffix=":")
             din_gl["%s_name" % character_name] = store.din_names[character_name]
         
         else:
@@ -230,6 +230,7 @@ init python:
     persistent.din_flags.setdefault("din_hall_info_received", False)
     persistent.din_flags.setdefault("din_third_info_received", False)
     persistent.din_flags.setdefault("din_gensek_info_received", False)
+    persistent.din_flags.setdefault("din_pacifist_info_received", False)
 
     def din_get_char_sprites(char):
         sprite_names = []
@@ -420,48 +421,6 @@ init:
     $ din_rolegame_music_memorization = DinTimingMemorization("music", 2)
 
     $ din_portal_use_transition = ImageDissolve("din/images/gui/misc/din_transition2.png", 0.3, 16)
-
-    $ din_characters_info = {
-        "nit": {
-            "name": "Ниточник",
-            "button_pos": 0.05,
-            "main_sprite": "din_nit normal_r",
-            "sprite_time": "day",
-            "bg": "bg din_ext_camp_plain_sight_day",
-            "description": "Сдержанный оптимизм и лидерские навыки\nсделали Ниточника уважаемым и желанным\nгостем в любой компании даже несмотря\nна не самую большую опасность в бою.\nКрасноречие и сдержанность позволяют\nему служить отличным мостом между и\nстарыми, и довольно «молодыми»\nПионерами, а большие амбиции не\nпозволят ему сидеть на месте. Он - один\nиз немногих старших Пионеров, кто может\nоткрыто верить во Внешний Мир и не быть\nосмеянным.",
-            "sprites": din_get_char_sprites("nit")
-        },
-
-        "hall": {
-            "name": "Халл",
-            "button_pos": 0.35,
-            "main_sprite": "din_hall pos2 normal",
-            "sprite_time": "night",
-            "bg": "bg din_ext_scene_night",
-            "description": "Если для многих жизнь в лагере стала\nпыткой и мучением, Халл явное исключение\nиз правила. Только в критические моменты\nза его рассеянностью и спонтанностью\nможно разглядеть опасного долгожителя.\nЖажда знаний и экспериментов завоевала\nему устойчивое место среди\nисследователей лагеря. Хоть девять из\nдесяти его изобретений - нерабочая груда\nхлама, десятое часто может стать\nпредметом мысли всех в Общем Лагере\nна многие смены.",
-            "sprites": din_get_char_sprites("hall")
-        },
-
-        "third": {
-            "name": "Третий",
-            "button_pos": 0.65,
-            "main_sprite": "din_third normal",
-            "sprite_time": "sunset",
-            "bg": "bg din_int_dining_hall_sunset_crashed",
-            "description": "Среди верхушки лагеря каждый так или\nиначе пытается прогнуть мир под себя,\nподстроить лагерь под свои идеалы. Тем\nудивительнее выглядит Третий, о котором\nмногие рядовые Пионеры могли только\nслышать. Взяв себе имя за место в\nТурнире, победив почти всех один на один,\nТретий всегда занимает роли второго\nплана в лагере. Хоть такое отсутствие\nамбиций поначалу удивляло Пионеров, они\nбыстро смекнули, что Третий может стать \nбесценным подспорьем в любой идее.",
-            "sprites": din_get_char_sprites("third")
-        },
-
-        "gensek": {
-            "name": "Генсек",
-            "button_pos": 0.95,
-            "main_sprite": "din_gensek stay normal",
-            "sprite_time": "night",
-            "bg": "bg din_ext_bar_night",
-            "description": "Очень деятельный и крайне опасный, этот\nПионер мало похож на других из первой\nдесятки. Если остальные скорее молча\nуживаются с лагерем, то Генсек\nперестраивает жизнь в лагере под себя.\nИменно он когда-то давно превратил\nскромное сборище пары Пионеров в\nсердце лагерей, Общую столовую.\nГенсек намеревается построить удобное\nдля него общество и, благодаря таланту к\nманипуляции и умению заводить друзей, он\nтак или иначе добьется своего.",
-            "sprites": din_get_char_sprites("gensek")
-        }
-    }
 
     image din_main_menu_frame = DinBlackRectangle(width=720, height=1080, alpha=0.6)
     image din_main_menu_options_frame = DinBlackRectangle(width=1804, height=1028, alpha=0.6)
