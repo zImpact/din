@@ -1,10 +1,18 @@
 label din_winterlong_story:
     $ din_set_mode_adv()
     stop music fadeout 3
-    $ renpy.pause(2, hard=True)
-    $ din_story_intro("Длиною в зиму\nДень Третьего", "night", "bg din_fireplace_winterlong_anim", "din_third smile", "Длиною в зиму", "День Третьего", "forest_night")
-    $ renpy.pause(2, hard=True)
+    $ din_story_intro(
+        "Длиною в зиму\nДень Третьего",
+        "night",
+        "bg din_fireplace_winterlong_anim",
+        "din_third smile",
+        "Длиною в зиму",
+        "День Третьего",
+        "forest_night"
+    )
+    $ din_onload("unlock")
     $ din_set_time("sunset")
+    $ din_set_dynamic_cursor("timeofday")
     scene bg din_int_dining_hall_people_sunset with Dissolve(2)
     play ambience ambience_dining_hall_full fadein 3
     din_narrator "Обычный, непримечательный день."

@@ -34,6 +34,7 @@ init python:
                 _preferences.volumes["music"] = persistent.din_on_save_timeofday[slot][3]
                 _preferences.volumes["sfx"] = persistent.din_on_save_timeofday[slot][4]
                 _preferences.volumes["voice"] = persistent.din_on_save_timeofday[slot][5]
+                din_set_dynamic_cursor("timeofday")
         
         except:
             pass
@@ -66,7 +67,6 @@ init python:
 
         layout.LOADING = "Потерять несохраненые данные?"
         
-        config.overlay_functions.append(din_set_timeofday_cursor)
         config.main_menu_music = din_god_is_an_astronaut_tempus_horizon
         config.linear_saves_page_size = None
         persistent._file_page = "din_FilePage_1"  

@@ -1,9 +1,18 @@
 label din_lost_peace_story:
     $ din_set_mode_adv()
     stop music fadeout 3
-    $ renpy.pause(2, hard=True)
-    $ din_story_intro("Потерянный мир\nДень Пацифиста", "sunset", "bg ext_road_sunset", "din_pacifist pos1 normal", "Потерянный мир", "День Пацифиста", "ext_road_evening")
+    $ din_story_intro(
+        "Потерянный мир\nДень Пацифиста",
+        "sunset",
+        "bg ext_road_sunset",
+        "din_pacifist pos1 normal",
+        "Потерянный мир",
+        "День Пацифиста", 
+        "ext_road_evening"
+    )
+    $ din_onload("unlock")
     $ din_set_time("day")
+    $ din_set_dynamic_cursor("timeofday")
     scene bg ext_island_day with Dissolve(2)
     play music din_new_years_end fadein 5
     play ambience ambience_lake_shore_day fadein 2
@@ -53,7 +62,7 @@ label din_lost_peace_story:
     show din_hall pos2 smile3:
         linear 1 xalign 0.2
     $ renpy.pause(1, hard=True)
-    show din_nit bulging3_l at right with dspr
+    show din_nit bulging3_l at right with dissolve
     din_narrator "Наш разговор прервало появление нового Пионера."
     din_narrator "Я сразу напрягся и замолчал."
     din_narrator "От всех их стоит ждать беды."  
@@ -156,7 +165,7 @@ label din_lost_peace_story:
             din_teapot "Даааааааа..." # nolint
             din_narrator "Чайник расслабленно откинулся, насколько это позволяло сиденье Волги."
             din_narrator "В следующий раз делай так сразу."
-            jump din_end_f
+            jump din_lost_peace_f
            
         "Промолчать":
             pass
@@ -172,7 +181,7 @@ label din_lost_peace_story:
             din_narrator "Ну что же, мне не жалко, пусть порадуется."
             din_pacifist "Дыр-дыр-дыр."
             din_teapot "Вот, видишь? Капля терпения и моей доброты открывает все двери."
-            jump din_end_f
+            jump din_lost_peace_f
            
         "Промолчать":
             pass
@@ -198,7 +207,7 @@ label din_lost_peace_story:
             din_teapot "Эээх, если у вас плохое настроение, то мы едем к вам!"
             din_narrator "Он азартно завёл машину и, крутанув руль, дал резвый старт."
             din_narrator "Я прислонился лбом к стеклу своего окна."      
-            jump din_end_f_2
+            jump din_lost_peace_f_2
 
         "Промолчать":
             pass
@@ -217,7 +226,7 @@ label din_lost_peace_story:
             din_teapot "Знаешь, делай так чаще, мне даже понравилось. {w}Я, как истинный рыцарь, своей смекалкой и упорством завалил вредного дракона!"
             play sound_loop sfx_bus_interior_moving fadein 2
             din_narrator "Закончив самовосхваление, Чайник, сияя от радости, завёл наконец машину."
-            jump din_end_f_2
+            jump din_lost_peace_f_2
            
         "Промолчать":
             pass
@@ -231,7 +240,7 @@ label din_lost_peace_story:
     din_teapot "А еще, уверен, что тебе уже говорил это, но иди к черту."
     din_narrator "Он всё еще бормотал себе что-то под нос, когда машина сдвинулась."
     din_th "Хорошо, что Чайник быстро отходит."
-    scene bg din_ext_power_line_sunset at din_auto_moving with dissolve
+    scene bg din_ext_power_line_sunset_from_car at din_auto_moving with dissolve
     din_narrator "Я уставился на вид за окном."
     din_th "Может, жизнь здесь не так уж и плоха?"
     din_th "Да, это не то, о чём я мечтал, но и в той жизни всё хорошо бы не сложилось."
@@ -247,12 +256,12 @@ label din_lost_peace_story:
     $ renpy.pause(2, hard=True)
     jump din_lost_peace_story_interlude
    
-label din_end_f:    
+label din_lost_peace_f:    
     play sound_loop sfx_bus_interior_moving fadein 2
-    "Добившись желаемого, Чайник с довольным видом завёл машину."
+    din_narrator "Добившись желаемого, Чайник с довольным видом завёл машину."
    
-label din_end_f_2:
-    scene bg din_ext_power_line_sunset at din_auto_moving with dissolve
+label din_lost_peace_f_2:
+    scene bg din_ext_power_line_sunset_from_car at din_auto_moving with dissolve
     din_narrator "Я смотрел в своё окно."
     din_narrator "Ощущения были очень похожи на автобус. Но разницы как раз хватало, чтобы новизна бодрила и не навивала вечную тоску."
     din_narrator "По ту сторону стекла пролетал знакомый пейзаж."
@@ -502,5 +511,5 @@ label din_lost_peace_story_interlude:
     $ persistent.din_flags["din_third_info_received"] = True
     $ persistent.din_flags["din_nit_info_received"] = True
     $ renpy.pause(2, hard=True)
-    $ din_set_main_menu_cursor()
+    $ din_set_dynamic_cursor("main_menu")
     $ MainMenu(confirm=False)()

@@ -545,7 +545,10 @@ screen din_game_menu_selector():
         imagemap:
             auto din_gui_path + "quick_menu/" + persistent.timeofday + "/quick_menu_%s.png" xalign 0.5 yalign 0.5
 
-            hotspot (0, 83, 660, 65) focus_mask None clicked [din_set_main_menu_cursor_curried(), MainMenu(confirm=False)]
+            hotspot (0, 83, 660, 65) focus_mask None clicked [
+                Function(din_set_dynamic_cursor, "main_menu"),
+                MainMenu(confirm=False)
+            ]
 
             hotspot (0, 148, 660, 65) focus_mask None clicked ShowMenu("din_save")
 
@@ -553,7 +556,10 @@ screen din_game_menu_selector():
 
             hotspot (0, 278, 660, 65) focus_mask None clicked ShowMenu("din_preferences")
 
-            hotspot (0, 343, 660, 65) focus_mask None action [Function(din_screens_diact), ShowMenu("main_menu")]    
+            hotspot (0, 343, 660, 65) focus_mask None action [
+                Function(din_screens_diact),
+                ShowMenu("main_menu")
+            ]    
 
 screen din_quit():
     tag menu

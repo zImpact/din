@@ -4,6 +4,7 @@ label din_intro:
     $ renpy.pause(2, hard=True)
     $ renpy.block_rollback()
     $ din_set_time("sunset")
+    $ din_set_dynamic_cursor("timeofday")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)
     play ambience ambience_ext_road_evening fadein 2
     play music din_explosions_in_the_sky_your_hand_in_mine fadein 5
@@ -14,7 +15,7 @@ label din_intro:
     din_narrator "Да и жизнь здесь была иной."
     din_narrator "Десятки Пионеров существовали, смирившись с данной им безальтернативной вечностью."
     din_narrator "Каждого из них я знал. По именам, характерам, привычкам, страхам."
-    din_narrator "Мог не задумываясь сказать кто как проводит своё время и сколько ему осталось до сумашествия."
+    din_narrator "Мог не задумываясь сказать кто как проводит своё время и сколько ему осталось до сумасшествия."
     din_narrator "Я видел, как Пионеры менялись, развивались или застывали во времени, отказываясь двигаться дальше."
     din_narrator "А сейчас эта память медленно утекает, как песок сквозь ладони."
     din_narrator "А потом произошла случайность."
@@ -42,7 +43,7 @@ label din_intro:
     show prologue_dream
     with flash
     din_narrator "И самое невероятное — его план сработал!"
-    din_narrator "Мир, в котором мы провели больше смен, чем звезд на холодном небе, дрогнул."
+    din_narrator "Мир, в котором мы провели больше смен, чем есть звезд на холодном небе, дрогнул."
     scene bg din_ext_camp_plain_sight_sunset with flash
     $ renpy.block_rollback()
     $ din_set_time("sunset")

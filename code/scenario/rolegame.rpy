@@ -1,12 +1,19 @@
 label din_rolegame_story:
     $ din_set_mode_adv()
     stop music fadeout 3
-    $ renpy.pause(2, hard=True)
-    $ din_story_intro("Игра по ролям\nДень Третьего", "sunset", "bg din_int_dining_hall_sunset", "din_third normal", "Игра по ролям", "День Третьего", "dining_hall_empty")
-    $ renpy.pause(2, hard=True)
-    $ din_set_time("dungeon", "day")
-    scene bg din_int_rpg_dungeon with Dissolve(2)
+    $ din_story_intro(
+        "Игра по ролям\nДень Третьего",
+        "sunset",
+        "bg din_int_dining_hall_sunset",
+        "din_third normal",
+        "Игра по ролям",
+        "День Третьего",
+        "dining_hall_empty"
+    )
     $ din_onload("unlock")
+    $ din_set_time("dungeon", "day")
+    $ din_set_dynamic_cursor("timeofday")
+    scene bg din_int_rpg_dungeon with Dissolve(2)
     play music din_pillars_of_eternity_elmshore fadein 2
     play ambience ambience_catacombs fadein 2
     din_nit "{i}Вы заходите в подвал. {w}Вокруг довольно темно и кружит пыль, но вам...{/i} {w}Бросай на внимательность, Чайник."

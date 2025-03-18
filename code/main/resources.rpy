@@ -281,6 +281,7 @@ init python:
     def din_story_intro(_save_name, daytime, background, sprite, lbl, desc, amb):
         global save_name
 
+        renpy.pause(2, hard=True)
         renpy.block_rollback()
         save_name = _save_name
         persistent.timeofday = daytime
@@ -298,6 +299,7 @@ init python:
         renpy.scene()
         renpy.show("bg black")
         renpy.with_statement(Dissolve(1.5))
+        renpy.pause(2, hard=True)
 
     def din_interlude_intro(interlude_name):
         global save_name
@@ -405,8 +407,6 @@ init:
 
     $ din_wiperight = CropMove(.5, "wiperight")
     $ din_wipeleft = CropMove(.5, "wipeleft")
-
-    $ din_set_timeofday_cursor_var = False
 
     $ din_rolegame_ambience_memorization = DinTimingMemorization("ambience", 2)
     $ din_rolegame_music_memorization = DinTimingMemorization("music", 2)
