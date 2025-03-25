@@ -286,17 +286,27 @@ label din_lost_peace_f_2:
  
 label din_lost_peace_story_interlude:
     $ renpy.block_rollback()
-    $ din_interlude_intro("Потери")
+    $ din_interlude_intro("Тишина")
     ##scene bg ext_road_sunset with Dissolve(2)
 
     ## тут фон дороги со звёздами, но без ЛЕПов
-    ##play music din_out_of_sight_reasons fadein 3
     
-    ## АНДРЕЙ АХТУНГ! ЭТО НОВЫЙ ТРЕК
-    #Sleepmakeswaves - What We Cannot Speak of, Must Be Passed over in Silence
-    ## АНДРЕЙ АХТУНГ! ТРЕК НОВЫЙ. ТЫ - НЕТ 
+    ## music Adventure is Calling by Shane Black (Feat. Signaling Through The Flames by The American Dollar)
     
-    din_narrator "Странные он говорил вещи."
+    
+    din_narrator "Мне нравился этот путь."
+    din_narrator "Пожалуй, впервые я могу это сказать. Испытать. Подумать."
+    din_narrator "Сначала мне было сложно понять, что стало переломной точкой моей радости."
+    din_narrator "Пока я не вслушался."
+    din_narrator "Танцующая со всех сторон тёплая тишина, раньше лишь тихо смеющаяся над моими легкими шагами, теперь стала абсолютной."
+    din_narrator "Она окутывала со всех сторон, как шум летних волн и мне впервые было так... {w}Спокойно."
+    din_narrator "С каждой сотней шагов исчезала еще одна звезда."
+    din_narrator "Они гасли не мгновенно, как лампочки. Сначала их свет белел, затем они едва заметно уменьшались."
+    din_narrator "Пока не ставали едва заметной точкой. И уменьшались дальше, пока, сколько не старайся, их было уже никак не разглядеть."
+    din_narrator "Затем под ногами стала пробиваться трава."
+    din_narrator "В "
+    
+    
     din_narrator "Во сне можно было создавать всё, что хочешь, двигаться, как хочешь. Абсолютно всё что угодно."
     din_narrator "И время во сне отсчитывается иначе, медленнее."
     din_narrator "Там, по ту сторону сознания он был тем, кем хотел. И создавал мир вокруг себя."
