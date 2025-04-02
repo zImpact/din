@@ -1,0 +1,17 @@
+name: Deploy to Steam Workshop
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: zImpact/es_mod_workflow/.github/workflows/deploy_to_steam.yml@v2.0.8
+    with:
+      steam_config_path: "deploy/config.yml"
+      lint_workflow_file: "lint.yml"
+      branch: "main"
+      check_lint_status: true
+    secrets:
+      STEAM_SHARED_SECRET: "${{ secrets.STEAM_SHARED_SECRET }}"
+      STEAM_USERNAME: "${{ secrets.STEAM_USERNAME }}"
+      STEAM_PASSWORD: "${{ secrets.STEAM_PASSWORD }}"

@@ -291,9 +291,7 @@ label din_lost_peace_story_interlude:
 
     ## TODO: тут фон дороги со звёздами, но без ЛЕПов
     
-    ## TODO: music Adventure is Calling by Shane Black (Feat. Signaling Through The Flames by The American Dollar)
-    
-    
+    play music din_american_dollar_signaling_through_the_flames fadein 5
     din_narrator "Мне нравился этот путь."
     din_narrator "Пожалуй, впервые я могу это сказать. {w}Испытать. {w}Подумать."
     din_narrator "Сначала мне было сложно понять, что стало переломной точкой моей радости."
@@ -310,9 +308,7 @@ label din_lost_peace_story_interlude:
     din_narrator "И внутри этого калейдоскопа я шёл, не помня что такое усталость."
     din_narrator "Сложно даже предположить, сколько длилась моя дорога."
     din_narrator "Да и, честно признаться, я не хотел бы, чтобы она заканчивалась."
-    
-    ## TODO: пауза, три секунды
-    
+    $ renpy.pause(3, hard=True)
     din_narrator "Скоро звёзды исчезли полностью. {w}Но при этом не стало темнее."
     din_narrator "Лагерь, казалось, давно уже сбросил свою маску реальности и не беспокоился такими мелочами."
     din_narrator "Внезапно, с несвойственной этому месту скоростью из-за неба за мной расчертила небосвод белая падающая звезда."
@@ -343,7 +339,6 @@ label din_lost_peace_story_interlude:
     din_narrator "Ворота тихо приглашали заглянуть за эту стену и сорвать покров с последней загадки этого места."
     din_narrator "Уверенной рукой я отворил их."
     din_narrator "И взглянул в тишину."
-    
     ##фон падающего мира
     din_narrator "Прямо передо мной развернулась огромная, потрясающая восприятие чорная бездна."
     din_narrator "Уходящая вглубь пустота на месте того, что когда-то было главной площадью."
@@ -385,13 +380,10 @@ label din_lost_peace_story_interlude:
     din_narrator "Он ничего не ответил."
     din_narrator "Лишь сел на край пропасти, безучастно смотря перед собой."
     din_narrator "А мир перед нами медленно терялся в тишине."
-    
-    ## Пауза 3 секунды. И титры на фоне исчезающего мира
- 
+    $ renpy.pause(3, hard=True)
     $ din_show_titles()
-
+    stop music fadeout 2
     stop ambience fadeout 2
-
     $ persistent.din_flags["din_third_info_received"] = True
     $ persistent.din_flags["din_nit_info_received"] = True
     $ renpy.pause(2, hard=True)

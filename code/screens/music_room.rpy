@@ -13,7 +13,8 @@ init python:
         "H.1 — Timeless": din_h1_timeless,
         "Higurashi When They Cry — Chiyouraiki No Sora": din_higurashi_when_they_cry_chiyouraiki_no_sora,
         "Out Of Sight — Reasons": din_out_of_sight_reasons,
-        "Pillars Of Eternity — Elmshore": din_pillars_of_eternity_elmshore
+        "Pillars Of Eternity — Elmshore": din_pillars_of_eternity_elmshore,
+        "American Dollar — Signaling Through The Flames": din_american_dollar_signaling_through_the_flames,
     }
 
     din_music_room = MusicRoom(fadeout=1.0)
