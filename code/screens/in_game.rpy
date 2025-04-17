@@ -2,8 +2,8 @@ screen din_preferences():
     tag menu
     modal True
     
-    $ din_bar_null = Frame((din_gui_path + "preferences/" + persistent.timeofday + "/din_bar_null.png"), 36, 36)
-    $ din_bar_full = Frame((din_gui_path + "preferences/" + persistent.timeofday + "/din_bar_full.png"), 36, 36)
+    $ din_bar_null = Frame((din_gui_path + "preferences/" + persistent.timeofday + "/bar_null.png"), 36, 36)
+    $ din_bar_full = Frame((din_gui_path + "preferences/" + persistent.timeofday + "/bar_full.png"), 36, 36)
 
     window background din_gui_path + "preferences/" + persistent.timeofday + "/preferences_bg.jpg":
         text "Настройки": 
@@ -34,7 +34,7 @@ screen din_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.fullscreen:
-                            add din_gui_path + "preferences/" + persistent.timeofday + "/din_leaf.png" ypos 0.12
+                            add din_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -46,7 +46,7 @@ screen din_preferences():
 
                     hbox xalign 0.5:
                         if not _preferences.fullscreen:
-                            add din_gui_path + "preferences/" + persistent.timeofday + "/din_leaf.png" ypos 0.12
+                            add din_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -63,7 +63,7 @@ screen din_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.skip_unseen:
-                            add din_gui_path + "preferences/" + persistent.timeofday + "/din_leaf.png" ypos 0.12
+                            add din_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -75,7 +75,7 @@ screen din_preferences():
 
                     hbox xalign 0.5:
                         if not _preferences.skip_unseen:
-                            add din_gui_path + "preferences/" + persistent.timeofday + "/din_leaf.png" ypos 0.12
+                            add din_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -100,8 +100,8 @@ screen din_preferences():
                         value Preference("music volume")
                         left_bar din_bar_full 
                         right_bar din_bar_null 
-                        thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
-                        hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
+                        thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                        hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                         xmaximum 1.35 
                         ymaximum 36 
                         xpos -0.55
@@ -117,8 +117,8 @@ screen din_preferences():
                         value Preference("sound volume") 
                         left_bar din_bar_full 
                         right_bar din_bar_null 
-                        thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
-                        hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
+                        thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                        hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                         xmaximum 1.35 
                         ymaximum 36
                         xpos -0.55
@@ -134,8 +134,8 @@ screen din_preferences():
                         value Preference("voice volume") 
                         left_bar din_bar_full 
                         right_bar din_bar_null 
-                        thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png"
-                        hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
+                        thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
+                        hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                         xmaximum 1.35 
                         ymaximum 36 
                         xpos -0.55
@@ -148,8 +148,8 @@ screen din_preferences():
                     value Preference("text speed") 
                     left_bar din_bar_full 
                     right_bar din_bar_null 
-                    thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
-                    hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
+                    thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                    hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                     xalign 0.5 
                     xmaximum 0.8 
                     ymaximum 36
@@ -161,7 +161,7 @@ screen din_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.afm_time != 0:
-                            add din_gui_path + "preferences/" + persistent.timeofday + "/din_leaf.png" ypos 0.12
+                            add din_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -173,7 +173,7 @@ screen din_preferences():
 
                     hbox xalign 0.5:
                         if _preferences.afm_time == 0:
-                            add din_gui_path + "preferences/" + persistent.timeofday + "/din_leaf.png" ypos 0.12
+                            add din_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -191,8 +191,8 @@ screen din_preferences():
                     value Preference("auto-forward time") 
                     left_bar din_bar_full 
                     right_bar din_bar_null 
-                    thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
-                    hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_htumb.png" 
+                    thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                    hover_thumb din_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                     xalign 0.5 
                     xmaximum 0.8 
                     ymaximum 36
@@ -204,7 +204,7 @@ screen din_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if persistent.font_size == "small":
-                            add din_gui_path + "preferences/" + persistent.timeofday + "/din_leaf.png" ypos 0.12
+                            add din_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -216,7 +216,7 @@ screen din_preferences():
 
                     hbox xalign 0.5:
                         if not persistent.font_size == "small":
-                            add din_gui_path + "preferences/" + persistent.timeofday + "/din_leaf.png" ypos 0.12
+                            add din_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -237,7 +237,7 @@ screen din_preferences():
                 value YScrollValue("preferences") 
                 bottom_bar "images/misc/none.png" 
                 top_bar "images/misc/none.png" 
-                thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_vthumb.png" 
+                thumb din_gui_path + "preferences/" + persistent.timeofday + "/vthumb.png" 
                 thumb_offset -12
 
 screen din_save():
@@ -710,7 +710,7 @@ screen din_text_history():
             value YScrollValue("din_text_history_screen")
             bottom_bar "images/misc/none.png"
             top_bar "images/misc/none.png"
-            thumb din_gui_path + "preferences/" + persistent.timeofday + "/din_vthumb.png"
+            thumb din_gui_path + "preferences/" + persistent.timeofday + "/vthumb.png"
             xoffset 1700  
 
 screen din_choice(items):

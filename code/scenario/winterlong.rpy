@@ -437,7 +437,7 @@ label din_winterlong_story_science:
     jump din_winterlong_story_interlude
     
 label din_winterlong_story_interlude:
-    $ din_interlude_intro("Пробуждение")
+    $ din_interlude_intro("Пробуждение", daytime="sunset")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)
     play ambience ambience_ext_road_evening fadein 2
     play music din_if_these_trees_could_talk_barren_lands_of_the_modern_dinosaur fadein 5
