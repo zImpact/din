@@ -15,6 +15,7 @@ init python:
         "Out Of Sight — Reasons": din_out_of_sight_reasons,
         "Pillars Of Eternity — Elmshore": din_pillars_of_eternity_elmshore,
         "American Dollar — Signaling Through The Flames": din_american_dollar_signaling_through_the_flames,
+        "Sleepmakeswaves — What We Cannot Speak of, Must Be Passed over in Silence": din_sleepmakeswaves_what_we_cannot_speak_of_must_be_passed_over_in_silence
     }
 
     din_music_room = MusicRoom(fadeout=1.0)

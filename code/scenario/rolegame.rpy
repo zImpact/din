@@ -756,37 +756,35 @@ label din_rg_final:
     scene bg ext_no_bus_sunset with flash
     din_narrator "Их внимание начало меня напрягать, поэтому по моему щелчку пальцев мы перенеслись в другой лагерь."
     din_th "Черт, теперь весь спектакль заново разыгрывать."
-    ## спрайт Чайника и Ниточника
+    show din_hall pos2 normal at left
+    show din_nit normal_l at right
+    with dissolve
     din_nit "Опять ты всё запорол."
     din_teapot "Да ладно тебе. И так понятно, что кукол можно убедить, что они настоящие."
     din_teapot "Да, было непросто. Да, это прорыв. Но... На этом всё. Не то, чтобы они могли вдруг обзавестись полноценной памятью. "
     din_teapot "А тебе, Третий, поработать бы над подачей. А то ну уж слишком много пафоса. {w}Даже для тебя."
-    din_teapot "Лучше завались Чайник."
-    din_third "Лучше завались Чайник."
+    din_third "Лучше помолчи, Чайник."
     din_th "Ворчал я больше из вежливости. Чайнику действительно было весело сегодня. {w}В последнее время это редкость."
     din_teapot "Как думаешь, Нит? Могли бы существовать параллели, где вместо нас осознанными были копии кого-то из девушек?"
     din_nit "Лагерь, полный тысячелетних Лен? {w}Нет, Чайник, без каламбуров."
-    din_narrator "Уже раскрывший рот Чайник слегка расстроился." ## тысячеЛение! ТысячеЛенин! Только представь себе простор для шуток!
+    din_narrator "Уже раскрывший рот Чайник слегка расстроился."
     din_nit "Да и звучит не очень грозно. Вот лагерь Пионеров-Ульян..."
     din_teapot "Да ну брось. Просто разгоняешься, и пинком, как футбольный мяч."
     din_nit "Они ведь тоже будут практиковаться. Ульяна с уровнем тренировок Чокнутого — это больно."
     din_teapot "Всё равно, если Общий лагерь и Общий лагерь Ульян устроят потасовку, и будет, допустим, три дня на подготовку, то я уверен, что мы бы их..."
-    din_teapot "Я начинал терять нить разговора."
-    din_teapot "Под шум о масштабной межлагерной войне, я присел в тени статуи."
-    din_teapot "Ладно, пусть развлекаются. А спектакль закончим в другой раз."
+    din_narrator "Я начинал терять нить разговора."
+    din_narrator "Под шум о масштабной межлагерной войне, я присел в тени статуи."
+    din_narrator "Ладно, пусть развлекаются. А спектакль закончим в другой раз."
     stop ambience fadeout 4
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
+    jump din_rolegame_story_interlude
 
 label din_rolegame_story_interlude:
     $ renpy.block_rollback()
-    $ din_interlude_intro("Потеря")
-    ## TODO тут фон дороги со звёздами, но без ЛЕПов with Dissolve(2)
-    
-    ## АНДРЕЙ АХТУНГ! ЭТО НОВЫЙ ТРЕК
-    #Sleepmakeswaves - What We Cannot Speak of, Must Be Passed over in Silence
-    ## АХТУНГ АНДРЕЙ! ТРЕК НОВЫЙ. ТЫ - НЕТ 
-    
+    $ din_interlude_intro("Потеря", daytime="night")
+    scene bg din_ext_road_night_without_lep with Dissolve(2)
+    play music din_sleepmakeswaves_what_we_cannot_speak_of_must_be_passed_over_in_silence fadein 5
     din_narrator "Странные он говорил вещи."
     din_narrator "Во сне можно было создавать всё, что хочешь, двигаться, как хочешь. Абсолютно всё что угодно."
     din_narrator "И время во сне отсчитывается иначе, медленнее."
@@ -823,5 +821,7 @@ label din_rolegame_story_interlude:
     din_th "Жаль, что его осознание настигает так."
     din_th "Но это ненадолго."
     din_th "Скоро мы и не вспомним, как было раньше."
-    
+    stop music fadeout 2
+    scene bg black with Dissolve(2)
+    $ renpy.pause(2, hard=True)
     jump din_lost_peace_story

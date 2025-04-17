@@ -301,16 +301,18 @@ init python:
         renpy.with_statement(Dissolve(1.5))
         renpy.pause(2, hard=True)
 
-    def din_interlude_intro(interlude_name):
+    def din_interlude_intro(interlude_name, daytime):
         global save_name
 
         renpy.block_rollback()
         save_name = "Интерлюдия.\nНиточник и Третий.\n{}".format(interlude_name)
-        persistent.timeofday = "sunset"
-        persistent.sprite_time = "sunset"
-        renpy.music.play("sound/ambiences/ext_road_evening.ogg", "ambience", fadein=2)
+        persistent.timeofday = daytime
+        persistent.sprite_time = daytime
+
+        ambience_suffix = "evening" if daytime == "sunset" else "night"
+        renpy.music.play("sound/ambiences/ext_road_{}.ogg".format(ambience_suffix), "ambience", fadein=2)
         renpy.scene()
-        renpy.show("bg din_ext_camp_plain_sight_sunset")
+        renpy.show("bg din_ext_camp_plain_sight_{}".format(daytime))
         renpy.show("din_nit normal_r", at_list=[Transform(xalign=0.1, yalign=0.5)])
         renpy.show("din_third normal", at_list=[Transform(xalign=0.9, yalign=0.5)])
         renpy.show("din_interlude_frame", at_list=[Transform(xalign=0.5, yalign=0.85)])

@@ -259,6 +259,7 @@ label din_lost_peace_story:
 label din_lost_peace_f:    
     play sound_loop sfx_bus_interior_moving fadein 2
     din_narrator "Добившись желаемого, Чайник с довольным видом завёл машину."
+    jump din_lost_peace_f_2
    
 label din_lost_peace_f_2:
     scene bg din_ext_power_line_sunset_from_car at din_auto_moving with dissolve
@@ -275,7 +276,7 @@ label din_lost_peace_f_2:
     din_narrator "Главное — не опускать рук?"
     din_narrator "Тихое закатное солнце умиротворяло."
     din_narrator "Я посмотрел на водителя."
-    din_narrator "Чайник кайфовал от момента не меньше меня."
+    din_narrator "Чайник получал удовольствие от момента не меньше меня."
     din_narrator "Ну, всё будет как будет. {w}Хорошо или плохо."
     din_narrator "Машина тихо ехала по бесконечной дороге."
     stop ambience fadeout 3
@@ -283,14 +284,12 @@ label din_lost_peace_f_2:
     scene bg black with Dissolve(2)
     stop music fadeout 4
     $ renpy.pause(2, hard=True)
+    jump din_lost_peace_story_interlude
  
 label din_lost_peace_story_interlude:
     $ renpy.block_rollback()
-    $ din_interlude_intro("Тишина")
-    ##scene bg ext_road_sunset with Dissolve(2)
-
-    ## TODO: тут фон дороги со звёздами, но без ЛЕПов
-    
+    $ din_interlude_intro("Тишина", daytime="night")
+    scene bg din_ext_road_night_without_lep with Dissolve(2)
     play music din_american_dollar_signaling_through_the_flames fadein 5
     din_narrator "Мне нравился этот путь."
     din_narrator "Пожалуй, впервые я могу это сказать. {w}Испытать. {w}Подумать."
@@ -330,17 +329,14 @@ label din_lost_peace_story_interlude:
     din_narrator "Она светила озарительно ярко. И летела стремительно, как сон, двигаясь прямо к серой точке."
     din_narrator "В момент, когда она достигла горизонта, она вспыхнула ярче солнца, озарив всё вокруг."
     din_narrator "От ослепительного сияния я неожиданно закрыл глаза."
-    ## Фон старого лагеря.
-    ## Остановка музыки.
+    scene bg din_ext_camp_entrance_mixed with flash
     din_narrator "А когда раскрыл - передо мной были ворота."
-    din_narrator "Они выглядели старыми, потёртыми временем."
-    din_narrator "Заброшенными даже."
-    din_narrator "Но такими же, как я их помнил."
+    din_narrator "Они выглядели старыми, потёртыми временем, заброшенными. Но такими же, как я их помнил."
     din_narrator "Ворота тихо приглашали заглянуть за эту стену и сорвать покров с последней загадки этого места."
     din_narrator "Уверенной рукой я отворил их."
     din_narrator "И взглянул в тишину."
-    ##фон падающего мира
-    din_narrator "Прямо передо мной развернулась огромная, потрясающая восприятие чорная бездна."
+    scene bg din_ext_camp_plain_sight_night with dissolve
+    din_narrator "Прямо передо мной развернулась огромная, потрясающая восприятие черная бездна."
     din_narrator "Уходящая вглубь пустота на месте того, что когда-то было главной площадью."
     din_narrator "В неё плавно, словно множественные ручьи в речку, стекали когда-то принадлежащие кому-то предметы."
     din_narrator "Камни с пляжа, случайные инструменты из кружка, книги и вылетевшие из них страницы, застывшые часы..."
@@ -363,18 +359,18 @@ label din_lost_peace_story_interlude:
     din_narrator "Я четко чуствовал, что это явно не смерть. Не финал."
     din_third_i "А лишь новый виток."
     din_nit_he "Новое начало? {w}Ты этого хотел?"
-    din_nit_he "Его голос стал гораздо тише."
-    din_nit_he "Из него исчезли яркие эмоции."
+    din_narrator "Его голос стал гораздо тише."
+    din_narrator "Из него исчезли яркие эмоции."
     din_third_i "Это лишь часть цикла."
-    din_third_i "Из-под утёса под моими ногами медленно отделялись частицы."
+    din_narrator "Из-под утёса под моими ногами медленно отделялись частицы."
     din_nit_he "После всего, что мы пережили? {w}Нас ждёт только обращение вспять?"
     din_narrator "Его слова красиво вплетались в тишину вокруг."
     din_third_i "Не так уж и плохо. {w}Начать с чистого листа."
-    din_nit_he "И дальше крутится в этом колесе, повторяя одни и те же ошибки?{w} Это предел твоих мечтаний?"
-    din_nit_he "Такая жизнь безсмысленна. Пуста. Мы живём, будто нас никогда не существовала."
+    din_nit_he "И дальше крутиться в этом колесе, повторяя одни и те же ошибки?{w} Это предел твоих мечтаний?"
+    din_nit_he "Такая жизнь безсмысленна. Пуста. Мы живём, будто нас никогда не существовало."
     din_third_i "Мы живём в моменте."
     din_narrator "Земля подо мной окончательно подалась вперёд, распавшись на крохотные, размером с ладонь, части."
-    din_third_i "Который никогда не закончится."
+    din_third_i "В моменте, который никогда не закончится."
     din_narrator "Я остался парить в воздухе."
     din_th "Это действительно похоже на сон."
     din_narrator "Он ничего не ответил."

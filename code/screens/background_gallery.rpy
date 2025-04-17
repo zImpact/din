@@ -17,7 +17,8 @@ init python:
         "din_ext_bar_night", "din_ext_scene_night",
         "din_ext_camp_entrance_night", "din_ext_camp_entrance_old",
         "din_ext_clubs_sunset", "din_ext_musclub_sunset",
-        "din_space"
+        "din_space", "din_ext_camp_plain_sight_night",
+        "din_ext_road_night_without_lep"
     ]
 
     for bg in din_gallery_bg_list:
