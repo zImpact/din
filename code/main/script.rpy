@@ -1,22 +1,4 @@
 init python:
-    din_screens_list = [
-        "main_menu",
-        "quit",
-        "say",
-        "nvl",
-        "game_menu_selector",
-        "yesno_prompt", 
-        "choice",
-        "help"
-    ]
-
-    din_sound_channels = [
-        "ambience",
-        "music",
-        "sound", 
-        "sound_loop"
-    ]
-
     class DinFunctionCallback(Action):
         def __init__(self,function, *arguments):
             self.function = function
@@ -53,7 +35,7 @@ init python:
         )
         
     def din_screens_save():
-        for screen_name in din_screens_list:
+        for screen_name in DIN_SCREENS:
             renpy.display.screen.screens[("din_old_" + screen_name, None)] = renpy.display.screen.screens[(screen_name, None)]
         
     def din_screens_act():
@@ -62,7 +44,7 @@ init python:
         config.name = "Days_In_Nowhere"
         config.version = "1.1"
 
-        for screen_name in din_screens_list:
+        for screen_name in DIN_SCREENS:
             renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("din_" + screen_name, None)]
 
         layout.LOADING = "Потерять несохраненые данные?"
@@ -76,7 +58,7 @@ init python:
         config.name = "Everlasting_Summer"
         config.version = "1.2"
 
-        for screen_name in din_screens_list:
+        for screen_name in DIN_SCREENS:
             renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("din_old_" + screen_name, None)]
          
         layout.LOADING = "Загрузка приведёт к потере несохранённых данных.\nВы уверены, что хотите сделать это?"
@@ -87,7 +69,7 @@ init python:
 
         persistent._file_page = 1
         
-        for channel in din_sound_channels:
+        for channel in DIN_SOUND_CHANNELS:
             renpy.music.stop(channel)
 
         renpy.play(music_list["blow_with_the_fires"], channel="music")

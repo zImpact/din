@@ -27,9 +27,11 @@ screen din_music_room():
     modal True
 
     if not din_main_menu_var:
-        add "din_main_menu_options_frame" xalign 0.5 yalign 0.5
+        add "din_main_menu_options_frame":
+            xalign 0.5
+            yalign 0.5
 
-        add din_gui_path + "main_menu/music_room_frame.png"
+        add DIN_GUI_PATH + "main_menu/music_room_frame.png"
 
         frame:
             background None
@@ -46,6 +48,7 @@ screen din_music_room():
                     grid 1 len(din_music_box):
                         for name, track in sorted(din_music_box.iteritems()):
                             $ din_music_room_label_text = name if din_music_room.is_unlocked(track) else "???"
+
                             textbutton din_music_room_label_text:
                                 style "din_button_none"
                                 text_style "music_link"
@@ -54,8 +57,8 @@ screen din_music_room():
 
                 vbar:
                     value YScrollValue("din_music_box")
-                    bottom_bar din_gui_path + "main_menu/vbar_null.png"
-                    top_bar din_gui_path + "main_menu/vbar_full.png"
+                    bottom_bar DIN_GUI_PATH + "main_menu/vbar_null.png"
+                    top_bar DIN_GUI_PATH + "main_menu/vbar_full.png"
                     thumb None
                     xmaximum 52
 
@@ -67,7 +70,7 @@ screen din_music_room():
             antialias True
             kerning 2
 
-        textbutton "Назад":
+        textbutton "[DIN_RETURN_TEXT]":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences"
             xalign 0.1

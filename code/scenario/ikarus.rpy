@@ -132,7 +132,7 @@ label din_ikarus_story:
     $ renpy.pause(2, hard=True)
     
 label din_ikarus_story_interlude:
-    $ din_interlude_intro("Просьба", daytime="sunset")
+    $ din_interlude_intro("Просьба", "sunset")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)
     play ambience ambience_ext_road_evening fadein 2
     play music din_higurashi_when_they_cry_chiyouraiki_no_sora fadein 5
