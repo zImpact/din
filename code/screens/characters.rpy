@@ -89,7 +89,7 @@ screen din_characters():
             $ din_characters_xalign = din_characters_left_border + (i * (din_characters_right_border - din_characters_left_border) / (din_characters_current_number - 1)) if din_characters_current_number > 1 else 0.5
 
             if persistent.din_flags["din_" + char + "_info_received"]:
-                $ din_characters_current_button = din_gui_path + "main_menu/" + char + "_button_info_hover.png"
+                $ din_characters_current_button = DIN_GUI_PATH + "main_menu/" + char + "_button_info_hover.png"
 
                 imagebutton:
                     idle Transform(din_characters_current_button, alpha=0.9)
@@ -103,12 +103,14 @@ screen din_characters():
                     ]
             
             else:
-                add din_gui_path + "main_menu/button_info_locked.png" xalign din_characters_xalign yalign 0.5
+                add DIN_GUI_PATH + "main_menu/button_info_locked.png":
+                    xalign din_characters_xalign
+                    yalign 0.5
 
         if din_characters_pages > 1:
             if din_characters_current_page < din_characters_pages - 1:
                 imagebutton:
-                    auto din_gui_path + "misc/gallery_next_%s.png"
+                    auto DIN_GUI_PATH + "misc/gallery_next_%s.png"
                     xalign 0.96
                     yalign 0.5
                     action [
@@ -118,7 +120,7 @@ screen din_characters():
 
             if din_characters_current_page > 0:
                 imagebutton:
-                    auto din_gui_path + "misc/gallery_previous_%s.png"
+                    auto DIN_GUI_PATH + "misc/gallery_previous_%s.png"
                     xalign 0.04
                     yalign 0.5
                     action [
@@ -126,7 +128,7 @@ screen din_characters():
                         ShowMenu("din_characters")
                     ]
 
-        textbutton "Назад":
+        textbutton "[DIN_RETURN_TEXT]":
             style "din_log_button"
             text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
@@ -141,7 +143,9 @@ screen din_character_info(char):
 
     add din_characters_info[char]["bg"]
 
-    add "din_" + char + "_char_name_frame" xalign 0.5 yalign 0.031
+    add "din_" + char + "_char_name_frame":
+        xalign 0.5
+        yalign 0.031
 
     text din_characters_info[char]["name"]:
         font din_main_menu_font
@@ -171,7 +175,7 @@ screen din_character_info(char):
         ypos 172
 
     imagebutton:
-        auto din_gui_path + "main_menu/back_%s.png"
+        auto DIN_GUI_PATH + "main_menu/back_%s.png"
         xpos 1800
         ypos 1000
         action [
@@ -191,22 +195,23 @@ screen din_character_sprites(char, sprite):
 
     add din_characters_info[char]["bg"]
 
-    add sprite xalign 0.5
+    add sprite:
+        xalign 0.5
 
     imagebutton:
-        auto din_gui_path + "misc/gallery_next_%s.png"
+        auto DIN_GUI_PATH + "misc/gallery_next_%s.png"
         xalign 0.8
         yalign 0.5
         action ShowMenu("din_character_sprites", char=char, sprite=din_next_sprite)
 
     imagebutton:
-        auto din_gui_path + "misc/gallery_previous_%s.png"
+        auto DIN_GUI_PATH + "misc/gallery_previous_%s.png"
         xalign 0.2
         yalign 0.5
         action ShowMenu("din_character_sprites", char=char, sprite=din_prev_sprite)
 
     imagebutton:
-        auto din_gui_path + "main_menu/back_%s.png"
+        auto DIN_GUI_PATH + "main_menu/back_%s.png"
         xpos 1800
         ypos 1000
         action [

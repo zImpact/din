@@ -782,7 +782,7 @@ label din_rg_final:
 
 label din_rolegame_story_interlude:
     $ renpy.block_rollback()
-    $ din_interlude_intro("Потеря", daytime="night")
+    $ din_interlude_intro("Потеря", "night")
     scene bg din_ext_road_night_without_lep with Dissolve(2)
     play music din_sleepmakeswaves_what_we_cannot_speak_of_must_be_passed_over_in_silence fadein 5
     din_narrator "Странные он говорил вещи."

@@ -2,7 +2,7 @@ init python:
     mods["din_start"] = u"{font=din/images/gui/fonts/AG_Futura Regular.ttf}{size=50}Дни нигде{/font}{/size}"
 
     try:
-        modsImages["din_start"] = (din_gui_path + "misc/tabular_list_preview.png", False)
+        modsImages["din_start"] = (DIN_GUI_PATH + "misc/tabular_list_preview.png", False)
 
     except:
         pass

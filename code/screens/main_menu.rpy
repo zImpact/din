@@ -11,7 +11,9 @@ screen din_main_menu():
     add "din_main_menu_" + din_current_time() + "_anim"
 
     if din_main_menu_var:
-        add "din_main_menu_frame" xalign 0.5 yalign 0.5
+        add "din_main_menu_frame":
+            xalign 0.5
+            yalign 0.5
 
         text "Дни нигде":
             size 135
@@ -22,7 +24,9 @@ screen din_main_menu():
             antialias True
             kerning 2
 
-        add "din_main_menu_underline" xalign 0.5 ypos 191
+        add "din_main_menu_underline":
+            xalign 0.5
+            ypos 191
 
         $ din_start_button_text = "Выбрать историю" if persistent.din_flags["din_intro_completed"] else "Начать игру"
 
@@ -45,7 +49,7 @@ screen din_main_menu():
                     Start("din_intro")
                 ]
 
-        textbutton "Загрузить" at din_buttons_atl():
+        textbutton "[DIN_LOAD_TEXT]" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
@@ -55,7 +59,7 @@ screen din_main_menu():
                 ShowMenu("din_load_main_menu")
             ]
 
-        textbutton "Дополнительно" at din_buttons_atl():
+        textbutton "[DIN_EXTRA_TEXT]" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
@@ -65,7 +69,7 @@ screen din_main_menu():
                 ShowMenu("din_extra")
             ]
 
-        textbutton "Настройки" at din_buttons_atl():
+        textbutton "[OSD_PREFERENCES_TEXT]" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
@@ -86,7 +90,7 @@ screen din_main_menu():
             ]
 
         imagebutton:
-            auto din_gui_path + "misc/logowhite_%s.png"
+            auto DIN_GUI_PATH + "misc/logowhite_%s.png"
             xpos 1520
             ypos 800
             action OpenURL("https://vk.com/public176281709")
@@ -95,10 +99,10 @@ screen din_story_choice():
     tag menu
     modal True
 
-    add din_gui_path + "main_menu/stories_all_closed.png"
+    add DIN_GUI_PATH + "main_menu/stories_all_closed.png"
 
     imagebutton:
-        auto din_gui_path + "main_menu/ikarus_story_%s.png"
+        auto DIN_GUI_PATH + "main_menu/ikarus_story_%s.png"
         focus_mask True
         action [
             Hide("din_story_choice", Dissolve(1.5)),
@@ -107,7 +111,7 @@ screen din_story_choice():
 
     if persistent.din_flags["din_ikarus_story_completed"]:
         imagebutton:
-            auto din_gui_path + "main_menu/winterlong_story_%s.png"
+            auto DIN_GUI_PATH + "main_menu/winterlong_story_%s.png"
             focus_mask True
             xpos 470
             action [
@@ -117,7 +121,7 @@ screen din_story_choice():
 
     if persistent.din_flags["din_winterlong_story_completed"]:
         imagebutton:
-            auto din_gui_path + "main_menu/rolegame_story_%s.png" 
+            auto DIN_GUI_PATH + "main_menu/rolegame_story_%s.png" 
             focus_mask True
             xpos 980
             action [
@@ -127,7 +131,7 @@ screen din_story_choice():
 
     if persistent.din_flags["din_rolegame_story_completed"]:
         imagebutton:
-            auto din_gui_path + "main_menu/lost_peace_story_%s.png"
+            auto DIN_GUI_PATH + "main_menu/lost_peace_story_%s.png"
             focus_mask True
             xpos 1405
             action [
@@ -135,10 +139,10 @@ screen din_story_choice():
                 Start("din_lost_peace_story")
             ]
 
-    add din_gui_path + "main_menu/stories_borders.png"
+    add DIN_GUI_PATH + "main_menu/stories_borders.png"
 
     imagebutton:
-        auto din_gui_path + "main_menu/back_%s.png"
+        auto DIN_GUI_PATH + "main_menu/back_%s.png"
         xpos 1800
         ypos 1000
         action [
@@ -153,9 +157,11 @@ screen din_extra():
         action NullAction()
     
     if not din_main_menu_var: 
-        add "din_main_menu_options_frame" xalign 0.5 yalign 0.5
+        add "din_main_menu_options_frame":
+            xalign 0.5
+            yalign 0.5
         
-        text "Дополнительно":
+        text "[DIN_EXTRA_TEXT]":
             font din_main_menu_font
             size 70
             xalign 0.5
@@ -193,7 +199,7 @@ screen din_extra():
                 ShowMenu("din_characters")
             ]
 
-        textbutton "Назад":
+        textbutton "[DIN_RETURN_TEXT]":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.1
@@ -211,9 +217,11 @@ screen din_load_main_menu():
         action NullAction()
     
     if not din_main_menu_var:
-        add "din_main_menu_options_frame" xalign 0.5 yalign 0.5
+        add "din_main_menu_options_frame":
+            xalign 0.5
+            yalign 0.5
         
-        text "Загрузка":
+        text "[DIN_LOADING_TEXT]":
             font din_main_menu_font
             size 70
             xalign 0.5
@@ -221,7 +229,7 @@ screen din_load_main_menu():
             antialias True
             kerning 2
 
-        textbutton "Назад":
+        textbutton "[DIN_RETURN_TEXT]":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.1
@@ -242,7 +250,7 @@ screen din_load_main_menu():
                 FileLoad(selected_slot, confirm=False)
             ]
                  
-        textbutton "Удалить":
+        textbutton "[DIN_DELETE_TEXT]":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.9
@@ -271,7 +279,7 @@ screen din_load_main_menu():
                         style "din_save_load_button_main_menu"
 
                         fixed:
-                            text ("%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" + FileSaveName(i)):
+                            text "%s." % i + FileTime(i, format=DIN_SAVE_LOAD_FORMAT, empty=DIN_SAVE_LOAD_EMPTY_LABEL) + "\n" + FileSaveName(i):
                                 style "din_text_save_load_main_menu"
                                 xpos 15
                                 ypos 15
@@ -283,9 +291,11 @@ screen din_preferences_main_menu():
         action NullAction()
     
     if not din_main_menu_var:
-        add "din_main_menu_options_frame" xalign 0.5 yalign 0.5
+        add "din_main_menu_options_frame":
+            xalign 0.5
+            yalign 0.5
         
-        text "Настройки":
+        text "[OSD_PREFERENCES_TEXT]":
             font din_main_menu_font
             size 70
             xalign 0.5
@@ -293,20 +303,20 @@ screen din_preferences_main_menu():
             antialias True
             kerning 2
 
-        text "Режим экрана":
+        text "[DIN_DISPLAY_PREFERENCES_TEXT]":
             font din_header_font
             size 60
             xalign 0.5
             ypos 200
             
-        textbutton "Во весь экран":
+        textbutton "[DIN_DISPLAY_PREFERENCES_FULLSCREEN_TEXT]":
             style "din_button_none"
             text_style "din_settings_header_main_menu_preferences"
             xalign 0.15
             ypos 280
             action Preference("display", "fullscreen")
             
-        textbutton "В окне":
+        textbutton "[DIN_DISPLAY_PREFERENCES_WINDOW_TEXT]":
             style "din_button_none"
             text_style "din_settings_header_main_menu_preferences"
             xalign 0.85
@@ -320,41 +330,41 @@ screen din_preferences_main_menu():
 
             action Preference("display", "window")
 
-        text "Размер шрифта":
+        text "[DIN_FONT_SIZE_PREFERENCES_TEXT]":
             font din_header_font
             size 60
             xalign 0.5
             ypos 360
                 
-        textbutton "Обычный":
+        textbutton "[DIN_FONT_SIZE_PREFERENCES_SMALL_TEXT]":
             style "din_button_none"
             text_style "din_settings_header_main_menu_preferences"
             xalign 0.15
             ypos 440
             action SetField(persistent, "font_size", "small")
                 
-        textbutton "Крупный":
+        textbutton "[DIN_FONT_SIZE_PREFERENCES_LARGE_TEXT]":
             style "din_button_none"
             text_style "din_settings_header_main_menu_preferences"
             xalign 0.85
             ypos 440
             action SetField(persistent, "font_size", "large")
                 
-        text "Пропускать":
+        text "[DIN_SKIP_PREFERENCES_TEXT]":
             font din_header_font
             size 60
             xalign 0.5
             ypos 520
 
         if not _preferences.skip_unseen:
-            textbutton "Виденное ранее":
+            textbutton "[DIN_SKIP_PREFERENCES_SEEN_TEXT]":
                 style "din_button_none"
                 text_style "din_settings_header_main_menu_preferences"
                 xalign 0.15
                 ypos 600
                 action Preference("skip", "seen")
 
-            textbutton "Всё":
+            textbutton "[DIN_SKIP_PREFERENCES_ALL_TEXT]":
                 style "din_button_none"
                 text_style "din_settings_header_main_menu_preferences"
                 xalign 0.85
@@ -362,14 +372,14 @@ screen din_preferences_main_menu():
                 action Preference("skip", "all")
                             
         if _preferences.skip_unseen:
-            textbutton "Виденное ранее":
+            textbutton "[DIN_SKIP_PREFERENCES_SEEN_TEXT]":
                 style "din_button_none"
                 text_style "din_settings_header_main_menu_preferences"
                 xalign 0.15
                 ypos 600
                 action Preference("skip", "seen")
 
-            textbutton "Всё":
+            textbutton "[DIN_SKIP_PREFERENCES_ALL_TEXT]":
                 style "din_button_none"
                 text_style "din_settings_header_main_menu_preferences"
                 xalign 0.85
@@ -384,15 +394,15 @@ screen din_preferences_main_menu():
 
         bar:
             value Preference("music volume")
-            right_bar din_gui_path + "preferences/main_menu/bar_null.png"
-            left_bar din_gui_path + "preferences/main_menu/bar_full.png"
-            thumb din_gui_path + "preferences/main_menu/htumb.png"
+            right_bar DIN_GUI_PATH + "preferences/main_menu/bar_null.png"
+            left_bar DIN_GUI_PATH + "preferences/main_menu/bar_full.png"
+            thumb DIN_GUI_PATH + "preferences/main_menu/htumb.png"
             xpos 975
             ypos 813
             xmaximum 400
             ymaximum 85
 
-        textbutton "Назад":
+        textbutton "[DIN_RETURN_TEXT]":
             style "din_log_button" 
             text_style "din_settings_link_main_menu_preferences" 
             xalign 0.1
@@ -410,7 +420,9 @@ screen din_quit_main_menu():
         action NullAction()
     
     if not din_main_menu_var:
-        add "din_main_menu_options_frame" xalign 0.5 yalign 0.5
+        add "din_main_menu_options_frame":
+            xalign 0.5
+            yalign 0.5
         
         text "Вы действительно хотите выйти?":
             font din_main_menu_font
@@ -421,7 +433,7 @@ screen din_quit_main_menu():
             antialias True
             kerning 2
             
-        textbutton "Да":
+        textbutton "[DIN_YES_TEXT]":
             style "din_settings_header_main_menu_quit"
             text_style "din_settings_header_main_menu_quit"
             xpos 493
@@ -432,7 +444,7 @@ screen din_quit_main_menu():
                 ShowMenu("main_menu")
             ]
             
-        textbutton "Нет":
+        textbutton "[DIN_NO_TEXT]":
             style "din_settings_header_main_menu_quit"
             text_style "din_settings_header_main_menu_quit"
             xpos 1230

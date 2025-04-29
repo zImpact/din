@@ -288,7 +288,7 @@ label din_lost_peace_f_2:
  
 label din_lost_peace_story_interlude:
     $ renpy.block_rollback()
-    $ din_interlude_intro("Тишина", daytime="night")
+    $ din_interlude_intro("Тишина", "night")
     scene bg din_ext_road_night_without_lep with Dissolve(2)
     play music din_american_dollar_signaling_through_the_flames fadein 5
     din_narrator "Мне нравился этот путь."

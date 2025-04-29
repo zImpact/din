@@ -1,10 +1,8 @@
-init -10 python:
-    din_gui_path = "din/images/gui/"
-    
-    din_link_font = din_gui_path + "fonts/gothic.ttf"
-    din_header_font = din_gui_path + "fonts/corbel.ttf"
+init python:
+    din_link_font = DIN_GUI_PATH + "fonts/gothic.ttf"
+    din_header_font = DIN_GUI_PATH + "fonts/corbel.ttf"
     din_main_font = "fonts/calibri.ttf"
-    din_main_menu_font = din_gui_path + "fonts/AG_Futura Regular.ttf"
+    din_main_menu_font = DIN_GUI_PATH + "fonts/AG_Futura Regular.ttf"
 
     style.din_titles_style = Style(style.default)
     style.din_titles_style.font = din_link_font
@@ -68,39 +66,39 @@ init -10 python:
     style.din_log_button.background = None
 
     style.din_save_load_button_main_menu = Style(style.button)
-    style.din_save_load_button_main_menu.background = din_gui_path + "save_load/main_menu/thumbnail_idle.png"
-    style.din_save_load_button_main_menu.hover_background = din_gui_path + "save_load/main_menu/thumbnail_hover.png"
-    style.din_save_load_button_main_menu.selected_background = din_gui_path + "save_load/main_menu/thumbnail_selected.png"
-    style.din_save_load_button_main_menu.selected_hover_background = din_gui_path + "save_load/main_menu/thumbnail_selected.png"
-    style.din_save_load_button_main_menu.selected_idle_background = din_gui_path + "save_load/main_menu/thumbnail_selected.png"
+    style.din_save_load_button_main_menu.background = DIN_GUI_PATH + "save_load/main_menu/thumbnail_idle.png"
+    style.din_save_load_button_main_menu.hover_background = DIN_GUI_PATH + "save_load/main_menu/thumbnail_hover.png"
+    style.din_save_load_button_main_menu.selected_background = DIN_GUI_PATH + "save_load/main_menu/thumbnail_selected.png"
+    style.din_save_load_button_main_menu.selected_hover_background = DIN_GUI_PATH + "save_load/main_menu/thumbnail_selected.png"
+    style.din_save_load_button_main_menu.selected_idle_background = DIN_GUI_PATH + "save_load/main_menu/thumbnail_selected.png"
 
     style.din_save_load_button_day = Style(style.button)
-    style.din_save_load_button_day.background = din_gui_path + "save_load/day/thumbnail_idle.png"
-    style.din_save_load_button_day.hover_background = din_gui_path + "save_load/day/thumbnail_hover.png"
-    style.din_save_load_button_day.selected_background = din_gui_path + "save_load/day/thumbnail_selected.png"
-    style.din_save_load_button_day.selected_hover_background = din_gui_path + "save_load/day/thumbnail_selected.png"
-    style.din_save_load_button_day.selected_idle_background = din_gui_path + "save_load/day/thumbnail_selected.png"
+    style.din_save_load_button_day.background = DIN_GUI_PATH + "save_load/day/thumbnail_idle.png"
+    style.din_save_load_button_day.hover_background = DIN_GUI_PATH + "save_load/day/thumbnail_hover.png"
+    style.din_save_load_button_day.selected_background = DIN_GUI_PATH + "save_load/day/thumbnail_selected.png"
+    style.din_save_load_button_day.selected_hover_background = DIN_GUI_PATH + "save_load/day/thumbnail_selected.png"
+    style.din_save_load_button_day.selected_idle_background = DIN_GUI_PATH + "save_load/day/thumbnail_selected.png"
 
     style.din_save_load_button_night = Style(style.button)
-    style.din_save_load_button_night.background = din_gui_path + "save_load/night/thumbnail_idle.png"
-    style.din_save_load_button_night.hover_background = din_gui_path + "save_load/night/thumbnail_hover.png"
-    style.din_save_load_button_night.selected_background = din_gui_path + "save_load/night/thumbnail_selected.png"
-    style.din_save_load_button_night.selected_hover_background = din_gui_path + "save_load/night/thumbnail_selected.png"
-    style.din_save_load_button_night.selected_idle_background = din_gui_path + "save_load/night/thumbnail_selected.png"
+    style.din_save_load_button_night.background = DIN_GUI_PATH + "save_load/night/thumbnail_idle.png"
+    style.din_save_load_button_night.hover_background = DIN_GUI_PATH + "save_load/night/thumbnail_hover.png"
+    style.din_save_load_button_night.selected_background = DIN_GUI_PATH + "save_load/night/thumbnail_selected.png"
+    style.din_save_load_button_night.selected_hover_background = DIN_GUI_PATH + "save_load/night/thumbnail_selected.png"
+    style.din_save_load_button_night.selected_idle_background = DIN_GUI_PATH + "save_load/night/thumbnail_selected.png"
 
     style.din_save_load_button_dungeon = Style(style.button)
-    style.din_save_load_button_dungeon.background = din_gui_path + "save_load/dungeon/thumbnail_idle.png"
-    style.din_save_load_button_dungeon.hover_background = din_gui_path + "save_load/dungeon/thumbnail_hover.png"
-    style.din_save_load_button_dungeon.selected_background = din_gui_path + "save_load/dungeon/thumbnail_selected.png"
-    style.din_save_load_button_dungeon.selected_hover_background = din_gui_path + "save_load/dungeon/thumbnail_selected.png"
-    style.din_save_load_button_dungeon.selected_idle_background = din_gui_path + "save_load/dungeon/thumbnail_selected.png"
+    style.din_save_load_button_dungeon.background = DIN_GUI_PATH + "save_load/dungeon/thumbnail_idle.png"
+    style.din_save_load_button_dungeon.hover_background = DIN_GUI_PATH + "save_load/dungeon/thumbnail_hover.png"
+    style.din_save_load_button_dungeon.selected_background = DIN_GUI_PATH + "save_load/dungeon/thumbnail_selected.png"
+    style.din_save_load_button_dungeon.selected_hover_background = DIN_GUI_PATH + "save_load/dungeon/thumbnail_selected.png"
+    style.din_save_load_button_dungeon.selected_idle_background = DIN_GUI_PATH + "save_load/dungeon/thumbnail_selected.png"
 
     style.din_save_load_button_sunset = Style(style.button)
-    style.din_save_load_button_sunset.background = din_gui_path + "save_load/sunset/thumbnail_idle.png"
-    style.din_save_load_button_sunset.hover_background = din_gui_path + "save_load/sunset/thumbnail_hover.png"
-    style.din_save_load_button_sunset.selected_background = din_gui_path + "save_load/sunset/thumbnail_selected.png"
-    style.din_save_load_button_sunset.selected_hover_background = din_gui_path + "save_load/sunset/thumbnail_selected.png"
-    style.din_save_load_button_sunset.selected_idle_background = din_gui_path + "save_load/sunset/thumbnail_selected.png"
+    style.din_save_load_button_sunset.background = DIN_GUI_PATH + "save_load/sunset/thumbnail_idle.png"
+    style.din_save_load_button_sunset.hover_background = DIN_GUI_PATH + "save_load/sunset/thumbnail_hover.png"
+    style.din_save_load_button_sunset.selected_background = DIN_GUI_PATH + "save_load/sunset/thumbnail_selected.png"
+    style.din_save_load_button_sunset.selected_hover_background = DIN_GUI_PATH + "save_load/sunset/thumbnail_selected.png"
+    style.din_save_load_button_sunset.selected_idle_background = DIN_GUI_PATH + "save_load/sunset/thumbnail_selected.png"
 
     style.din_base_font = Style(style.default)
     style.din_base_font.font = din_main_font

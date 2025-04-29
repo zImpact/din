@@ -1,32 +1,27 @@
 init python:
     import time
     from os import path
-    
-    din_mod_name = "din"
-    din_prefix = din_mod_name + "_"
 
     for file_name in renpy.list_files():
-        if din_mod_name in file_name:
+        if DIN_MOD_NAME in file_name:
             file_path = path.splitext(path.basename(file_name))[0]
 
-            if file_name.startswith(din_mod_name + "/images/bg/"):
-                renpy.image("bg " + din_prefix + file_path, file_name)
+            if file_name.startswith(DIN_MOD_NAME + "/images/bg/"):
+                renpy.image("bg " + DIN_PREFIX + file_path, file_name)
 
-            elif file_name.startswith(din_mod_name + "/images/sprites/"):
+            elif file_name.startswith(DIN_MOD_NAME + "/images/sprites/"):
                 renpy.image(
-                    din_prefix + file_path, 
+                    DIN_PREFIX + file_path, 
                     ConditionSwitch(
-                        "persistent.sprite_time == 'sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)),
-                        "persistent.sprite_time == 'night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), 
+                        "persistent.sprite_time=='sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)),
+                        "persistent.sprite_time=='night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), 
                         True, file_name
                     )
                 )
 
-            elif file_name.startswith(din_mod_name + "/sounds/"):
-                globals()[din_prefix + file_path] = file_name
+            elif file_name.startswith(DIN_MOD_NAME + "/sounds/"):
+                globals()[DIN_PREFIX + file_path] = file_name
     
-    din_std_set_for_preview = {}
-    din_std_set = {}
     store.din_colors = {}
     store.din_names = {}
     store.din_names_list = []
@@ -36,67 +31,67 @@ init python:
 
     store.din_names_list.append("din_th")
 
-    din_colors["din_third_i"] = {"speaker_color": "#004979"}
+    din_colors["din_third_i"] = {"speaker_color": DIN_THIRD_NAME_COLOR}
     din_names["din_third_i"] = "Я"
     store.din_names_list.append("din_third_i")
 
-    din_colors["din_third"] = {"speaker_color": "#004979"}
+    din_colors["din_third"] = {"speaker_color": DIN_THIRD_NAME_COLOR}
     din_names["din_third"] = "Третий"
     store.din_names_list.append("din_third")
 
-    din_colors["din_nit_he"] = {"speaker_color": "#9f9393"}
+    din_colors["din_nit_he"] = {"speaker_color": DIN_NIT_NAME_COLOR}
     din_names["din_nit_he"] = "Он"
     store.din_names_list.append("din_nit_he")
 
-    din_colors["din_nit_guest"] = {"speaker_color": "#9f9393"}
+    din_colors["din_nit_guest"] = {"speaker_color": DIN_NIT_NAME_COLOR}
     din_names["din_nit_guest"] = "Гость"
     store.din_names_list.append("din_nit_guest")
 
-    din_colors["din_nit"] = {"speaker_color": "#9f9393"}
+    din_colors["din_nit"] = {"speaker_color": DIN_NIT_NAME_COLOR}
     din_names["din_nit"] = "Ниточник"
     store.din_names_list.append("din_nit")
 
-    din_colors["din_pi_teapot"] = {"speaker_color": "#551313"}
+    din_colors["din_pi_teapot"] = {"speaker_color": DIN_TEAPOT_NAME_COLOR}
     din_names["din_pi_teapot"] = "Пионер"
     store.din_names_list.append("din_pi_teapot")
 
-    din_colors["din_teapot"] = {"speaker_color": "#551313"}
+    din_colors["din_teapot"] = {"speaker_color": DIN_TEAPOT_NAME_COLOR}
     din_names["din_teapot"] = "Чайник"
     store.din_names_list.append("din_teapot")
 
-    din_colors["din_gensek"] = {"speaker_color": "#d1d141"}
+    din_colors["din_gensek"] = {"speaker_color": DIN_GENSEK_NAME_COLOR}
     din_names["din_gensek"] = "Генсек"
     store.din_names_list.append("din_gensek")
 
-    din_colors["din_pi1"] = {"speaker_color": "#cccc00"}
+    din_colors["din_pi1"] = {"speaker_color": DIN_PI1_NAME_COLOR}
     din_names["din_pi1"] = "Пионер"
     store.din_names_list.append("din_pi1")
 
-    din_colors["din_pi2"] = {"speaker_color": "#666699"}
+    din_colors["din_pi2"] = {"speaker_color": DIN_PI2_NAME_COLOR}
     din_names["din_pi2"] = "Пионер"
     store.din_names_list.append("din_pi2")
 
-    din_colors["din_pi3"] = {"speaker_color": "#1873b9"}
+    din_colors["din_pi3"] = {"speaker_color": DIN_PI3_NAME_COLOR}
     din_names["din_pi3"] = "Пионер"
     store.din_names_list.append("din_pi3")
 
-    din_colors["din_pi_listener"] = {"speaker_color": "#5e5b5a"}
+    din_colors["din_pi_listener"] = {"speaker_color": DIN_PI_LISTENER_NAME_COLOR}
     din_names["din_pi_listener"] = "Пионер"
     store.din_names_list.append("din_pi_listener")
 
-    din_colors["din_pacifist"] = {"speaker_color": "#088010"}
+    din_colors["din_pacifist"] = {"speaker_color": DIN_PACIFIST_NAME_COLOR}
     din_names["din_pacifist"] = "Пацифист"
     store.din_names_list.append("din_pacifist")
 
-    din_colors["din_dv"] = {"speaker_color": "#ffaa00"}
+    din_colors["din_dv"] = {"speaker_color": DIN_DV_NAME_COLOR}
     din_names["din_dv"] = "Алиса"
     store.din_names_list.append("din_dv")
 
-    din_colors["din_sl"] = {"speaker_color": "#ffd200"}
+    din_colors["din_sl"] = {"speaker_color": DIN_SL_NAME_COLOR}
     din_names["din_sl"] = "Славяна"
     store.din_names_list.append("din_sl")
 
-    din_colors["din_un"] = {"speaker_color": "#aa64d9"}
+    din_colors["din_un"] = {"speaker_color": DIN_UN_NAME_COLOR}
     din_names["din_un"] = "Лена"
     store.din_names_list.append("din_un")
 
@@ -160,28 +155,56 @@ init python:
         
         if character_name == "din_narrator":
             if is_nvl:
-                din_gl["din_narrator"] = Character(None, kind=nvl, what_style="din_text_style")
+                din_gl["din_narrator"] = Character(
+                    None,
+                    kind=nvl,
+                    what_style="din_text_style"
+                )
             
             else:
-                din_gl["din_narrator"] = Character(None, what_style="din_text_style")
+                din_gl["din_narrator"] = Character(
+                    None,
+                    what_style="din_text_style"
+                )
             
             return
         
         if character_name == "din_th":
             if is_nvl:
-                din_gl["din_th"] = Character(None, kind = nvl, what_style = "din_text_style", what_prefix = "~ ", what_suffix = " ~")
+                din_gl["din_th"] = Character(
+                    None,
+                    kind=nvl,
+                    what_style="din_text_style",
+                    what_prefix="~ ",
+                    what_suffix=" ~"
+                )
             
             else:
-                din_gl["din_th"] = Character(None, what_style = "din_text_style", what_prefix = "~ ", what_suffix = " ~")
+                din_gl["din_th"] = Character(
+                    None,
+                    what_style="din_text_style",
+                    what_prefix="~ ",
+                    what_suffix=" ~"
+                )
             
             return
         
         if is_nvl:
-            din_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.din_colors[character_name][din_speaker_color], kind=nvl, what_style="din_text_style", who_suffix=":")
+            din_gl[character_name] = DynamicCharacter(
+                "%s_name" % character_name,
+                color=store.din_colors[character_name][din_speaker_color],
+                kind=nvl,
+                what_style="din_text_style",
+                who_suffix=":"
+            )
             din_gl["%s_name" % character_name] = store.din_names[character_name]
         
         else:
-            din_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.din_colors[character_name][din_speaker_color], what_style="din_text_style")
+            din_gl[character_name] = DynamicCharacter(
+                "%s_name" % character_name,
+                color=store.din_colors[character_name][din_speaker_color],
+                what_style="din_text_style"
+            )
             din_gl["%s_name" % character_name] = store.din_names[character_name]
 
     def din_set_mode_adv():
@@ -217,8 +240,6 @@ init python:
         for character_name in store.din_names_list:
             din_char_define(character_name)
 
-    din_reload_names()
-
     if persistent.din_flags == None:
         persistent.din_flags = {}
 
@@ -231,15 +252,6 @@ init python:
     persistent.din_flags.setdefault("din_third_info_received", False)
     persistent.din_flags.setdefault("din_gensek_info_received", False)
     persistent.din_flags.setdefault("din_pacifist_info_received", False)
-
-    def din_page_counter(n, k):
-        l = float(n) / float(k)
-        
-        if l - int(l) > 0:
-            return int(l) + 1
-
-        else:
-            return l
 
     def din_frame_animation(image_name, frames_quantity, retention, loop, transition, start=1, **properties):
         anim_args = []
@@ -305,7 +317,7 @@ init python:
         global save_name
 
         renpy.block_rollback()
-        save_name = "Интерлюдия.\nНиточник и Третий.\n{}".format(interlude_name)
+        save_name = "Интерлюдия\nНиточник и Третий\n{}".format(interlude_name)
         persistent.timeofday = daytime
         persistent.sprite_time = daytime
 
@@ -367,7 +379,7 @@ init python:
         renpy.hide_screen("din_titles_overlay", layer="overlay")
 
     def din_set_timeofday_cursor():
-        config.mouse_displayable = MouseDisplayable(din_gui_path + "cursors/" + persistent.timeofday + "/cursor.png", 0, 0)
+        config.mouse_displayable = MouseDisplayable(DIN_GUI_PATH + "cursors/" + persistent.timeofday + "/cursor.png", 0, 0)
 
     def din_set_dynamic_cursor(state):
         if din_set_timeofday_cursor in config.overlay_functions:
@@ -377,7 +389,7 @@ init python:
             config.overlay_functions.append(din_set_timeofday_cursor)
 
         elif state == "main_menu":
-            config.mouse_displayable = MouseDisplayable(din_gui_path + "cursors/main_menu/cursor.png", 0, 0)
+            config.mouse_displayable = MouseDisplayable(DIN_GUI_PATH + "cursors/main_menu/cursor.png", 0, 0)
 
         elif state == "null":
             config.mouse_displayable = MouseDisplayable(Null(0, 0), 0, 0)
@@ -393,6 +405,8 @@ init python:
     config.custom_text_tags["din_shrinking_text"] = din_shrinking_text_tag
 
 init:
+    $ din_reload_names()
+
     $ din_titles = """{b}Спасибо, что снова читаете мод нашей команды!{/b}
     Не смотря ни на что, мы хотим создавать что-то новое, непохожее и нетипичное для мастерской.\n\nЭкспериментировать, воплощать и развивать идеи, которые откликаются людям. И если наш мод как-то в вас откликнулся, то дайте нам знать!\n\nВаша поддержка, даже в форме простого комментария ""Хороший мод, жду нового!"" действительно очень помогает нам. Каждый раз, когда мы видим подобное, в наших чатах случается подъем боевого духа и желания сворачивать горы)\n\nНад модом работали:\nSeeker - автор идеи, сценарист.\n\npaych3ck - основой код, дизайн интерфейса.\n\nДаниил Бухичевский - помощь с текстом.\n\nЕгорыч - работа над визуальной составляющей.\n\ndigreen17 - помощь с визуальной составляющей и вычитка текста.\n\nD_SMILE - художник фонов.\n\nCloudy - художник спрайтов.\n\nДанила Маклаков - помощь с улучшением спрайтов.\n\nБлагодарим тех, кто поддерживал нас финансово:\nГригорий Григорьев\n\nНикита Берлов\n\nИлья Можайкин\n\nМаксим Куттер\n\nПионер Пионерович\n\nРуслан Власов\n\nТак или иначе, спасибо за уделённое нам время! Этот мод - далеко не конец. Мы не собираемся останавливаться. Следите за анонсами. С уважением, Zero Impact."""
 
@@ -435,14 +449,14 @@ init:
     image din_main_menu_night_anim = din_frame_animation("din/images/gui/main_menu/night/night", 5, 4, True, Dissolve(2))
     image din_main_menu_sunset_anim = din_frame_animation("din/images/gui/main_menu/sunset/sunset", 5, 4, True, Dissolve(2))
     image din_main_menu_morning_anim = din_frame_animation("din/images/gui/main_menu/morning/morning", 5, 4, True, Dissolve(2))
-    image din_main_menu_underline = din_gui_path + "main_menu/underline.png"
+    image din_main_menu_underline = DIN_GUI_PATH + "main_menu/underline.png"
 
-    image din_intro_logo = din_gui_path + "misc/intro_logo.png"
+    image din_intro_logo = DIN_GUI_PATH + "misc/intro_logo.png"
 
-    image din_ext_camp_entrance_day = din_gui_path + "misc/ext_camp_entrance_day.png"
-    image din_ext_camp_entrance_night = din_gui_path + "misc/ext_camp_entrance_night.png"
-    image din_ext_camp_entrance_sunset = din_gui_path + "misc/ext_camp_entrance_sunset.png"
-    image din_ext_camp_entrance_morning = din_gui_path + "misc/ext_camp_entrance_morning.png"
+    image din_ext_camp_entrance_day = DIN_GUI_PATH + "misc/ext_camp_entrance_day.png"
+    image din_ext_camp_entrance_night = DIN_GUI_PATH + "misc/ext_camp_entrance_night.png"
+    image din_ext_camp_entrance_sunset = DIN_GUI_PATH + "misc/ext_camp_entrance_sunset.png"
+    image din_ext_camp_entrance_morning = DIN_GUI_PATH + "misc/ext_camp_entrance_morning.png"
 
     image bg din_ext_polyana_night_blurred = im.Blur("images/bg/ext_polyana_night.jpg", 1.5)
 
