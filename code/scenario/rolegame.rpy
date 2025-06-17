@@ -30,7 +30,7 @@ label din_rolegame_story:
     din_narrator "Ужин отличался от любого другого времени суток исключительно тем, что часть народу сидела на кухне, пытаясь приготовить что-то съедобное."
     din_teapot "Шесть и три плюс бонус к внимательности...{w=1} одиннадцать. Итого — двадцатка."
     din_narrator "Нит в очередной раз пожалел, что позволил Чайнику получить такой огромный бонус, но вслух ничего не сказал."
-    stop ambience fadeout 2    
+    stop ambience fadeout 2
     scene bg din_int_rpg_dungeon with din_wipeleft
     $ din_set_time("dungeon", "day")
     $ din_rolegame_ambience_memorization.resume()
@@ -54,7 +54,7 @@ label din_rolegame_story:
     din_narrator "Ниточник деловито посмотрел в мою сторону."
     din_nit "По-хорошему, тебе нужно провести бросок на внимательность, но я опишу комнату и так. {w}Тем более ты не пристал к случайной двери."
     din_nit "Кхм-кхм. {i}Среди поломанных досок и старой дешёвой одежды ты находишь пригодный факел, старинные погнутые часы для ношения в кармане и неопределённое зелье.{/i}"
-   
+
     menu:
         "Взять факел и зелье":
             $ din_take_torch = True
@@ -68,14 +68,14 @@ label din_rolegame_story:
             din_nit "Хорошо, следующий ход."
             jump din_rg_search_2
 
-        "Взять всё":    
+        "Взять всё":
             jump din_rg_1_take_all
 
 label din_rg_1_take_all:
     din_third "Я хватаю всё."
     din_nit "Третий, мы же это уже проходили. {w}Твоя сумка и так доверху заполнена последствиями твоей клептомании. {w}Ты с таким весом просто ходить не сможешь."
     din_nit "Может всё-таки передумаешь?"
-    
+
     menu:
         "Сбросить лишнее":
             din_third "Если ты так настаиваешь..."
@@ -101,7 +101,7 @@ label din_rg_1_take_all:
             din_nit "Прими мои поздравления, твой персонаж после подбора оставшегося зелья грузно оседает на пол, не в силах поднять настолько тяжелую ношу."
             din_nit "Веселись. А пока что у нас тут сцена поинтересней..."
             jump din_rg_search_2
-    
+
 label din_rg_search_2:
     din_nit "Итак, Чайник. {i}Ты видишь, как дверь начало искажать темной магией. Она стала в полтора раза больше, а её древесина сильнее почернела, теперь напоминая загадочный металл.{/i}"
     din_teapot "Нит, я всем своим заменителем души надеюсь, что ты не подкрутил параметры этой двери только чтобы заставить моего персонажа страдать." # nolint
@@ -115,21 +115,21 @@ label din_rg_search_2:
     din_narrator "Кубы застучали по столу."
     din_teapot "Одиннадцать урона с пробитием пяти брони." # nolint
     din_nit "{i}На темной поверхности двери остался след от взмаха оружием. {w}Дверь не впечатлена.{/i}"
-    
+
     if din_take_everything:
         din_nit "Твой ход, вещмешок. {w}Ты всё еще перегружен, если что."
 
     else:
-        din_nit "Твой черёд, Третий. {w}Начинай." 
-    
+        din_nit "Твой черёд, Третий. {w}Начинай."
+
     if din_take_everything:
         jump din_rg_wait_label
-    
-    menu:  
+
+    menu:
         "Облить факел зельем" if din_take_torch:
             din_nit "Ладно, понял тебя. Тогда это уже в следующем раунде."
             jump din_rg_after_all
-                
+
         "Бросить часы в Чайника" if din_take_clock: # nolint
             $ din_choice_clock = True
             din_teapot "Что, серьёзно?"
@@ -149,13 +149,13 @@ label din_rg_search_2:
             jump din_rg_wait_label
 
 label din_rg_wait_label:
-    $ din_choice_wait = True                
+    $ din_choice_wait = True
     din_third "Выжидаю."
     din_nit "Мудрая тактика. {w}Когда ты бросил своих союзников умирать в прошлый раз, мне было весело."
     din_nit "Ладно."
-    jump din_rg_after_all        
+    jump din_rg_after_all
 
-label din_rg_after_all:      
+label din_rg_after_all:
     din_nit "А теперь мой ход."
     din_nit "Чайник, {i}ты чувствуешь, как небольшая волна расходится от черной двери.{/i} Получи одну единицу урона магией."
     din_nit "Ты видишь всё то же самое. И получаешь такой же урон."
@@ -168,13 +168,13 @@ label din_rg_after_all:
     din_nit "Ого, пятнадцать урона, мои поздравления. {w}{i}На двери образовался солидный порез. {w}Дверь в ярости.{/i}" # nolint
     din_nit "Твой ход."
     din_narrator "Ниточник повернулся ко мне."
-    
+
     if din_choice_clock:
         jump din_rg_1_take_clock
-        
+
     if din_choice_wait:
         jump din_rg_wait
-        
+
     jump din_rg_1_torch_poition
 
 label din_rg_1_torch_poition:
@@ -191,11 +191,11 @@ label din_rg_1_torch_poition:
             din_teapot "Звучит, как неплохой такой произвол."
             din_narrator "Чайник встрял в мой ход."
             din_nit "Иначе я бы и вести не стал. Считайте это моим авторским почерком."
-            
+
         "Лить зелье вслепую":
             din_th "Хотя так будет веселее."
             din_third "Люблю сюрпризы."
-            
+
     din_nit "Так, ладно. {i}Ткань сверху факела напитывается зельем, но ничего не происходит.{/i} {w}Не знаю, на что ты рассчитывал, но пускай."
     din_narrator "Ниточник сделал пару пометок у себя на листе."
     din_nit "И убери зелье из инвентаря, будь добр."
@@ -298,7 +298,7 @@ label din_rg_1_torch_poition:
     with dissolve
     play ambience ambience_camp_center_evening fadein 2
     jump din_rg_final
-            
+
 label din_rg_1_take_clock:
     din_third "Я попытаюсь ему помочь."
     din_nit "Не самое мудрое решение, но у вас тут свобода выбора..."
@@ -332,7 +332,7 @@ label din_rg_1_take_clock:
     din_nit "Остался только ты, Третий."
     din_third "И дверь."
     din_nit "И дверь."
-    din_narrator "Согласился он."    
+    din_narrator "Согласился он."
     din_nit "Кстати, её ход."
     din_nit "{i}Тьма стала тянуть тебя настолько сильно, что ты на секунду потерял ориентацию от стремительного движения.{/i}"
     din_nit "{i}Смог собраться ты только оказавшись внутри двери. {w}Вокруг кружилась непроглядная темнота. Только далёкие огни, напоминающие звезды, выделялись на общем фоне.{/i} {w}Бросай на проницательность."
@@ -366,7 +366,7 @@ label din_rg_1_take_clock:
     show din_nit smil3_r with dspr
     din_nit "Спасибо, стараюсь. Забери, пока я собираюсь, Чайника и пойдём."
     din_narrator "Будет сделано."
-    hide din_nit with dissolve  
+    hide din_nit with dissolve
     din_narrator "Я направился в центр общей столовой, расчищенную от столов площадку рядом с раздачей еды и доской объявлений."
     din_narrator "Тут же стоял магнитофон, но, благо, сегодня он молчал. {w}А вот по вечерам вторников здесь лучше не появляться."
     din_narrator "Чайника здесь не нашлось. Пришлось идти за раздачу, на кухню."
@@ -403,7 +403,7 @@ label din_rg_1_take_clock:
     din_third "Я чувствую оскорбление."
     din_nit "Нет, не переживай, Третий. {w}У тебя, наверное, есть какие-нибудь другие достоинства."
     jump din_rg_final
-            
+
 label din_rg_wait:
     din_third "Я всё еще никуда не тороплюсь."
     din_nit "Пропускаешь?"
@@ -528,14 +528,14 @@ label din_rg_wait:
     stop ambience fadeout 2
     play sound sfx_open_door_1
     $ renpy.pause(2, hard=True)
-    scene bg ext_dining_hall_near_sunset 
+    scene bg ext_dining_hall_near_sunset
     show din_hall pos2 smile3 at left
     show din_nit normal_l at right
     with dissolve
     play ambience ambience_camp_center_evening fadein 2
     din_narrator "Чайник ждал нас снаружи, печально облокотившись на перила."
-    jump din_rg_final        
-            
+    jump din_rg_final
+
 label din_rg_final:
     din_nit "Как вам партия?"
 
@@ -552,7 +552,7 @@ label din_rg_final:
             show din_nit bulging3_l_smile with dspr
             din_nit "А, похоже, ты любишь такие эксперименты с жанром не меньше меня? Тогда жди чего-то нового. В следующий раз я тебя удивлю."
             din_third "Звучит многообещающе. Я заинтригован."
-            
+
         "Скучновато":
             din_third "Я скучал в некоторых моментах."
             din_nit "Да? {w}Серьёзно?"
@@ -585,7 +585,7 @@ label din_rg_final:
     din_narrator "Как-то нервно ответил Чайник."
     play sound din_portal_use
     scene bg ext_square_sunset with flash
-    din_narrator "По дороге мы перешли в другой лагерь, чтобы не делать этого на месте." 
+    din_narrator "По дороге мы перешли в другой лагерь, чтобы не делать этого на месте."
     scene bg din_ext_musclub_sunset with dissolve
     play music din_sen_no_kiseki_IV_ost_shade_of_anxiety_ray_of_hope fadein 5
     din_narrator "Неожиданно, но у музклуба нас уже ждали."
@@ -623,7 +623,7 @@ label din_rg_final:
     din_narrator "Лена мечтательно улыбалась, что-то рассказывая молчаливому и вдумчиво смотрящему Чайнику, а оставшиеся две девушки внимательно слушали одну из занимательных историй Ниточника."
     din_narrator "Настроение у всех было прекрасное. {w}Даже у меня, хоть и по другим причинам."
     din_narrator "Всё же этот лагерь — место многих возможностей."
-    scene bg ext_no_bus_sunset 
+    scene bg ext_no_bus_sunset
     show din_hall pos2 smile3 at fleft
     show din_nit normal_l at fright
     show un normal pioneer at cleft

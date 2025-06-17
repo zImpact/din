@@ -7,7 +7,7 @@ label din_lost_peace_story:
         "bg ext_road_sunset",
         "din_pacifist pos1 normal",
         "Потерянный мир",
-        "День Пацифиста", 
+        "День Пацифиста",
         "ext_road_evening"
     )
     $ din_onload("unlock")
@@ -38,7 +38,7 @@ label din_lost_peace_story:
     din_narrator "На тот турнир он собрал бомбу, способную вынести железную дверь. Она обеспечила ошеломительную победу в первом раунде, вот только была «бомба» только одна."
     din_narrator "Чайник мог занять первое место. А так — конец списка, ненамного выше меня."
     din_narrator "Позавчера Чайник нашёл меня полупьяного в Общем лагере. Выслушал, а после перетащил к себе."
-    din_narrator "Едва ли он искренне понимал, что я чувствую после случившегося, но его дружеский жест всё же помог мне собраться с мыслями." 
+    din_narrator "Едва ли он искренне понимал, что я чувствую после случившегося, но его дружеский жест всё же помог мне собраться с мыслями."
     hide din_note with dissolve
     din_narrator "Я осторожно привязал подарок к грудному карману."
     din_narrator "Очень повезло, что удалось уйти от того ненормального, победившего в конце концов всех и каждого."
@@ -65,7 +65,7 @@ label din_lost_peace_story:
     show din_nit bulging3_l at right with dissolve
     din_narrator "Наш разговор прервало появление нового Пионера."
     din_narrator "Я сразу напрягся и замолчал."
-    din_narrator "От всех их стоит ждать беды."  
+    din_narrator "От всех их стоит ждать беды."
     din_teapot "О, заходи, гостем будешь!"
     din_narrator "Чайник гостеприимно подвинулся."
     din_nit_guest "Приветствую брата по несчастью."
@@ -97,7 +97,7 @@ label din_lost_peace_story:
     din_narrator "Брови Чайника медленно поползли вверх."
     show din_nit bulging3_l_smile at right with dspr
     din_teapot "Хочешь сказать, что... {w}Да иди ты к черту!"
-    play sound sfx_water_splash    
+    play sound sfx_water_splash
     din_narrator "В порыве он схватил свою самодельную удочку и запустил её метров на сорок в озеро."
     din_narrator "Гость просто наслаждался каждой эмоцией Чайника."
     din_teapot "Блин, вот надо было тебе... {w}Да я мог бы смен семьдесят тут рыбачить в счастливом неведении, в упорных поисках той самой рыбины! Но тут пришел ты, и все мои мечты с надеждами — в трубу."
@@ -149,7 +149,7 @@ label din_lost_peace_story:
     din_th "Что?"
     din_pacifist "Что?"
     din_teapot "Ну-же, давай, это просто. Дыр-дыр-дыр!"
-   
+
     menu:
         "Дыр-дыр-дыр":
             din_narrator "Сокрушенный вздох."
@@ -166,26 +166,26 @@ label din_lost_peace_story:
             din_narrator "Чайник расслабленно откинулся, насколько это позволяло сиденье Волги."
             din_narrator "В следующий раз делай так сразу."
             jump din_lost_peace_f
-           
+
         "Промолчать":
             pass
-   
+
     din_narrator "Отчасти от нежелания, отчасти от неожиданности, но я промолчал."
     din_teapot "Не расслышал? {w}Глухомань!"
     din_teapot "Дыр-дыр-дыр, говорю, скажи!"
     din_teapot "Хм, это была тавтология или мне показалось?"
     din_narrator "Проворчал он сам себе."
-   
+
     menu:
         "Дыр-дыр-дыр":
             din_narrator "Ну что же, мне не жалко, пусть порадуется."
             din_pacifist "Дыр-дыр-дыр."
             din_teapot "Вот, видишь? Капля терпения и моей доброты открывает все двери."
             jump din_lost_peace_f
-           
+
         "Промолчать":
             pass
-           
+
     din_narrator "От меня всё еще не было ни звука."
     din_teapot "Нет, ну в этот раз ты точно слышал. {w}Наверное."
     din_teapot "Чего же ты... {w}Ааааа, понял!" # nolint
@@ -194,7 +194,7 @@ label din_lost_peace_story:
     din_teapot "А твои эти выпады — так, на один зубок."
     $ renpy.pause(1, hard=True)
     din_teapot "Ты лучше сдайся по-хорошему, а то же я их вслух зачитывать буду."
-   
+
     menu:
         "Дыр-дыр-дыр":
             din_narrator "Я посмотрел на него и наконец решился."
@@ -206,19 +206,19 @@ label din_lost_peace_story:
             play sound_loop sfx_bus_interior_moving fadein 2
             din_teapot "Эээх, если у вас плохое настроение, то мы едем к вам!"
             din_narrator "Он азартно завёл машину и, крутанув руль, дал резвый старт."
-            din_narrator "Я прислонился лбом к стеклу своего окна."      
+            din_narrator "Я прислонился лбом к стеклу своего окна."
             jump din_lost_peace_f_2
 
         "Промолчать":
             pass
-   
+
     din_narrator "..."
     din_teapot "Ну, парень, я тебя предупреждал по-хорошему."
     din_teapot "Ты сам навлёк на себя это."
     din_narrator "Сделав вдох на все свои лёгкие, Чайник нарочито скучным голосом начал."
     din_teapot "{i} В революционный момент очень трудно поспеть за событиями, которые дают поразительно много нового материала к оценке тактических лозунгов революционных партий. Настоящая брошюра писана до одесских событий. Мы уже указали в «Пролетарии», что эти события заставили даже тех социал-демократов, которые создали теорию восстания процесса и отрицали пропаганду временного революционного правительства, перейти или начать переходить фактически на сторону своих оппонентов. {/i}"
     din_narrator "После окончания абзаца Чайник остановился, чтобы перевести дыхание и дать мне шанс избежать продолжения этого литературного вечера."
-   
+
     menu:
         "Дыр-дыр-дыр":
             din_teapot "Ну, ты выдержал больше, чем три четверти населения лагерей."
@@ -227,10 +227,10 @@ label din_lost_peace_story:
             play sound_loop sfx_bus_interior_moving fadein 2
             din_narrator "Закончив самовосхваление, Чайник, сияя от радости, завёл наконец машину."
             jump din_lost_peace_f_2
-           
+
         "Промолчать":
             pass
-           
+
     din_narrator "Пауза, устроенная им, затянулась."
     din_narrator "На мне застыл искренне удивлённый взгляд."
     din_narrator "Он, похоже, не верил, что кто-то осознанно мог обречь себя на такую судьбу."
@@ -255,12 +255,12 @@ label din_lost_peace_story:
     stop music fadeout 4
     $ renpy.pause(2, hard=True)
     jump din_lost_peace_story_interlude
-   
-label din_lost_peace_f:    
+
+label din_lost_peace_f:
     play sound_loop sfx_bus_interior_moving fadein 2
     din_narrator "Добившись желаемого, Чайник с довольным видом завёл машину."
     jump din_lost_peace_f_2
-   
+
 label din_lost_peace_f_2:
     scene bg din_ext_power_line_sunset_from_car at din_auto_moving with dissolve
     din_narrator "Я смотрел в своё окно."
@@ -285,7 +285,7 @@ label din_lost_peace_f_2:
     stop music fadeout 4
     $ renpy.pause(2, hard=True)
     jump din_lost_peace_story_interlude
- 
+
 label din_lost_peace_story_interlude:
     $ renpy.block_rollback()
     $ din_interlude_intro("Тишина", "night")

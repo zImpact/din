@@ -30,7 +30,7 @@ define DIN_SCREENS = [
     "say",
     "nvl",
     "game_menu_selector",
-    "yesno_prompt", 
+    "yesno_prompt",
     "choice",
     "help",
 ]
@@ -38,7 +38,7 @@ define DIN_SCREENS = [
 define DIN_SOUND_CHANNELS = [
     "ambience",
     "music",
-    "sound", 
+    "sound",
     "sound_loop",
 ]
 
@@ -49,14 +49,14 @@ define DIN_CHOICE_COLORS = {
     DIN_TIMEOFDAY_DUNGEON: "#496463",
 }
 
-define DIN_CHOICE_COLORS_HOVER = {                        
+define DIN_CHOICE_COLORS_HOVER = {
     DIN_TIMEOFDAY_DAY: "#9dcd55",
     DIN_TIMEOFDAY_NIGHT: "#3ccfa2",
     DIN_TIMEOFDAY_SUNSET: "#dcd168",
     DIN_TIMEOFDAY_DUNGEON: "#98d8da",
-} 
+}
 
-define DIN_CHOICE_COLORS_SELECTED = {                        
+define DIN_CHOICE_COLORS_SELECTED = {
     DIN_TIMEOFDAY_DAY: "#2a3b15",
     DIN_TIMEOFDAY_NIGHT: "#0b3027",
     DIN_TIMEOFDAY_SUNSET: "#42401e",

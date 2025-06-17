@@ -101,7 +101,7 @@ screen din_characters():
                         SetField(persistent, "sprite_time", info["sprite_time"]),
                         ShowMenu("din_character_info", char=char)
                     ]
-            
+
             else:
                 add DIN_GUI_PATH + "main_menu/button_info_locked.png":
                     xalign din_characters_xalign

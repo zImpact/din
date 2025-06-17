@@ -136,8 +136,8 @@ label din_winterlong_story:
             jump din_winterlong_story_bar
 
         "Подойти к учёным": # nolint
-            jump din_winterlong_story_science   
-    
+            jump din_winterlong_story_science
+
 label din_winterlong_story_bar:
     din_th "Возможно, стоило бы отказаться от алкоголя. {w}Хотя бы на эмоциональные праздники."
     din_th "С другой стороны, сколько выпивка вызывает истерик, столько и останавливает."
@@ -170,7 +170,7 @@ label din_winterlong_story_bar:
     din_narrator "Сейчас только я и Ниточник, кажется, еще не начинали с чистого листа. Мы помним как терялись другие, но сами мы всегда были такими, как и сейчас."
     din_narrator "В любом случае, наша очередь — только вопрос времени."
     din_narrator "Мы можем попробовать держаться бесконечно долго, но... {w}Мы здесь. {w}Бесконечность непременно наступит."
-    din_narrator "Мой поток мыслей прервали негромкие шаги рядом." 
+    din_narrator "Мой поток мыслей прервали негромкие шаги рядом."
     show din_gensek silhouette normal at center with dissolve
     din_narrator "Кто-то проходил мимо, но, заметив меня, придвинул соседний стул и сел к нам."
     din_th "Кто настолько смелый, чтобы подсесть без приглашения?"
@@ -235,7 +235,7 @@ label din_winterlong_story_bar:
     $ persistent.din_flags["din_gensek_info_received"] = True
     $ renpy.pause(2, hard=True)
     jump din_winterlong_story_interlude
-    
+
 label din_winterlong_story_science:
     din_narrator "Почему бы и нет?"
     stop ambience fadeout 2
@@ -308,7 +308,7 @@ label din_winterlong_story_science:
     din_narrator "Я ускорил шаг и пошел к сладкой парочке."
     din_narrator "За то время, что мы шли, эти двое уже стали кричать друг на друга. Пока внимания они не привлекали, но это временно."
     din_narrator "Моё желание улаживать детские разборки измерялось отрицательными числами, но статус обязывал."
-    din_th "Сколько раз повторять: {b}любое{/b} насилие сегодня запрещено! Но нет, всегда найдется новичок, который посчитает себя выше правил."   
+    din_th "Сколько раз повторять: {b}любое{/b} насилие сегодня запрещено! Но нет, всегда найдется новичок, который посчитает себя выше правил."
     show din_pi silhouette normal at left as din_silhouette1
     show din_pi silhouette normal at right as din_silhouette2
     with dissolve
@@ -438,7 +438,7 @@ label din_winterlong_story_science:
     $ persistent.din_flags["din_hall_info_received"] = True
     $ renpy.pause(2, hard=True)
     jump din_winterlong_story_interlude
-    
+
 label din_winterlong_story_interlude:
     $ din_interlude_intro("Пробуждение", "sunset")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)

@@ -20,7 +20,7 @@ label din_start:
     show din_intro_logo at truecenter
     show din_blank_skip
     with Dissolve(2)
-    $ renpy.pause(0.5, hard=True) 
+    $ renpy.pause(0.5, hard=True)
     play sound din_intro_sample
     $ renpy.pause(8, hard=True)
     scene bg black with Dissolve(2)

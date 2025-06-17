@@ -6,7 +6,7 @@ init python:
 
         def __call__(self):
             return self.function(self.arguments)
-    
+
     def din_on_load_callback(slot):
         try:
             if persistent.din_on_save_timeofday[slot]:
@@ -17,10 +17,10 @@ init python:
                 _preferences.volumes["sfx"] = persistent.din_on_save_timeofday[slot][4]
                 _preferences.volumes["voice"] = persistent.din_on_save_timeofday[slot][5]
                 din_set_dynamic_cursor("timeofday")
-        
+
         except:
             pass
-    
+
     def din_on_save_callback(slot):
         if not persistent.din_on_save_timeofday:
             persistent.din_on_save_timeofday = {}
@@ -33,11 +33,11 @@ init python:
             _preferences.volumes["sfx"],
             _preferences.volumes["voice"]
         )
-        
+
     def din_screens_save():
         for screen_name in DIN_SCREENS:
             renpy.display.screen.screens[("din_old_" + screen_name, None)] = renpy.display.screen.screens[(screen_name, None)]
-        
+
     def din_screens_act():
         persistent.timeofday = "day"
         config.window_title = u"Дни нигде"
@@ -48,10 +48,10 @@ init python:
             renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("din_" + screen_name, None)]
 
         layout.LOADING = "Потерять несохраненые данные?"
-        
+
         config.main_menu_music = din_god_is_an_astronaut_tempus_horizon
         config.linear_saves_page_size = None
-        persistent._file_page = "din_FilePage_1"  
+        persistent._file_page = "din_FilePage_1"
 
     def din_screens_diact():
         config.window_title = u"Бесконечное лето"
@@ -60,7 +60,7 @@ init python:
 
         for screen_name in DIN_SCREENS:
             renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("din_old_" + screen_name, None)]
-         
+
         layout.LOADING = "Загрузка приведёт к потере несохранённых данных.\nВы уверены, что хотите сделать это?"
         renpy.free_memory()
         persistent.timeofday = "day"
@@ -68,7 +68,7 @@ init python:
         config.main_menu_music = music_list["blow_with_the_fires"]
 
         persistent._file_page = 1
-        
+
         for channel in DIN_SOUND_CHANNELS:
             renpy.music.stop(channel)
 

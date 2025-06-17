@@ -1,6 +1,6 @@
 label din_ikarus_story:
     $ din_set_mode_adv()
-    stop music fadeout 3 
+    stop music fadeout 3
     $ din_story_intro(
         "Икарус\nДень Чайника",
         "day",
@@ -64,7 +64,7 @@ label din_ikarus_story:
     din_nit "Не только про него. {w}Я тебе рассказывал про новый кружок?"
     din_teapot "Скорее да, чем нет. {w}Напомни."
     din_nit "История не такая уж и большая, но всё же."
-    
+
     din_nit "Одному Пионеру пришла в голову странная идея обучать новичков самообороне."
     din_teapot "Как его зовут?"
     din_nit "Он пока не обзавёлся именем да и в целом на контакт мало шел."
@@ -130,7 +130,7 @@ label din_ikarus_story:
     stop sound_loop fadeout 4
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
-    
+
 label din_ikarus_story_interlude:
     $ din_interlude_intro("Просьба", "sunset")
     scene bg din_ext_camp_plain_sight_sunset with Dissolve(2)

@@ -4,7 +4,7 @@ screen din_main_menu():
 
     key "game_menu":
         action NullAction()
-        
+
     key "K_F1":
         action NullAction()
 
@@ -121,7 +121,7 @@ screen din_story_choice():
 
     if persistent.din_flags["din_winterlong_story_completed"]:
         imagebutton:
-            auto DIN_GUI_PATH + "main_menu/rolegame_story_%s.png" 
+            auto DIN_GUI_PATH + "main_menu/rolegame_story_%s.png"
             focus_mask True
             xpos 980
             action [
@@ -155,12 +155,12 @@ screen din_extra():
 
     key "K_F1":
         action NullAction()
-    
-    if not din_main_menu_var: 
+
+    if not din_main_menu_var:
         add "din_main_menu_options_frame":
             xalign 0.5
             yalign 0.5
-        
+
         text "[DIN_EXTRA_TEXT]":
             font din_main_menu_font
             size 70
@@ -170,8 +170,8 @@ screen din_extra():
             kerning 2
 
         textbutton "Музыка":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.5
             yalign 0.3
             action [
@@ -180,8 +180,8 @@ screen din_extra():
             ]
 
         textbutton "Галерея":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.5
             yalign 0.5
             action [
@@ -190,8 +190,8 @@ screen din_extra():
             ]
 
         textbutton "Персонажи":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.5
             yalign 0.7
             action [
@@ -200,27 +200,27 @@ screen din_extra():
             ]
 
         textbutton "[DIN_RETURN_TEXT]":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970
             action [
                 SetVariable("din_main_menu_var", True),
-                Hide("din_extra"), 
+                Hide("din_extra"),
                 ShowMenu("din_main_menu")
             ]
 
 screen din_load_main_menu():
     modal True
-    
+
     key "K_F1":
         action NullAction()
-    
+
     if not din_main_menu_var:
         add "din_main_menu_options_frame":
             xalign 0.5
             yalign 0.5
-        
+
         text "[DIN_LOADING_TEXT]":
             font din_main_menu_font
             size 70
@@ -230,33 +230,33 @@ screen din_load_main_menu():
             kerning 2
 
         textbutton "[DIN_RETURN_TEXT]":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970
             action [
                 SetVariable("din_main_menu_var", True),
-                Hide("din_load_main_menu"), 
+                Hide("din_load_main_menu"),
                 ShowMenu("din_main_menu")
             ]
-                    
+
         textbutton "Загрузить игру":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.5
             ypos 970
             action [
                 DinFunctionCallback(din_on_load_callback, selected_slot),
                 FileLoad(selected_slot, confirm=False)
             ]
-                 
+
         textbutton "[DIN_DELETE_TEXT]":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.9
             ypos 970
             action FileDelete(selected_slot, confirm=False)
-            
+
         grid 4 3:
             xpos 0.11
             ypos 0.2
@@ -286,15 +286,15 @@ screen din_load_main_menu():
 
 screen din_preferences_main_menu():
     modal True
-    
+
     key "K_F1":
         action NullAction()
-    
+
     if not din_main_menu_var:
         add "din_main_menu_options_frame":
             xalign 0.5
             yalign 0.5
-        
+
         text "[OSD_PREFERENCES_TEXT]":
             font din_main_menu_font
             size 70
@@ -308,14 +308,14 @@ screen din_preferences_main_menu():
             size 60
             xalign 0.5
             ypos 200
-            
+
         textbutton "[DIN_DISPLAY_PREFERENCES_FULLSCREEN_TEXT]":
             style "din_button_none"
             text_style "din_settings_header_main_menu_preferences"
             xalign 0.15
             ypos 280
             action Preference("display", "fullscreen")
-            
+
         textbutton "[DIN_DISPLAY_PREFERENCES_WINDOW_TEXT]":
             style "din_button_none"
             text_style "din_settings_header_main_menu_preferences"
@@ -335,21 +335,21 @@ screen din_preferences_main_menu():
             size 60
             xalign 0.5
             ypos 360
-                
+
         textbutton "[DIN_FONT_SIZE_PREFERENCES_SMALL_TEXT]":
             style "din_button_none"
             text_style "din_settings_header_main_menu_preferences"
             xalign 0.15
             ypos 440
             action SetField(persistent, "font_size", "small")
-                
+
         textbutton "[DIN_FONT_SIZE_PREFERENCES_LARGE_TEXT]":
             style "din_button_none"
             text_style "din_settings_header_main_menu_preferences"
             xalign 0.85
             ypos 440
             action SetField(persistent, "font_size", "large")
-                
+
         text "[DIN_SKIP_PREFERENCES_TEXT]":
             font din_header_font
             size 60
@@ -370,7 +370,7 @@ screen din_preferences_main_menu():
                 xalign 0.85
                 ypos 600
                 action Preference("skip", "all")
-                            
+
         if _preferences.skip_unseen:
             textbutton "[DIN_SKIP_PREFERENCES_SEEN_TEXT]":
                 style "din_button_none"
@@ -384,8 +384,8 @@ screen din_preferences_main_menu():
                 text_style "din_settings_header_main_menu_preferences"
                 xalign 0.85
                 ypos 600
-                action Preference("skip", "all")    
-            
+                action Preference("skip", "all")
+
         text "Громкость музыки":
             font din_header_font
             size 60
@@ -403,8 +403,8 @@ screen din_preferences_main_menu():
             ymaximum 85
 
         textbutton "[DIN_RETURN_TEXT]":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970
             action [
@@ -412,18 +412,18 @@ screen din_preferences_main_menu():
                 Hide("din_preferences_main_menu"),
                 ShowMenu("din_main_menu")
             ]
-    
+
 screen din_quit_main_menu():
     modal True
-    
+
     key "K_F1":
         action NullAction()
-    
+
     if not din_main_menu_var:
         add "din_main_menu_options_frame":
             xalign 0.5
             yalign 0.5
-        
+
         text "Вы действительно хотите выйти?":
             font din_main_menu_font
             size 80
@@ -432,7 +432,7 @@ screen din_quit_main_menu():
             yalign 0.33
             antialias True
             kerning 2
-            
+
         textbutton "[DIN_YES_TEXT]":
             style "din_settings_header_main_menu_quit"
             text_style "din_settings_header_main_menu_quit"
@@ -443,7 +443,7 @@ screen din_quit_main_menu():
                 Function(din_screens_diact),
                 ShowMenu("main_menu")
             ]
-            
+
         textbutton "[DIN_NO_TEXT]":
             style "din_settings_header_main_menu_quit"
             text_style "din_settings_header_main_menu_quit"
