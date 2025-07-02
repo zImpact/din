@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    uses: zImpact/es_mod_workflow/.github/workflows/lint_es_mod.yml@v3.0.0
+    uses: zImpact/es_mod_workflow/.github/workflows/lint_es_mod.yml@v3.0.1
     with:
       project_name: "din"
       sdk_version: "8.1.3"
