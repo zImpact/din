@@ -192,7 +192,7 @@ init python:
     style.din_settings_header_day.size = 50
     style.din_settings_header_day.color = "#4d2e19"
     style.din_settings_header_day.hover_color = "#a27146"
-    
+
     style.din_settings_header_night = Style(style.din_base_font)
     style.din_settings_header_night.font = din_header_font
     style.din_settings_header_night.size = 50

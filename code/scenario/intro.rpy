@@ -21,7 +21,7 @@ label din_intro:
     din_narrator "А потом произошла случайность."
     stop ambience fadeout 2
     $ din_set_time("night")
-    scene bg din_int_dining_hall_damaged 
+    scene bg din_int_dining_hall_damaged
     show prologue_dream
     with flash
     din_narrator "Странная смена со странными событиями."

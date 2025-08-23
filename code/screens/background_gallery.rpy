@@ -11,7 +11,7 @@ init python:
 
     def din_page_counter(n, k):
         l = float(n) / float(k)
-        
+
         if l - int(l) > 0:
             return int(l) + 1
 
@@ -24,9 +24,9 @@ init python:
         "din_ext_power_line_sunset",
         "din_int_dining_hall_sunset",
         "din_food_normal_sunset",
-        "din_int_dining_hall_people_sunset", 
+        "din_int_dining_hall_people_sunset",
         "din_int_dining_hall_sunset_crashed",
-        "din_int_rpg_dungeon", 
+        "din_int_rpg_dungeon",
         "din_ext_bar_night",
         "din_ext_scene_night",
         "din_ext_camp_entrance_night",
@@ -74,8 +74,8 @@ screen din_background_gallery():
             kerning 2
 
         textbutton "[DIN_RETURN_TEXT]":
-            style "din_log_button" 
-            text_style "din_settings_link_main_menu_preferences" 
+            style "din_log_button"
+            text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970
             action [
@@ -94,7 +94,7 @@ screen din_background_gallery():
                 if n < (din_page + 1) * din_cells and n >= din_page * din_cells:
                     if din_gallery_table[n] in din_gallery_animated_bg_list:
                         $ _din_t = im.Crop(
-                            "din/images/bg/" + din_gallery_table[n][len(DIN_PREFIX):] + "/" + din_gallery_table[n][len(DIN_PREFIX):-4] + "1.png", 
+                            "din/images/bg/" + din_gallery_table[n][len(DIN_PREFIX):] + "/" + din_gallery_table[n][len(DIN_PREFIX):-4] + "1.png",
                             (0, 0, 1920, 1080)
                         )
 
@@ -144,18 +144,18 @@ screen din_background_gallery():
         if din_page != 0:
             imagebutton:
                 auto DIN_GUI_PATH + "misc/gallery_previous_%s.png"
-                yalign 0.5 
-                xalign 0.04 
+                yalign 0.5
+                xalign 0.04
                 action [
                     SetVariable("din_page", din_page - 1),
                     ShowMenu("din_background_gallery")
                 ]
 
         if din_page != int(din_page_counter(din_len_table, din_cells)) - 1:
-            imagebutton: 
+            imagebutton:
                 auto DIN_GUI_PATH + "misc/gallery_next_%s.png"
-                yalign 0.5 
-                xalign 0.96 
+                yalign 0.5
+                xalign 0.96
                 action [
                     SetVariable("din_page", din_next_page),
                     ShowMenu("din_background_gallery")

@@ -44,7 +44,7 @@ screen din_music_room():
                     draggable True
                     mousewheel True
                     scrollbars None
-                    
+
                     grid 1 len(din_music_box):
                         for name, track in sorted(din_music_box.iteritems()):
                             $ din_music_room_label_text = name if din_music_room.is_unlocked(track) else "???"
@@ -71,7 +71,7 @@ screen din_music_room():
             kerning 2
 
         textbutton "[DIN_RETURN_TEXT]":
-            style "din_log_button" 
+            style "din_log_button"
             text_style "din_settings_link_main_menu_preferences"
             xalign 0.1
             ypos 970

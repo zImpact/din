@@ -11,17 +11,17 @@ init python:
 
             elif file_name.startswith(DIN_MOD_NAME + "/images/sprites/"):
                 renpy.image(
-                    DIN_PREFIX + file_path, 
+                    DIN_PREFIX + file_path,
                     ConditionSwitch(
                         "persistent.sprite_time=='sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)),
-                        "persistent.sprite_time=='night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), 
+                        "persistent.sprite_time=='night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)),
                         True, file_name
                     )
                 )
 
             elif file_name.startswith(DIN_MOD_NAME + "/sounds/"):
                 globals()[DIN_PREFIX + file_path] = file_name
-    
+
     store.din_colors = {}
     store.din_names = {}
     store.din_names_list = []
@@ -98,7 +98,7 @@ init python:
     class DinTimingMemorization():
         def __init__(self, channel, fade):
             self.channel = channel
-            self.fade = fade            
+            self.fade = fade
 
         def pause(self):
             self.file_name = renpy.music.get_playing(self.channel)
@@ -130,10 +130,10 @@ init python:
 
         elif persistent.font_size == "small":
             start_size = 28
-        
+
         modified_contents = []
         current_size = start_size
-        
+
         for kind, text in contents:
             if kind == renpy.TEXT_TEXT:
                 for char in text:
@@ -141,7 +141,7 @@ init python:
                     modified_contents.append((renpy.TEXT_TAG, size_tag))
                     modified_contents.append((renpy.TEXT_TEXT, char))
                     modified_contents.append((renpy.TEXT_TAG, "/size"))
-                    
+
                     current_size -= 1
 
         return modified_contents
@@ -152,7 +152,7 @@ init python:
         global din_store
         global din_speaker_color
         din_gl = globals()
-        
+
         if character_name == "din_narrator":
             if is_nvl:
                 din_gl["din_narrator"] = Character(
@@ -160,15 +160,15 @@ init python:
                     kind=nvl,
                     what_style="din_text_style"
                 )
-            
+
             else:
                 din_gl["din_narrator"] = Character(
                     None,
                     what_style="din_text_style"
                 )
-            
+
             return
-        
+
         if character_name == "din_th":
             if is_nvl:
                 din_gl["din_th"] = Character(
@@ -178,7 +178,7 @@ init python:
                     what_prefix="~ ",
                     what_suffix=" ~"
                 )
-            
+
             else:
                 din_gl["din_th"] = Character(
                     None,
@@ -186,9 +186,9 @@ init python:
                     what_prefix="~ ",
                     what_suffix=" ~"
                 )
-            
+
             return
-        
+
         if is_nvl:
             din_gl[character_name] = DynamicCharacter(
                 "%s_name" % character_name,
@@ -198,7 +198,7 @@ init python:
                 who_suffix=":"
             )
             din_gl["%s_name" % character_name] = store.din_names[character_name]
-        
+
         else:
             din_gl[character_name] = DynamicCharacter(
                 "%s_name" % character_name,
@@ -209,34 +209,34 @@ init python:
 
     def din_set_mode_adv():
         nvl_clear()
-        
+
         global menu
         menu = renpy.display_menu
-        
+
         global din_store
-        
+
         for character_name in store.din_names_list:
             din_char_define(character_name)
 
     def din_set_mode_nvl():
         nvl_clear()
-        
+
         global menu
         menu = nvl_menu
-        
+
         global din_narrator
         global din_th
         din_narrator_nvl = din_narrator
         th_nvl = din_th
-        
+
         global din_store
-        
+
         for character_name in store.din_names_list:
             din_char_define(character_name, True)
 
     def din_reload_names():
         global din_store
-        
+
         for character_name in store.din_names_list:
             din_char_define(character_name)
 
@@ -255,14 +255,14 @@ init python:
 
     def din_frame_animation(image_name, frames_quantity, retention, loop, transition, start=1, **properties):
         anim_args = []
-        
+
         for i in xrange(start, start + frames_quantity):
             anim_args.append(renpy.display.im.image(image_name + "_" + str(i) + ".png"))
-            
+
             if loop:
                 anim_args.append(retention)
                 anim_args.append(transition)
-        
+
         return anim.TransitionAnimation(*anim_args, **properties)
 
     def din_blink(blink_pause):
@@ -337,7 +337,7 @@ init python:
         renpy.scene()
         renpy.show("bg black")
         renpy.with_statement(Dissolve(1.5))
-        
+
     def din_onload(type):
         global din_lock_quit
         global din_lock_quick_menu
@@ -358,9 +358,9 @@ init python:
             "morning": [7, 8],
             "day": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
             "sunset": [20, 21],
-            "night": [22, 23, 24, 0, 1, 2, 3, 4, 5, 6]            
+            "night": [22, 23, 24, 0, 1, 2, 3, 4, 5, 6]
         }
-        
+
         current_time = time.strftime("%H:%M:%S", time.localtime())
         hour, minute, sec = current_time.split(":")
 
@@ -397,7 +397,7 @@ init python:
     def din_set_time(timeofday, sprite_time=None):
         if sprite_time is None:
             sprite_time = timeofday
-        
+
         renpy.block_rollback()
         persistent.timeofday = timeofday
         persistent.sprite_time = sprite_time
@@ -441,7 +441,7 @@ init:
 
     image din_story_frame = DinBlackRectangle(width=630, height=240, alpha=0.5)
     image din_interlude_frame = DinBlackRectangle(width=630, height=290, alpha=0.5)
-    
+
     image bg din_fireplace_anim = din_frame_animation("din/images/bg/fireplace_anim/fireplace", 10, 1.8, True, Dissolve(1.2))
     image bg din_fireplace_winterlong_anim = din_frame_animation("din/images/bg/fireplace_winterlong_anim/fireplace_winterlong", 10, 1.8, True, Dissolve(1.2))
     image bg din_stars_bush_anim = din_frame_animation("din/images/bg/stars_bush_anim/stars_bush", 15, 1.8, True, Dissolve(1.2))
@@ -500,7 +500,7 @@ init:
         on hover:
             alpha 1.0
             linear 0.5 alpha 0.0
-            
+
         on idle:
             alpha 0.0
             linear 0.5 alpha 1.0
