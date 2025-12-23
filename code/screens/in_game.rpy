@@ -8,7 +8,7 @@ screen din_preferences():
     window:
         background DIN_GUI_PATH + "preferences/" + persistent.timeofday + "/preferences_bg.jpg"
 
-        text "[OSD_PREFERENCES_TEXT]": 
+        text "[DIN_PREFERENCES_TEXT]": 
             style "din_settings_link"
             xalign 0.5 
             yalign 0.08 

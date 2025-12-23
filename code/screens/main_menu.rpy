@@ -69,7 +69,7 @@ screen din_main_menu():
                 ShowMenu("din_extra")
             ]
 
-        textbutton "[OSD_PREFERENCES_TEXT]" at din_buttons_atl():
+        textbutton "[DIN_PREFERENCES_TEXT]" at din_buttons_atl():
             style "din_main_menu_style"
             text_style "din_main_menu_style"
             xalign 0.5
@@ -295,7 +295,7 @@ screen din_preferences_main_menu():
             xalign 0.5
             yalign 0.5
         
-        text "[OSD_PREFERENCES_TEXT]":
+        text "[DIN_PREFERENCES_TEXT]":
             font din_main_menu_font
             size 70
             xalign 0.5
