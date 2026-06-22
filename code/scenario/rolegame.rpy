@@ -527,7 +527,7 @@ label din_rg_wait:
     din_third "Я подумаю."
     stop ambience fadeout 2
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard=True)
+    pause 2
     scene bg ext_dining_hall_near_sunset 
     show din_hall pos2 smile3 at left
     show din_nit normal_l at right
@@ -607,15 +607,15 @@ label din_rg_final:
     din_narrator "Не знаю, как Ниточник убедил этих настоящих девушек ему поверить, но выдвигаться действительно стоило побыстрее."
     din_un "Да, хорошо."
     hide din_nit with dissolve
-    $ renpy.pause(0.2, hard=True)
+    pause 0.2
     hide dv with dissolve
-    $ renpy.pause(0.2, hard=True)
+    pause 0.2
     hide sl with dissolve
-    $ renpy.pause(0.5, hard=True)
+    pause 0.5
     hide din_hall with dissolve
-    $ renpy.pause(0.2, hard=True)
+    pause 0.2
     hide un with dissolve
-    $ renpy.pause(0.2, hard=True)
+    pause 0.2
     din_narrator "И все по очереди сдвинулись с места: сначала Ниточник с Алисой и Славяной, потом Чайник и Лена и, в конце, я."
     scene bg din_ext_clubs_sunset with dissolve
     din_narrator "Двигались мы тихо — нельзя было привлечь лишнее внимание кукол местного лагеря."
@@ -648,7 +648,7 @@ label din_rg_final:
     din_narrator "На этом расспросы на время остановились и мы снова по группам стали ждать появления автобуса."
     din_th "Надеюсь, сегодня тот самый день."
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    pause 1
     scene bg ext_no_bus_sunset with Dissolve(2)
     din_narrator "Хотелось просидеть какое-то время в одиночестве у статуи, но меня окликнули."
     din_narrator "К моему удивлению, это была Фиалка."
@@ -777,7 +777,7 @@ label din_rg_final:
     din_narrator "Ладно, пусть развлекаются. А спектакль закончим в другой раз."
     stop ambience fadeout 4
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     jump din_rolegame_story_interlude
 
 label din_rolegame_story_interlude:
@@ -789,7 +789,7 @@ label din_rolegame_story_interlude:
     din_narrator "Во сне можно было создавать всё, что хочешь, двигаться, как хочешь. Абсолютно всё что угодно."
     din_narrator "И время во сне отсчитывается иначе, медленнее."
     din_narrator "Там, по ту сторону сознания он был тем, кем хотел. И создавал мир вокруг себя."
-    $ renpy.pause(2, hard=False)
+    pause 2
     din_narrator "Дорога бесшовно повторялась каждые две тысячи метров."
     din_narrator "Правда, без линий электропередач, она не ощущалась тем теплым, почти беззаботным пейзажем, как прежде."
     din_narrator "Он сидел на краю дороги, опустив взгляд с неба на вытяную перед собой ладонь."
@@ -823,5 +823,5 @@ label din_rolegame_story_interlude:
     din_th "Скоро мы и не вспомним, как было раньше."
     stop music fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     jump din_lost_peace_story

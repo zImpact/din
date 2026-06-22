@@ -118,7 +118,7 @@ label din_ikarus_story:
     din_narrator "Только сейчас посмотрел вниз и понял, насколько тут высоко!"
     din_th "Несмотретьвниз-несмотретьвниз-несмотретьвниз..." # nolint
     show din_nit smil3_r at center with dissolve
-    $ renpy.pause(0.2, hard=True)
+    pause 0.2
     hide din_nit with dissolve
     din_narrator "Пока ветер крутил меня во все стороны, я успел заметить улыбающегося Ниточника."
     din_teapot "ЕСЛИ Я ВЫЖИВУ, ТО ПРЕВРАЩУ ТВОЮ ЖИЗНЬ В СУЩИЙ АД, СЛЫШИШЬ?!"
@@ -129,7 +129,7 @@ label din_ikarus_story:
     stop ambience fadeout 4
     stop sound_loop fadeout 4
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     
 label din_ikarus_story_interlude:
     $ din_interlude_intro("Просьба", "sunset")
@@ -158,7 +158,7 @@ label din_ikarus_story_interlude:
     din_third_i "Можешь выбрать себе новое имя, если хочешь. Новое начало в конце концов."
     din_nit_he "Надеюсь, оно не будет последним."
     din_narrator "Мне нечего было сказать в ответ."
-    $ renpy.pause(3, hard=True)
+    pause 3
     din_third_i "И всё же, зачем ты пришел?"
     din_nit_he "Попросить об одолжении."
     din_third_i "Отказываюсь."
@@ -175,11 +175,11 @@ label din_ikarus_story_interlude:
     din_narrator "За спиной почти неслышно зашелестела трава."
     din_th "Тысяча часов? {w}Дурацкие игры."
     din_th "Ну и пускай."
-    $ renpy.pause(3, hard=True)
+    pause 3
     din_third_i "Стой! Что за просьба?"
     stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
     $ persistent.din_flags["din_ikarus_story_completed"] = True
-    $ renpy.pause(2, hard=True)
+    pause 2
     jump din_winterlong_story

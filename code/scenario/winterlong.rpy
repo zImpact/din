@@ -24,7 +24,7 @@ label din_winterlong_story:
     din_narrator "Я подпер кулаком голову."
     din_narrator "Вмешаться в события этого лагеря или молча наблюдать дальше?"
     stop ambience fadeout 2
-    $ renpy.pause(1, hard=True)
+    pause 1
     play sound sfx_open_door_kick
     play music din_dance_with_the_dead_eyes_of_madness fadein 2
     show din_hall pos1 devil_smile far at center with dissolve
@@ -36,7 +36,7 @@ label din_winterlong_story:
     din_pi_teapot "Ну кто бы сомневался."
     din_pi_teapot "Лады, давайте по старинке."
     play sound din_knife_fly
-    $ renpy.pause(0.5, hard=True)
+    pause 0.5
     play sound sfx_broken_dish
     din_narrator "Быстрым движением гость выкинул нож, который прочертил прямую траекторию и просвистел в паре сантиметров от головы Алисы."
     din_narrator "Потом снаряд с лязгом упал на пол, а метатель грозно поигрывал в руке вторым."
@@ -48,7 +48,7 @@ label din_winterlong_story:
     din_narrator "С занудным тоном бросил гость."
     din_narrator "Толпа не задумываясь бросилась бежать за стойку раздачи."
     stop ambience fadeout 2
-    $ renpy.pause(1, hard=True)
+    pause 1
     play ambience ambience_dining_hall_empty fadein 2
     din_narrator "Скоро остались только я, гость и мой остывший ужин."
     din_narrator "У меня не было моральных сил убегать куда-то. Кажется, остается только один выход."
@@ -91,7 +91,7 @@ label din_winterlong_story:
     din_narrator "Я начал глазами искать что-то воспламеняемое в этой столовой."
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard=True)
+    pause 1
     $ din_set_time("night")
     scene bg din_fireplace_winterlong_anim with Dissolve(2)
     play sound_loop din_voices fadein 2
@@ -111,7 +111,7 @@ label din_winterlong_story:
     din_narrator "Только я и еще пара-тройка Пионеров никогда не забывают традицию. Сейчас еще Чайник помнит, но это вряд ли надолго."
     din_narrator "Из-за такой редкости Неделя Зимы была чем-то невероятным, даже удивительным для новичков. А помнящие лишь завидуют этим давно забытым эмоциям."
     play sound sfx_wind_gust
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     din_narrator "Прохладно. Интересно, так ли представляли зиму придумавшие Внешний Мир фантазёры?"
     din_narrator "Чайник вместе с двумя знакомыми подкинул пару дров в костёр. Огонь довольно затрещал."
     din_narrator "Костер был идеально собран, чтобы всем хватило места вокруг него, но согреться было сложно."
@@ -121,10 +121,10 @@ label din_winterlong_story:
     din_narrator "Может, эта надежда дает им держать себя в руках. Пускай. Каждый сам вправе решать, во что ему верить."
     din_narrator "Смешно, что это, по большей части, праздник надежды, хотя поддерживают его те, кто от надежды давно отказался."
     din_th "У вечности определённо есть чувство юмора."
-    $ renpy.pause(3, hard=True)
+    pause 3
     din_narrator "Всё сложнее следить за ходом времени. Особенно в таких... Ситуациях." # nolint
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard=True)
+    pause 1
     scene bg din_fireplace_winterlong_anim with Dissolve(2)
     din_narrator "Когда я поднялся, то большинство мест у костра пустовало. Все занялись более «живыми» занятиями."
     din_narrator "В другом конце поляны красовалась состоящая из пары досок барная стойка с изрядным запасом Столичной. Многим было сложно справиться с эмоциями."
@@ -233,7 +233,7 @@ label din_winterlong_story_bar:
     stop sound_loop fadeout 4
     scene bg black with Dissolve(2)
     $ persistent.din_flags["din_gensek_info_received"] = True
-    $ renpy.pause(2, hard=True)
+    pause 2
     jump din_winterlong_story_interlude
     
 label din_winterlong_story_science:
@@ -289,7 +289,7 @@ label din_winterlong_story_science:
     din_third "Не вижу противоречия."
     din_teapot "Да, да, его нет, никто не спорит."
     din_narrator "Он примирительно поднял руки вверх."
-    $ renpy.pause(2, hard=True)
+    pause 2
     din_narrator "Его взгляд проскользил где-то над моей головой, за спину."
     din_teapot "О, это тебя обрадует!"
     din_third "Очень в этом сомневаюсь."
@@ -371,7 +371,7 @@ label din_winterlong_story_science:
     play sound sfx_punch_washstand
     stop ambience fadeout 2
     $ din_blink(2)
-    $ renpy.pause(3, hard=True)
+    pause 3
     play ambience ambience_forest_night fadein 2
     play sound sfx_face_slap
     $ din_unblink("bg din_ext_polyana_night_blurred", 2)
@@ -408,7 +408,7 @@ label din_winterlong_story_science:
     din_teapot "Идём? {w}Как тебе имя Шаррум-итер? Достаточно пафосно или ему чего-то не хватает?"
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard=True)
+    pause 1
     scene bg din_fireplace_winterlong_anim with Dissolve(2)
     play sound_loop din_voices fadein 2
     play ambience sfx_forest_fireplace fadein 2
@@ -420,7 +420,7 @@ label din_winterlong_story_science:
     din_narrator "Каких-то особых правил на этот счет не было. {w}Просто сложилось, что в конце каждой такой смены все хотели подумать о своём, и нет для этого лучше места, чем рядом с костром и единомышленниками."
     din_narrator "Первая фигура легла, задремав на своём месте."
     play sound sfx_bush_body_fall
-    $ renpy.pause(0.7, hard=True)
+    pause 0.7
     scene bg din_stars_bush_anim with fade
     din_narrator "Захотелось последовать её примеру."
     din_th "В конце концов, сегодня был утомительный день."
@@ -436,7 +436,7 @@ label din_winterlong_story_science:
     stop sound_loop fadeout 4
     scene bg black with Dissolve(2)
     $ persistent.din_flags["din_hall_info_received"] = True
-    $ renpy.pause(2, hard=True)
+    pause 2
     jump din_winterlong_story_interlude
     
 label din_winterlong_story_interlude:
@@ -484,5 +484,5 @@ label din_winterlong_story_interlude:
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
     $ persistent.din_flags["din_winterlong_story_completed"] = True
-    $ renpy.pause(2, hard=True)
+    pause 2
     jump din_rolegame_story

@@ -58,10 +58,10 @@ label din_lost_peace_story:
     din_pacifist "Нет... {w}Почему ты спрашиваешь?"
     din_teapot "Да так. Примета есть такая — перед тем, как двинуть кукухой, ребятки начинают жить в бункере."
     play sound sfx_bush_leaves
-    $ renpy.pause(2, hard=True)
+    pause 2
     show din_hall pos2 smile3:
         linear 1 xalign 0.2
-    $ renpy.pause(1, hard=True)
+    pause 1
     show din_nit bulging3_l at right with dissolve
     din_narrator "Наш разговор прервало появление нового Пионера."
     din_narrator "Я сразу напрягся и замолчал."
@@ -110,7 +110,7 @@ label din_lost_peace_story:
     stop ambience fadeout 3
     stop music fadeout 3
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     $ din_set_time("sunset")
     scene bg ext_road_sunset with Dissolve(2)
     play music din_death_note fadein 10
@@ -192,7 +192,7 @@ label din_lost_peace_story:
     din_teapot "Ты хочешь устроить дуэль терпения!"
     din_teapot "Не хотел бы тебя огорчать, но ты не с тем связался, сынок. Я выучил наизусть «Две тактики социал-демократии в демократической революции» и не побоюсь ими воспользоваться."
     din_teapot "А твои эти выпады — так, на один зубок."
-    $ renpy.pause(1, hard=True)
+    pause 1
     din_teapot "Ты лучше сдайся по-хорошему, а то же я их вслух зачитывать буду."
    
     menu:
@@ -253,7 +253,7 @@ label din_lost_peace_story:
     stop ambience fadeout 3
     scene bg black with Dissolve(2)
     stop music fadeout 4
-    $ renpy.pause(2, hard=True)
+    pause 2
     jump din_lost_peace_story_interlude
    
 label din_lost_peace_f:    
@@ -283,7 +283,7 @@ label din_lost_peace_f_2:
     stop sound_loop fadeout 3
     scene bg black with Dissolve(2)
     stop music fadeout 4
-    $ renpy.pause(2, hard=True)
+    pause 2
     jump din_lost_peace_story_interlude
  
 label din_lost_peace_story_interlude:
@@ -307,7 +307,7 @@ label din_lost_peace_story_interlude:
     din_narrator "И внутри этого калейдоскопа я шёл, не помня что такое усталость."
     din_narrator "Сложно даже предположить, сколько длилась моя дорога."
     din_narrator "Да и, честно признаться, я не хотел бы, чтобы она заканчивалась."
-    $ renpy.pause(3, hard=True)
+    pause 3
     din_narrator "Скоро звёзды исчезли полностью. {w}Но при этом не стало темнее."
     din_narrator "Лагерь, казалось, давно уже сбросил свою маску реальности и не беспокоился такими мелочами."
     din_narrator "Внезапно, с несвойственной этому месту скоростью из-за неба за мной расчертила небосвод белая падающая звезда."
@@ -376,12 +376,12 @@ label din_lost_peace_story_interlude:
     din_narrator "Он ничего не ответил."
     din_narrator "Лишь сел на край пропасти, безучастно смотря перед собой."
     din_narrator "А мир перед нами медленно терялся в тишине."
-    $ renpy.pause(3, hard=True)
+    pause 3
     $ din_show_titles()
     stop music fadeout 2
     stop ambience fadeout 2
     $ persistent.din_flags["din_third_info_received"] = True
     $ persistent.din_flags["din_nit_info_received"] = True
-    $ renpy.pause(2, hard=True)
+    pause 2
     $ din_set_dynamic_cursor("main_menu")
     $ MainMenu(confirm=False)()
